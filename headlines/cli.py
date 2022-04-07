@@ -12,17 +12,71 @@ import utila.cli
 
 import headlines
 
+DESCRIPTION = ''
+
+WORKPLAN = [
+    utila.create_step(
+        'cluster',
+        inputs=[],
+        output=('cluster',),
+    ),
+    utila.create_step(
+        'magic',
+        inputs=[],
+        output=('magic',),
+    ),
+    utila.create_step(
+        'multiline',
+        inputs=[],
+        output=('multiline',),
+    ),
+    utila.create_step(
+        'nolevel',
+        inputs=[],
+        output=('nolevel',),
+    ),
+    utila.create_step(
+        'nlarge',
+        inputs=[],
+        output=('nlarge',),
+    ),
+    utila.create_step(
+        'single',
+        inputs=[],
+        output=('single',),
+    ),
+    utila.create_step(
+        'standard',
+        inputs=[],
+        output=('standard',),
+    ),
+    utila.create_step(
+        'result',
+        inputs=[
+            utila.ResultFile('headlines', 'cluster_cluster', optional=True),
+            utila.ResultFile('headlines', 'magic_magic', optional=True),
+            utila.ResultFile('headlines', 'multiline_multiline', optional=True),
+            utila.ResultFile('headlines', 'nolevel_nolevel', optional=True),
+            utila.ResultFile('headlines', 'nlarge_nlarge', optional=True),
+            utila.ResultFile('headlines', 'single_single', optional=True),
+            utila.ResultFile('headlines', 'standard_standard', optional=True),
+        ],
+        output=('result',),
+    ),
+]
+
 
 @utila.saveme
 def main():
-    parser = utila.cli.create_parser(
-        todo=[],
-        version=headlines.__version__,
-        config=utila.ParserConfiguration(
-            outputparameter=True,
-            inputparameter=True,
+    utila.featurepack(
+        root=headlines.ROOT,
+        workplan=WORKPLAN,
+        featurepackage='headlines.feature',
+        config=utila.FeaturePackConfig(
+            description=DESCRIPTION,
+            multiprocessed=True,
+            name=headlines.PROCESS,
+            pages=True,
+            version=headlines.__version__,
         ),
     )
-    args = utila.parse(parser)
-    inputpath, output, _ = utila.sources(args)  # pylint:disable=W0612,W0632
-    return utila.SUCCESS

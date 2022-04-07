@@ -1,0 +1,42 @@
+# =============================================================================
+# C O P Y R I G H T
+# -----------------------------------------------------------------------------
+# Copyright (c) 2022 by Helmut Konrad Fahrendholz. All rights reserved.
+# This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
+# use or distribution is an offensive act against international law and may
+# be prosecuted under federal law. Its content is company confidential.
+# =============================================================================
+
+import serializeraw
+import utila
+
+
+def work(
+    xcluster: str = None,
+    xmagic: str = None,
+    xmultiline: str = None,
+    xnolevel: str = None,
+    xnlarge: str = None,
+    xsingle: str = None,
+    xstandard: str = None,
+    pages: tuple = None,
+) -> str:
+    sources = [
+        item if utila.exists(item) else None for item in
+        [xcluster, xmagic, xmultiline, xnolevel, xnlarge, xsingle, xstandard]
+    ]
+    headlines = [
+        serializeraw.load_headlines(
+            content=source,
+            pages=pages,
+        ) if source else None for source in sources
+    ]
+    best = select_best(headlines)
+    if not best:
+        return '[]'
+    dumped = serializeraw.dump_headlines(best)
+    return dumped
+
+
+def select_best(headlines) -> list:
+    return []
