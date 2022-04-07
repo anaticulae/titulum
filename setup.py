@@ -44,6 +44,7 @@ if __name__ == "__main__":
         ],
         packages=[
             'headlines',
+            'headlines.feature',
         ],
         entry_points={
             'console_scripts': ['headlines = headlines.cli:main'],
