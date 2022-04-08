@@ -6,6 +6,17 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+"""Multiline
+=========
+
+Example
+-------
+
+.. code-block:: none
+
+    3. EU-Initiativen zur Bekämpfung der Steuervermeidung und
+       des schädlichen Steuerwettbewerbs
+"""
 
 import serializeraw
 
