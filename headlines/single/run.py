@@ -1,0 +1,51 @@
+# =============================================================================
+# C O P Y R I G H T
+# -----------------------------------------------------------------------------
+# Copyright (c) 2021-2022 by Helmut Konrad Fahrendholz. All rights reserved.
+# This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
+# use or distribution is an offensive act against international law and may
+# be prosecuted under federal law. Its content is company confidential.
+# =============================================================================
+
+import configo
+import elements
+import iamraw
+
+SINGLEPAGE_LINES_MAX = configo.HV_INT_PLUS(default=3)
+
+
+def pagewise(ptcns):
+    headlines = []
+    for page in ptcns:
+        parsed = parse_page(page)
+        if not parsed:
+            continue
+        headlines.extend(parsed)
+    return headlines
+
+
+def parse_page(ptcn) -> iamraw.Headlines:
+    if len(ptcn) > SINGLEPAGE_LINES_MAX:
+        # TODO: MAKE THIS COUNT SIZE DEPENDENT?
+        return None
+    result = []
+    for container, line in enumerate(ptcn):
+        if line.bounding_mean < 18.0:
+            continue
+        if not elements.isheadline(line.text):
+            continue
+        parsed = elements.parse_headline(line.text)
+        if parsed:
+            title, level, rawlevel = parsed
+        else:
+            title, level, rawlevel = line, 1, ''
+        result.append(
+            iamraw.Headline(
+                title=title.strip(),
+                container=container,
+                level=level,
+                raw=line.text,
+                raw_level=rawlevel,
+                page=ptcn.page,
+            ))
+    return result
