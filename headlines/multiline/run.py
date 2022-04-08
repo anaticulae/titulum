@@ -48,7 +48,10 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.Headlines:
     return result
 
 
-def extract_page(ptcn: texmex.PageTextContentNavigator) -> iamraw.Headlines:  # pylint:disable=R0914
+def extract_page(
+    ptcn: texmex.PageTextContentNavigator,
+    h1_size_min: float = 12.01,
+) -> iamraw.Headlines:  # pylint:disable=R0914
     """Extract headlines on selected page."""
     result = []
     grouped = texmex.group_page_by_size_distance(ptcn)
@@ -65,7 +68,7 @@ def extract_page(ptcn: texmex.PageTextContentNavigator) -> iamraw.Headlines:  # 
         title, level, rawlevel = parsed
         if level == 1:
             # first level headline
-            if items.size <= 12.0:
+            if items.size < h1_size_min:
                 continue
         wordcount_max = HEADLINE_WORDCOUT_MAX
         if elements.noheadline(
