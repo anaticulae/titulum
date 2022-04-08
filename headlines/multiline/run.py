@@ -44,7 +44,7 @@ HEADLINE_H1_TRY = configo.HolyList(items=[
 ])
 
 
-def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.Headlines:
+def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
     for h1_try in HEADLINE_H1_TRY:
         utila.debug(f'multiline, try h1_size_min: {h1_try}')
         collected = collect(
@@ -53,7 +53,8 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.Headlines:
         )
         if not collected:
             continue
-        return collected
+        result = groupby_level_one(collected)
+        return result
     return []
 
 
@@ -67,6 +68,23 @@ def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
         if not extracted:
             continue
         result.extend(extracted)
+    return result
+
+
+def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
+    result = []
+    # detect chapter starts
+    levelone = [
+        index for (index, item) in enumerate(heads) if item.level in (None, 1)
+    ]
+    # group headlines into chapters
+    result = [
+        heads[index:after]
+        for (index, after) in zip(levelone[:-1], levelone[1:])
+    ]
+    if levelone:
+        # do not forget the last group
+        result.append(heads[levelone[-1]:])
     return result
 
 
