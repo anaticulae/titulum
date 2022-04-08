@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import functools
+
 import iamraw
 import serializeraw
 import utila
@@ -17,6 +19,7 @@ INVALID = (
 )
 
 
+@functools.lru_cache
 def headlinepart(pages: tuple, sections: str = None) -> tuple:
     if not utila.exists(sections):
         return pages
