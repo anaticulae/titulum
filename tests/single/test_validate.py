@@ -18,7 +18,7 @@ import utilatest
 import headlines
 import tests
 
-ARCHIVE = utila.join(headlines.ROOT, 'tests/multiline/expected', exist=True)
+ARCHIVE = utila.join(headlines.ROOT, 'tests/single/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', [
@@ -33,7 +33,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/multiline/expected', exist=True)
     pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
     pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
 ])
-def test_multiline_validate(source, testdir, monkeypatch):
+def test_single_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
@@ -52,7 +52,7 @@ class Evaluate(utilatest.BaseLiner):
                 tests.run,
                 monkeypatch=monkeypatch,
             ),
-            step='multiline -VVV',
+            step='single -VVV',
             pages=pages,
             source=power.link(source),
             workdir=workdir,
@@ -63,7 +63,7 @@ class Evaluate(utilatest.BaseLiner):
         )
 
     def frompath(self, workdir):  # pylint:disable=R0201
-        path = utila.join(workdir, 'headlines__multiline_multiline.yaml')
+        path = utila.join(workdir, 'headlines__single_single.yaml')
         loaded = serializeraw.load_headlines(path)
         return loaded
 
