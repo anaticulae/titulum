@@ -179,12 +179,6 @@ def wrong_position(
     return items.bounding[0] >= max_x0
 
 
-def plain(items: list) -> str:
-    # TODO: REPLACE WITH UTILA CODE
-    raw = ' '.join([item.text.strip() for item in items])
-    return raw
-
-
 def parse_headline(raw: str, before=None):  # pylint:disable=R0911
     if parsed := elements.parse_leveled_headline(raw):
         rawlevel, title = parsed['level'], parsed['text']
@@ -240,3 +234,9 @@ def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
     if not level:
         result = headlines.cluster.cluster_headline_level(result)
     return result
+
+
+def plain(items: list) -> str:
+    # TODO: REPLACE WITH UTILA CODE
+    raw = ' '.join([item.text.strip() for item in items])
+    return raw
