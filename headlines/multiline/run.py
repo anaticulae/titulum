@@ -91,7 +91,7 @@ def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
 def extract_page(
     ptcn: texmex.PageTextContentNavigator,
     h1_size_min: float = 12.01,
-) -> iamraw.Headlines:  # pylint:disable=R0914
+) -> iamraw.Headlines:
     """Extract headlines on selected page."""
     result = []
     grouped = texmex.group_page_by_size_distance(ptcn)
@@ -110,10 +110,9 @@ def extract_page(
             # first level headline
             if items.size < h1_size_min:
                 continue
-        wordcount_max = HEADLINE_WORDCOUT_MAX
         if elements.noheadline(
                 title,
-                wordcount_max=wordcount_max,
+                wordcount_max=HEADLINE_WORDCOUT_MAX,
         ):
             continue
         headline = iamraw.Headline(
