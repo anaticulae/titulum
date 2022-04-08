@@ -45,7 +45,15 @@ WORKPLAN = [
     ),
     utila.create_step(
         'nlarge',
-        inputs=[],
+        inputs=[
+            utila.ResultFile('rawmaker', 'text_text'),
+            utila.ResultFile('rawmaker', 'text_positions'),
+            utila.ResultFile('rawmaker', 'border_pages'),
+            utila.ResultFile('groupme', 'footer_footerheader'),
+            utila.ResultFile('rawmaker', 'fonts_header'),
+            utila.ResultFile('rawmaker', 'fonts_content'),
+            utila.ResultFile('sections', 'section_result', optional=True),
+        ],
         output=('nlarge',),
     ),
     utila.create_step(
