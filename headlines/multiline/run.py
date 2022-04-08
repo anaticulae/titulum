@@ -51,6 +51,8 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
             ptcns,
             h1_size_min=h1_try,
         )
+        if headlines.judge.invalid_extraction(collected):
+            continue
         if not collected:
             continue
         result = groupby_level_one(collected)
