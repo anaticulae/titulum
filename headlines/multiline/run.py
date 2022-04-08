@@ -37,11 +37,33 @@ HEADLINE_MEDIAN = configo.HolyTable(
 
 HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
 
+HEADLINE_H1_TRY = configo.HolyList(items=[
+    14.01,
+    12.01,
+    11.5,
+])
+
 
 def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.Headlines:
+    for h1_try in HEADLINE_H1_TRY:
+        utila.debug(f'multiline, try h1_size_min: {h1_try}')
+        collected = collect(
+            ptcns,
+            h1_size_min=h1_try,
+        )
+        if not collected:
+            continue
+        return collected
+    return []
+
+
+def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
     result = []
     for navigator in ptcns:
-        extracted = extract_page(navigator)
+        extracted = extract_page(
+            navigator,
+            h1_size_min=h1_size_min,
+        )
         if not extracted:
             continue
         result.extend(extracted)
