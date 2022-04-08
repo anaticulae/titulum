@@ -6,3 +6,27 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+
+import iamraw
+import serializeraw
+import utila
+
+INVALID = (
+    iamraw.sections.Introduction,
+    iamraw.sections.Unknown,
+)
+
+
+def headlinepart(pages: tuple, sections: str = None) -> tuple:
+    if not utila.exists(sections):
+        return pages
+    loaded = serializeraw.load_sections(
+        sections,
+        pages=pages,
+    )
+    # TODO: A LITTLE BIT COMPLICATED
+    loaded = [item for item in loaded if not isinstance(item, INVALID)]
+    valid = [utila.rlist(item.start, item.end) for item in loaded]
+    valid = utila.flatten(valid)
+    result = tuple(item for item in valid if not utila.should_skip(item, pages))
+    return result
