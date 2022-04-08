@@ -38,11 +38,10 @@ HEADLINE_MEDIAN = configo.HolyTable(
 HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
 
 
-def extract_page(data, page) -> iamraw.Headlines:  # pylint:disable=R0914
+def extract_page(ptcn: texmex.PageTextContentNavigator) -> iamraw.Headlines:  # pylint:disable=R0914
     """Extract headlines on selected page."""
-    pagecontent = utila.select_page(data.ptcns, page)
     result = []
-    grouped = texmex.group_page_by_size_distance(pagecontent)
+    grouped = texmex.group_page_by_size_distance(ptcn)
     befores = [None] + grouped
     for items, before in zip(grouped, befores):
         if wrong_position(items):
@@ -67,7 +66,7 @@ def extract_page(data, page) -> iamraw.Headlines:  # pylint:disable=R0914
         headline = iamraw.Headline(
             container=headline_range(items),
             level=level,
-            page=pagecontent.page,
+            page=ptcn.page,
             raw=raw,
             raw_level=rawlevel,
             title=utila.normalize_whitespaces(title),
