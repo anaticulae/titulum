@@ -20,6 +20,7 @@ Example
 
 import serializeraw
 
+import headlines.feature
 import headlines.multiline.run
 
 
@@ -30,8 +31,13 @@ def work(
     headerfooter: str,
     fontheader: str = None,
     fontcontent: str = None,
+    sections: str = None,
     pages: tuple = None,
 ) -> str:
+    pages = headlines.feature.headlinepart(
+        pages=pages,
+        sections=sections,
+    )
     ptcns = serializeraw.ptcn_fromfile(
         text,
         textpositions,
