@@ -33,6 +33,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/nlarge/expected', exist=True)
     pytest.param(power.BACHELOR086_PDF, id='bachelor086'),
     pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
     pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
+    pytest.param(power.DISS172_PDF, id='diss172'),
 ])
 def test_nlarge_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
