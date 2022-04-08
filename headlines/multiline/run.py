@@ -102,7 +102,7 @@ def extract_page(
         if invalid_headline_group(items):
             continue
         raw = plain(items)
-        parsed = parse_headline(raw, before)
+        parsed = elements.parse_headline(raw, before)
         if not parsed:
             continue
         title, level, rawlevel = parsed
@@ -177,33 +177,6 @@ def wrong_position(
     SUPPORT RIGHT ALIGNED HEADLINES?
     """
     return items.bounding[0] >= max_x0
-
-
-def parse_headline(raw: str, before=None):  # pylint:disable=R0911
-    if parsed := elements.parse_leveled_headline(raw):
-        rawlevel, title = parsed['level'], parsed['text']
-        level = elements.level_numbered(rawlevel)
-        if level is False:  # pylint:disable=C2001
-            return None
-        return title, level, rawlevel
-    if parsed := elements.parse_chapter_level(raw):
-        title, rawlevel = parsed
-        level = 1  # pylint:disable=R0204
-        if 'anhang' in rawlevel.lower():
-            # ANHANG
-            #   ANHANG 1: ZUSAMMENFASSUNG
-            #   ANHANG 2: SUMMARY
-            level = 2
-        return title, level, rawlevel
-    if elements.isheadline(raw):
-        return raw, 1, ''
-    if before:
-        # look back and check for `Kapitel-X-Pattern`
-        before = plain(before)
-        chapter = elements.noheadline_pattern(before)
-        if chapter:
-            return raw, 1, ''
-    return None
 
 
 def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
