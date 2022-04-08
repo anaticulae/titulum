@@ -38,6 +38,16 @@ HEADLINE_MEDIAN = configo.HolyTable(
 HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
 
 
+def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.Headlines:
+    result = []
+    for navigator in ptcns:
+        extracted = extract_page(navigator)
+        if not extracted:
+            continue
+        result.extend(extracted)
+    return result
+
+
 def extract_page(ptcn: texmex.PageTextContentNavigator) -> iamraw.Headlines:  # pylint:disable=R0914
     """Extract headlines on selected page."""
     result = []
