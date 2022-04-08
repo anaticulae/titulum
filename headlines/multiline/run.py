@@ -146,11 +146,11 @@ def headline_range(items):
 
 def invalid_headline_group(items) -> bool:
     text = ' '.join([item.text for item in items])
-    words_ = german.word_tokenize(text, validate_sentences=False)
-    if len(words_) >= HEADLINE_TOKEN_LENGTH_MAX:
+    tokens = german.word_tokenize(text, validate_sentences=False)
+    if len(tokens) >= HEADLINE_TOKEN_LENGTH_MAX:
         # maybe a sentence cause headlines are not so long
         return True
-    number_count = len([item for item in words_ if utila.isnumber(item)])
+    number_count = len([token for token in tokens if utila.isnumber(token)])
     if number_count >= NUMBERS_IN_HEADLINE_MAX:
         # assume that headlines does not contain many numbers
         return True
