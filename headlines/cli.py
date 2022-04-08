@@ -27,7 +27,14 @@ WORKPLAN = [
     ),
     utila.create_step(
         'multiline',
-        inputs=[],
+        inputs=[
+            utila.ResultFile('rawmaker', 'text_text'),
+            utila.ResultFile('rawmaker', 'text_positions'),
+            utila.ResultFile('rawmaker', 'border_pages'),
+            utila.ResultFile('groupme', 'footer_footerheader'),
+            utila.ResultFile('rawmaker', 'fonts_header'),
+            utila.ResultFile('rawmaker', 'fonts_content'),
+        ],
         output=('multiline',),
     ),
     utila.create_step(

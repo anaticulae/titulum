@@ -7,6 +7,29 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import serializeraw
 
-def work() -> str:
-    return '[]'
+import headlines.multiline.run
+
+
+def work(
+    text: str,
+    textpositions: str,
+    sizeandborder: str,
+    headerfooter: str,
+    fontheader: str = None,
+    fontcontent: str = None,
+    pages: tuple = None,
+) -> str:
+    ptcns = serializeraw.ptcn_fromfile(
+        text,
+        textpositions,
+        sizeandborder,
+        headerfooter,
+        fontheader,
+        fontcontent,
+        pages=pages,
+    )
+    detected = headlines.multiline.run.run(ptcns)
+    dumped = serializeraw.dump_headlines(detected)
+    return dumped
