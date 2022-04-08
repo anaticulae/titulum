@@ -10,18 +10,24 @@
 import configo
 import elements
 import iamraw
+import texmex
+
+import headlines.judge
 
 SINGLEPAGE_LINES_MAX = configo.HV_INT_PLUS(default=3)
 
 
-def pagewise(ptcns):
-    headlines = []
+def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
+    collected = []
     for page in ptcns:
         parsed = parse_page(page)
         if not parsed:
             continue
-        headlines.extend(parsed)
-    return headlines
+        if headlines.judge.invalid_extraction(parsed):
+            continue
+        parsed = groupby_level_one(parsed)
+        collected.extend(parsed)
+    return collected
 
 
 def parse_page(ptcn) -> iamraw.Headlines:
@@ -30,6 +36,7 @@ def parse_page(ptcn) -> iamraw.Headlines:
         return None
     result = []
     for container, line in enumerate(ptcn):
+        # TODO: HOLY VALUE
         if line.bounding_mean < 18.0:
             continue
         if not elements.isheadline(line.text):
@@ -48,4 +55,21 @@ def parse_page(ptcn) -> iamraw.Headlines:
                 raw_level=rawlevel,
                 page=ptcn.page,
             ))
+    return result
+
+
+def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
+    result = []
+    # detect chapter starts
+    levelone = [
+        index for (index, item) in enumerate(heads) if item.level in (None, 1)
+    ]
+    # group headlines into chapters
+    result = [
+        heads[index:after]
+        for (index, after) in zip(levelone[:-1], levelone[1:])
+    ]
+    if levelone:
+        # do not forget the last group
+        result.append(heads[levelone[-1]:])
     return result
