@@ -39,4 +39,12 @@ def work(
 
 
 def select_best(headlines) -> list:
-    return []
+    if not headlines:
+        return []
+    # TODO: USE BETTER SELECTOR
+    best = headlines[0]
+    for headline in headlines[1:]:
+        if len(headline) < len(best):
+            continue
+        best = headline
+    return best
