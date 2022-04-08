@@ -46,6 +46,7 @@ if __name__ == "__main__":
             'headlines',
             'headlines.feature',
             'headlines.multiline',
+            'headlines.nlarge',
             'headlines.single',
         ],
         entry_points={
