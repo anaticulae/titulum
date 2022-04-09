@@ -30,6 +30,13 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/standard/expected', exist=True)
     pytest.param(power.BACHELOR086_PDF, id='bachelor086'),
     pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
     pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
+    pytest.param(power.MASTER031_PDF, id='master031'),
+    pytest.param(power.MASTER063_PDF, id='master063'),
+    pytest.param(power.MASTER072_PDF, id='master072'),
+    pytest.param(power.MASTER083_PDF, id='master083'),
+    pytest.param(power.MASTER089_PDF, id='master089'),
+    pytest.param(power.MASTER098_PDF, id='master098'),
+    pytest.param(power.DISS172_PDF, id='diss172'),
 ])
 def test_standard_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
