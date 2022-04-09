@@ -84,8 +84,6 @@ def update_level(items: iamraw.PagesHeadlineList, border, diff) -> dict:
 
 TEXTSIZE_DIFF_MAX = configo.HV_FLOAT_PLUS(default=1.5)
 
-AFTER_DIFF_MAX = configo.HV_FLOAT_PLUS(default=0.15)
-
 
 def equal_headline_cluster(
     todo,
@@ -137,6 +135,9 @@ def equal_fontsize(candidat, clusteritem) -> bool:
         expected=clusteritem['textsize'],
         diff=TEXTSIZE_DIFF_MAX,
     )
+
+
+AFTER_DIFF_MAX = configo.HV_FLOAT_PLUS(default=0.15)
 
 
 def equal_after(candidat, clusteritem) -> bool:
