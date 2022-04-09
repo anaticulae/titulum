@@ -122,32 +122,35 @@ def extract_headline(
     if skip and not higher_equalthree:
         return None
 
-    if elements.noheadline_pattern(text):
+    if elements.noheadline(text):
         return None
 
-    dist_top = textdistances[containerid]
-    try:
-        dist_bottom = None if lastitem else textdistances[look_forward]
-    except IndexError:
-        return None
-
-    style = dict(
-        textsize=textsize,
-        before=dist_top,
-        after=dist_bottom,
-        feed=textfeed,
-    )
+    # dist_top = textdistances[containerid]
+    # try:
+    #     dist_bottom = None if lastitem else textdistances[look_forward]
+    # except IndexError:
+    #     return None
+    # style = dict(
+    #     textsize=textsize,
+    #     before=dist_top,
+    #     after=dist_bottom,
+    #     feed=textfeed,
+    # )
     decoration = headline_decoration(
         navigator=ptcn,
         containerid=containerid,
     )
+    parsed = elements.parse_headline(text.strip())
+    raw_level = parsed[2] if parsed else None
+    level = parsed[1] if parsed else None
     headline = iamraw.Headline(
         container=containerid,
-        level=style,
+        level=level,
         page=ptcn.page,
         raw=text.strip(),
         title=text.strip(),
         decoration=decoration,
+        raw_level=raw_level,
     )
     return headline
 
