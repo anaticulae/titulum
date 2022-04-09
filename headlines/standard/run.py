@@ -12,6 +12,8 @@ import elements
 import iamraw
 import texmex
 
+import headlines.cluster
+
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
 
@@ -27,8 +29,11 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
         if not parsed:
             continue
         collected.extend(parsed)
-    collected = groupby_level_one(collected)
-    return collected
+    # TODO: ADJUST INTERFACE LATER
+    # update level
+    headlines.cluster.cluster_headline_level({0: collected})
+    result = groupby_level_one(collected)
+    return result
 
 
 def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
@@ -126,30 +131,31 @@ def extract_headline(
     if elements.noheadline(text):
         return None
 
-    # dist_top = textdistances[containerid]
-    # try:
-    #     dist_bottom = None if lastitem else textdistances[look_forward]
-    # except IndexError:
-    #     return None
-    # style = dict(
-    #     textsize=textsize,
-    #     before=dist_top,
-    #     after=dist_bottom,
-    #     feed=textfeed,
-    # )
+    dist_top = textdistances[containerid]
+    try:
+        dist_bottom = None if lastitem else textdistances[look_forward]
+    except IndexError:
+        return None
+    style = dict(
+        textsize=textsize,
+        before=dist_top,
+        after=dist_bottom,
+        feed=textfeed,
+    )
     decoration = headline_decoration(
         navigator=ptcn,
         containerid=containerid,
     )
     parsed = elements.parse_headline(text.strip())
     raw_level = parsed[2] if parsed else None
-    level = parsed[1] if parsed else None
+    title = parsed[0] if parsed else text.strip()
+    # level = parsed[1] if parsed else None
     headline = iamraw.Headline(
         container=containerid,
-        level=level,
+        level=style,
         page=ptcn.page,
         raw=text.strip(),
-        title=text.strip(),
+        title=title,
         decoration=decoration,
         raw_level=raw_level,
     )
@@ -212,10 +218,8 @@ def should_skip(
     # if textfeed > words.headlines.strategies.MAX_HEADLINE_TEXTFEED:
     #     # skip numbered lists
     #     return True
-
     if distance_tosmall:
         return True
-
     if headline_tosmall:
         return True
     return False
