@@ -51,9 +51,10 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
             textdistance=textdistance,
             ptcn=ptcn,
             containerid=containerid,
+            double=True,
         )
         if not headline:
-            # try again with double line extractor
+            # try again without double line extractor
             headline = extract_headline(
                 textinfo=item,
                 textdistances=textdistances,
@@ -62,7 +63,7 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
                 textdistance=textdistance,
                 ptcn=ptcn,
                 containerid=containerid,
-                double=True,
+                double=False,
             )
         if not headline:
             continue
