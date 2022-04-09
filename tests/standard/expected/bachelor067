@@ -1,8 +1,7 @@
 1 Einführung
     1.1 Motivation
     1.2 Ziel dieser Arbeit
-2 Vorstellung und Architekturübersicht
-von Spark
+2 Vorstellung und Architekturübersicht von Spark
     2.1 Überblick
     2.2 Kernkonzepte und Komponenten
         2.2.1 Resilient Distributed Datasets
@@ -19,8 +18,7 @@ von Spark
         2.5.2 Mesos
         2.5.3 Flink
         2.5.4 Open MPI
-3 Entwicklung und Betrieb einer
-Beispielanwendung
+3 Entwicklung und Betrieb einer Beispielanwendung
     3.1 Vorstellung der Beispielanwendung
     3.2 Hardwareumgebung
     3.3 Lösungsskizze
@@ -44,5 +42,5 @@ Glossar
     1.3 Realisierung einer einfachen Continuous Deployment Pipeline
 2 Konfigurationen
 3 Sonstiges
-    3.1 Einschätzung des theoretischen Spitzendurchsatzes von
+    3.1 Einschätzung des theoretischen Spitzendurchsatzes von Mittelklasse-Servern
 Literatur

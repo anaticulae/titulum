@@ -1,14 +1,12 @@
 1. Einleitung
     1.1. Motivation
     1.2. Zielsetzung und Aufbau der Arbeit
-2. Grundlagen eingebetteter
-Systeme
+2. Grundlagen eingebetteter Systeme
     2.1. Embedded System
         2.1.1. Systembegriff
         2.1.2. Computersysteme
         2.1.3. Entwicklungen im Embedded-Bereich
-    2.2. Standards in der eingebetteten
-    Softwareentwicklung
+    2.2. Standards in der eingebetteten Softwareentwicklung
         2.2.1. AUTOSAR
         2.2.2. MISRA-C
     2.3. Controller Area Network - CAN
@@ -62,8 +60,7 @@ Systeme
         4.6.2. Testen des Buffers
         4.6.3. Testen der Durchmesserberechnung
         4.6.4. Verifikation des Histogramms
-    4.7. Integration und Integrationstest der
-    entwickelten Komponenten
+    4.7. Integration und Integrationstest der entwickelten Komponenten
         4.7.1. Manuelle Integration
         4.7.2. Vollständige Integration in Simulink
         4.7.3. Bewertung
