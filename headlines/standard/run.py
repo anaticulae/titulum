@@ -12,8 +12,6 @@ import elements
 import iamraw
 import texmex
 
-import headlines.judge
-
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
 
@@ -28,10 +26,8 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
         parsed = parse_page(page, textsize, textdistance)
         if not parsed:
             continue
-        if headlines.judge.invalid_extraction(parsed):
-            continue
-        parsed = groupby_level_one(parsed)
         collected.extend(parsed)
+    collected = groupby_level_one(collected)
     return collected
 
 
