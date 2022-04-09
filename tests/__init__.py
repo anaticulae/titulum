@@ -46,6 +46,18 @@ class Evaluate(utilatest.BaseLiner):
 
     def raw(self, value) -> str:
         value = utila.flatten(value)
-        collected = [item.raw for item in value]
+        collected = [rawline(item) for item in value]
         result = utila.NEWLINE.join(collected)
         return result
+
+
+def rawline(item) -> str:
+    level = 0
+    if item.level:
+        level = item.level - 1
+    raw = '    ' * level
+    raw += utila.normalize_text(
+        item.raw,
+        strips=True,
+    )
+    return raw
