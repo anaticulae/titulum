@@ -2,6 +2,15 @@
 
 Every noteable change is logged here.
 
+## v0.2.0
+
+### Feature
+
+* connect numbers large (da0b20698bab)
+* move nlarge from words (dff4369ed36c)
+* connect strategy (b3ff8e4aae45)
+* move single from words (96be5de0802f)
+
 ## v0.1.0
 
 ### Feature
