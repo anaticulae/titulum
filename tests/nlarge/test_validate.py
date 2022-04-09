@@ -7,11 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import power
 import pytest
-import serializeraw
 import utila
 import utilatest
 
@@ -37,40 +34,12 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/nlarge/expected', exist=True)
 ])
 def test_nlarge_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
-    Evaluate(
+    tests.Evaluate(
+        name='nlarge',
         source=source,
         pages=':',
         expected=utila.file_name(source),
+        archive=ARCHIVE,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
-
-
-class Evaluate(utilatest.BaseLiner):
-
-    def __init__(self, source, pages, expected, workdir, monkeypatch):
-        super().__init__(
-            program=functools.partial(
-                tests.run,
-                monkeypatch=monkeypatch,
-            ),
-            step='nlarge -VVV',
-            pages=pages,
-            source=power.link(source),
-            workdir=workdir,
-            archive=ARCHIVE,
-            loader=self.frompath,
-            convert_source=False,
-            index=expected,
-        )
-
-    def frompath(self, workdir):  # pylint:disable=R0201
-        path = utila.join(workdir, 'headlines__nlarge_nlarge.yaml')
-        loaded = serializeraw.load_headlines(path)
-        return loaded
-
-    def raw(self, value) -> str:
-        value = utila.flatten(value)
-        collected = [item.raw for item in value]
-        result = utila.NEWLINE.join(collected)
-        return result
