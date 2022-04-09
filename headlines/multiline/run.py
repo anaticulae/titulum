@@ -31,8 +31,6 @@ HEADLINE_MEDIAN = configo.HolyTable(
         (16, 26),
         (22, 16),
     ],
-    left_outranges_none=False,
-    right_outranges_none=False,
 )
 
 HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)

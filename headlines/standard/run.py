@@ -186,24 +186,18 @@ def headline_decoration(navigator, containerid: int) -> int:
     return None
 
 
-DISTANCE_TOO_SMALL = configo.HolyTable(
-    items=(
-        (0, 1.2),
-        (1, 1.15),
-        (2, 1.1),
-        (3, 1.0),
-    ),
-    right_outranges_none=False,
-)
-TEXTSIZE_TOO_SMALL = configo.HolyTable(
-    items=(
-        (0, 1.12),
-        (1, 1.08),
-        (2, 1.05),
-        (3, 1.0),
-    ),
-    right_outranges_none=False,
-)
+DISTANCE_TOO_SMALL = configo.HolyTable(items=(
+    (0, 1.2),
+    (1, 1.15),
+    (2, 1.1),
+    (3, 1.0),
+),)
+TEXTSIZE_TOO_SMALL = configo.HolyTable(items=(
+    (0, 1.12),
+    (1, 1.08),
+    (2, 1.05),
+    (3, 1.0),
+),)
 
 
 def too_small(text, fontdistance, textsize_, **kwargs):

@@ -85,7 +85,6 @@ INVALID_ENDING_MAX = configo.HolyTable(
         (120, 10),
     ],
     strategy=utila.Strategy.LINEARISE,
-    right_outranges_none=False,
 )
 
 ERROR_MAX = configo.HolyTable(
@@ -101,8 +100,6 @@ ERROR_MAX = configo.HolyTable(
         (120, 12),
     ],
     strategy=utila.Strategy.LOWER,
-    left_outranges_none=False,
-    right_outranges_none=False,
 )
 # give some tolerance if first appraoch was not good enough
 ERROR_MAX_PLUS = configo.HV_PERCENT_PLUS(default=150)
