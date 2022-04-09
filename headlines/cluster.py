@@ -8,6 +8,7 @@
 # =============================================================================
 
 import configo
+import elements
 import iamraw
 import utila
 
@@ -73,6 +74,10 @@ def update_level(items: iamraw.PagesHeadlineList, border, diff) -> dict:
                 diff,
                 allow_none=True,
             )
+            if headline.raw_level:
+                # raw_level is stronger than style extraction!
+                headline.level = elements.level_numbered(headline.raw_level)
+                continue
             if matched is None:
                 headline.level = None
             else:
