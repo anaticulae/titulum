@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.4.0
+
+### Feature
+
+* try to merge next line if size matches (0aa818a25308)
+* add headline min count (629d864b1f3e)
+* use style to cluster headlines (9b8ed3e14474)
+* overwrite style level due text level (5ef415641197)
+* make after diff max size dependent (212e99e1f9bf)
+* use double extractor as default (d98e61dfd1ed)
+
 ## v0.3.0
 
 ### Feature
