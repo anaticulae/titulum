@@ -11,10 +11,19 @@ import configo
 import elements
 import iamraw
 import texmex
+import utila
 
 import headlines.cluster
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
+
+HEADLINES_COUNT_MIN = configo.HolyTable(items=[
+    (0, 7),
+    (50, 7),
+    (100, 10),
+    (150, 12),
+    (200, 15),
+])
 
 
 def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
@@ -29,6 +38,10 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
         if not parsed:
             continue
         collected.extend(parsed)
+    headlines_count_min = HEADLINES_COUNT_MIN(len(ptcns))
+    if len(collected) < headlines_count_min:
+        utila.debug(f'too few headlines: {len(collected)}, disable: standard')
+        return []
     # TODO: ADJUST INTERFACE LATER
     # update level
     headlines.cluster.cluster_headline_level({0: collected})

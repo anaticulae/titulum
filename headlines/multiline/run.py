@@ -43,8 +43,17 @@ HEADLINE_H1_TRY = configo.HolyList(items=[
     11.5,
 ])
 
+HEADLINES_COUNT_MIN = configo.HolyTable(items=[
+    (0, 7),
+    (50, 7),
+    (100, 10),
+    (150, 12),
+    (200, 15),
+])
+
 
 def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
+    headlines_count_min = HEADLINES_COUNT_MIN(len(ptcns))
     for h1_try in HEADLINE_H1_TRY:
         utila.debug(f'multiline, try h1_size_min: {h1_try}')
         collected = collect(
@@ -52,6 +61,9 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
             h1_size_min=h1_try,
         )
         if headlines.judge.invalid_extraction(collected):
+            continue
+        if len(collected) < headlines_count_min:
+            utila.debug(f'too few headlines: {len(collected)}, skip mutliline')
             continue
         if not collected:
             continue
