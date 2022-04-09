@@ -137,7 +137,17 @@ def equal_fontsize(candidat, clusteritem) -> bool:
     )
 
 
-AFTER_DIFF_MAX = configo.HV_FLOAT_PLUS(default=0.15)
+AFTER_DIFF_MAX = configo.HolyTable(items=(
+    (0, 0.15),
+    (10, 0.15),
+    (12, 0.15),
+    (14, 0.15),
+    (16, 0.17),
+    (20, 0.20),
+    (30, 0.30),
+    (45, 0.30),
+    (55, 0.30),
+))
 
 
 def equal_after(candidat, clusteritem) -> bool:
@@ -146,11 +156,12 @@ def equal_after(candidat, clusteritem) -> bool:
         return candidat['after'] is None
     if candidat['after'] is None:
         return True
+    after_diff_max = AFTER_DIFF_MAX(clusteritem['textsize'])
     # 15 percent diff
     if not utila.near(
             current=candidat['after'],
             expected=clusteritem['after'],
-            diff=max(clusteritem['after'] * AFTER_DIFF_MAX, 4.0),
+            diff=after_diff_max,
     ):
         return False
     return True
