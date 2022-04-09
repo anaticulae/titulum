@@ -75,7 +75,7 @@ LEVELONE_IN_A_ROW_MAX = configo.HolyTable([
     (30, 4),
     (40, 5),
     (50, 6),
-],)
+])
 
 INVALID_ENDING_MAX = configo.HolyTable(
     [

@@ -23,15 +23,13 @@ HEADLINE_TOKEN_LENGTH_MAX = configo.HV_INT_PLUS(default=20)
 # assume that headlines does not contain many numbers
 NUMBERS_IN_HEADLINE_MAX = configo.HV_INT_PLUS(default=5)
 
-HEADLINE_MEDIAN = configo.HolyTable(
-    items=[
-        (10, 40),
-        (12, 35),
-        (14, 30),
-        (16, 26),
-        (22, 16),
-    ],
-)
+HEADLINE_MEDIAN = configo.HolyTable(items=[
+    (10, 40),
+    (12, 35),
+    (14, 30),
+    (16, 26),
+    (22, 16),
+])
 
 HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
 
