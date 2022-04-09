@@ -55,7 +55,7 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
     # PageContentNavigator: skip header and footer content
     textdistances = texmex.fontdistance_textbounds(without_content)
     textfeeds = [item.bounds.leftdist for item in bounds]
-    result = []
+    parsed = []
     for containerid, item in enumerate(ptcn):
         splitted = item.text.splitlines()
         if len(splitted) > 1:
@@ -84,6 +84,14 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
                 double=False,
             )
         if not headline:
+            continue
+        parsed.append(headline)
+    # filter duplication
+    single = utila.Single()
+    result = []
+    for headline in parsed:
+        containers = utila.ensure_tuple(headline.container)
+        if [item for item in containers if single.contains(item)]:
             continue
         result.append(headline)
     return result
@@ -141,9 +149,16 @@ def extract_headline(
     if skip and not higher_equalthree:
         return None
 
-    if elements.noheadline(text):
+    raw_text = text.strip()
+    # try to merge next container to parse double headline
+    merge_next = double and not lastitem and merges_next(
+        textinfo,
+        ptcn[containerid + 1],
+    )
+    if merge_next:
+        raw_text += ' ' + ptcn[containerid + 1].text
+    if elements.noheadline(raw_text):
         return None
-
     dist_top = textdistances[containerid]
     try:
         dist_bottom = None if lastitem else textdistances[look_forward]
@@ -159,20 +174,33 @@ def extract_headline(
         navigator=ptcn,
         containerid=containerid,
     )
-    parsed = elements.parse_headline(text.strip())
+    parsed = elements.parse_headline(raw_text)
     raw_level = parsed[2] if parsed else None
-    title = parsed[0] if parsed else text.strip()
+    title = parsed[0] if parsed else raw_text
     # level = parsed[1] if parsed else None
     headline = iamraw.Headline(
-        container=containerid,
+        container=(containerid, containerid + 1) if merge_next else containerid,
         level=style,
         page=ptcn.page,
-        raw=text.strip(),
+        raw=raw_text,
         title=title,
         decoration=decoration,
         raw_level=raw_level,
     )
     return headline
+
+
+def merges_next(current, after) -> bool:
+    if current.style.textsize() != after.style.textsize():
+        return False
+    if len(current.text) < len(after.text):
+        return False
+    parsed = elements.parse_headline(after.text)
+    if parsed:
+        # raw level
+        if parsed[2]:
+            return False
+    return True
 
 
 def headline_decoration(navigator, containerid: int) -> int:
