@@ -48,6 +48,7 @@ if __name__ == "__main__":
             'headlines.multiline',
             'headlines.nlarge',
             'headlines.single',
+            'headlines.standard',
         ],
         entry_points={
             'console_scripts': ['headlines = headlines.cli:main'],
