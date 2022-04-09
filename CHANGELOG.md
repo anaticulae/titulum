@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.3.0
+
+### Feature
+
+* use elements to determine level (9930b9fc7312)
+* connect standard headline extractor (0753dd2a09fd)
+* move standard from words (422728cf772c)
+
+### Fix
+
+* do not judge result early (1ffb08fd6728)
+
 ## v0.2.0
 
 ### Feature
