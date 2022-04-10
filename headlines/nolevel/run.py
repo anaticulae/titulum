@@ -13,6 +13,7 @@ import elements
 import iamraw
 import texmex
 
+import headlines.improve.surround
 import headlines.multiline.run
 import headlines.standard.run
 
@@ -26,6 +27,10 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
         ptcns,
         page_parser=page_parser,
         finalizer=finalizer,
+    )
+    result = headlines.improve.surround.run(
+        headlines=result,
+        ptcns=ptcns,
     )
     return result
 
