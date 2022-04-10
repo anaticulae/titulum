@@ -9,7 +9,6 @@
 
 import collections
 import itertools
-import re
 
 import configo
 import elements
@@ -258,17 +257,16 @@ def merge_headline(items):
     return result
 
 
-CHAPTER_PATTERN = re.compile(r'^(Kapitel|Chapter)[ ]{0,5}\d', re.IGNORECASE)
-
-
 def verify_level(grouped: list) -> list:
     result = []
     for group in grouped:
-        if not any(CHAPTER_PATTERN.match(item.text) for item in group):
+        if not any(elements.noheadline_pattern(item.text) for item in group):
             result.append(group)
             continue
         # remove no-chapter-pattern
-        valid = [item for item in group if CHAPTER_PATTERN.match(item.text)]
+        valid = [
+            item for item in group if elements.noheadline_pattern(item.text)
+        ]
         result.append(valid)
         # TODO: MOVE INVALID TO GROUP LEVEL 4?
     return result
