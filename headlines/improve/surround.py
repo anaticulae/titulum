@@ -15,6 +15,7 @@ detected headline.
 
 import contextlib
 
+import elements
 import utila
 
 
@@ -30,15 +31,6 @@ def before_and_after(headlines, ptcns):
     return headlines
 
 
-CHAPTER = utila.compiles(r"""
-    ^
-    (KAPITEL|CHAPTER)
-    [ ]{0,3}
-    (\d{1,2})
-    $
-""")
-
-
 def headline_expand(headline, page):
     before, after = None, None  # pylint:disable=W0612
     with contextlib.suppress(IndexError):
@@ -51,6 +43,7 @@ def headline_expand(headline, page):
         if isinstance(headline_end, tuple):
             headline_end = headline_end[-1]
         after = page[headline_end + 1]
-    if before and CHAPTER.match(before.text):
-        headline.decorator = headline_start - 1
+    if before:
+        if elements.noheadline_pattern(before.text):
+            headline.decorator = headline_start - 1
     return headline
