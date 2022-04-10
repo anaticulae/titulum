@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.5.0
+
+### Feature
+
+* skip single chapters (58f196584f0f)
+* ensure that alignment matches when merge two lines (9f6926b12258)
+* connect nolevel strategy (918f3f35f78d)
+* move nolevel from words (eee562aab118)
+* add finalize to polish result data (5ba8f7dab4a7)
+* make runner configurable (3733f927d239)
+* add legacy step to produce words compatible result path (3bc8d54940a0)
+
 ## v0.4.0
 
 ### Feature
