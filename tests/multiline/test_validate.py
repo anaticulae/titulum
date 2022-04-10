@@ -29,6 +29,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/multiline/expected', exist=True)
     pytest.param(power.BACHELOR086_PDF, id='bachelor086'),
     pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
     pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
+    pytest.param(power.BOOK173_PDF, id='book173'),
 ])
 def test_multiline_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
