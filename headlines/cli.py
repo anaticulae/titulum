@@ -95,6 +95,13 @@ WORKPLAN = [
         ],
         output=('result',),
     ),
+    utila.create_step(
+        'legacy',
+        inputs=[
+            utila.ResultFile('headlines', 'result_result', optional=True),
+        ],
+        output=('result',),
+    ),
 ]
 
 
@@ -110,5 +117,19 @@ def main():
             name=headlines.PROCESS,
             pages=True,
             version=headlines.__version__,
+            rename=rename,
         ),
     )
+
+
+def rename(path):
+    # TODO: REMOVE AFTER REPLACING WORDS IN THE WHOLE CHAIN.
+    if not isinstance(path, str):
+        path = [rename(item) for item in path]
+        return path
+    path = utila.rreplace(
+        path,
+        pattern='headlines__legacy_result',
+        replace='words__word_result',
+    )
+    return path
