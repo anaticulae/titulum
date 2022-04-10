@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.6.0
+
+### Feature
+
+* connect cluster strategy (b5cff644f041)
+* add method to validate cluster (1ac3d6d29123)
+* skip warnings (856cccef3b28)
+* move parse from docstyle (8752ec22f0e9)
+* move code form docstyle (8dad17ccd9ca)
+* use improvement to improve detection (8fa61331eb63)
+* move improvement from words (9f2d8c19936a)
+
 ## v0.5.0
 
 ### Feature
