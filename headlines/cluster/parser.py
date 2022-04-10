@@ -124,14 +124,17 @@ def bold(navigator, fontstore) -> utila.Floats:
     no_bold = 10.0
 
     def more_than_eighty_or_nothing(items):
-        """Detecting bold requires that more than eigthy percent of the
-        characters are bold. In some bolded headlines there are spaces
-        characters which are not bold and in some sentences only some
-        words are bold."""
+        """Bold detection requires that more than eigthy percent of the
+        characters are bold.
+
+        In some bolded headlines there are spaces characters which are
+        not bold and in some sentences only some words are bold.
+        """
         counter = collections.Counter()
         for item in items:
             counter[item] += 1
         item, count = counter.most_common(n=1)[0]
+        # TODO: HOLY VALUE
         if count < 0.8 * len(items):
             return set(items)
         return {item}
