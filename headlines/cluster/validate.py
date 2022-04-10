@@ -54,18 +54,9 @@ def clean_cluster(
     ]
     # skip `Kapitel 1`-pattern
     valid = [
-        item for item in valid if not elements.noheadline_pattern(item[0].text)
+        item for item in valid if not elements.noheadline(item[0].text) or
+        not elements.noheadline_pattern(item[0].text)
     ]
-    # TODO: THIS REMOVES ALL HEADLINES WITH NUMBER AT THE END
-    # remove:
-    # 5.1. ZUSAMMENFASSUNG DER ERGEBNISSE UND SCHLUSSFOLGERUNGEN   198
-    # 5.2. KÜNFTIGE HERAUSFORDERUNGEN       203
-    valid = [
-        item for item in valid
-        if not utila.isnumber(item[0].text.split(' ')[-1])
-    ]
-    # Lebenslauf .............................. xx
-    valid = [item for item in valid if item[0].text.count('.') < 6]
     return valid
 
 
