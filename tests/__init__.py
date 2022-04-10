@@ -28,7 +28,7 @@ class Evaluate(utilatest.BaseLiner):
                 run,
                 monkeypatch=monkeypatch,
             ),
-            step=f'{name} -VVV',
+            step=f'{name} -VVV' if name else '',
             pages=pages,
             source=power.link(source),
             workdir=workdir,
@@ -37,7 +37,7 @@ class Evaluate(utilatest.BaseLiner):
             convert_source=False,
             index=expected,
         )
-        self.name = name
+        self.name = name.split()[0]
 
     def frompath(self, workdir):
         path = utila.join(workdir, f'headlines__{self.name}_{self.name}.yaml')
