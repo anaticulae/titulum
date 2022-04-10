@@ -29,8 +29,10 @@ HEADLINES_COUNT_MIN = configo.HolyTable(items=[
 def run(
     ptcns: texmex.PTNs,
     page_parser: callable = None,
+    finalizer: callable = None,
 ) -> iamraw.PagesHeadlineList:
     page_parser = parse_page if not page_parser else page_parser
+    finalizer = finalize if not finalizer else finalizer
     textsize = texmex.document_textsize(navigators=ptcns)
     textdistance = texmex.document_textdist_from_ptcns(
         navigators=ptcns,
@@ -46,6 +48,11 @@ def run(
     if len(collected) < headlines_count_min:
         utila.debug(f'too few headlines: {len(collected)}, disable: standard')
         return []
+    result = finalizer(collected)
+    return result
+
+
+def finalize(collected) -> list:
     # TODO: ADJUST INTERFACE LATER
     # update level
     headlines.cluster.cluster_headline_level({0: collected})
