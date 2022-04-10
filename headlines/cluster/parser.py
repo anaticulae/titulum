@@ -146,7 +146,10 @@ def textsizes(navi: texmex.NavigatorMixin) -> utila.Floats:
     return collected
 
 
-def textfonts(navi: texmex.NavigatorMixin, fontstore=None) -> utila.Ints:
+def textfonts(
+    navi: texmex.NavigatorMixin,
+    fontstore: iamraw.FontStore,
+) -> utila.Ints:
     assert issubclass(navi.__class__, texmex.NavigatorMixin), type(navi)
     collected = []
     for line in navi:
@@ -154,8 +157,7 @@ def textfonts(navi: texmex.NavigatorMixin, fontstore=None) -> utila.Ints:
         family = [[char.font] * char.width for char in line.style]
         family = utila.flatten(family)
         collected.append(utila.mode(family))
-    if fontstore:
-        collected = [hash(fontstore[item].name) for item in collected]
+    collected = [hash(fontstore[item].name) for item in collected]
     return collected
 
 
