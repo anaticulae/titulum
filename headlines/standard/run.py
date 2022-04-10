@@ -13,7 +13,7 @@ import iamraw
 import texmex
 import utila
 
-import headlines.cluster
+import headlines.level
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
@@ -55,7 +55,7 @@ def run(
 def finalize(collected) -> list:
     # TODO: ADJUST INTERFACE LATER
     # update level
-    headlines.cluster.cluster_headline_level({0: collected})
+    headlines.level.cluster_headline_level({0: collected})
     result = groupby_level_one(collected)
     return result
 

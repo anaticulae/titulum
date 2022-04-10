@@ -16,7 +16,7 @@ import iamraw
 import texmex
 import utila
 
-import headlines.cluster
+import headlines.level
 
 # longer word chains may be a sentence or something else
 HEADLINE_TOKEN_LENGTH_MAX = configo.HV_INT_PLUS(default=20)
@@ -215,7 +215,7 @@ def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
         nolevel.extend(item)
     level = [item for item in nolevel if isinstance(item.level, int)]
     if not level:
-        result = headlines.cluster.cluster_headline_level(result)
+        result = headlines.level.cluster_headline_level(result)
     return result
 
 
