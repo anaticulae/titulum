@@ -26,7 +26,11 @@ HEADLINES_COUNT_MIN = configo.HolyTable(items=[
 ])
 
 
-def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
+def run(
+    ptcns: texmex.PTNs,
+    page_parser: callable = None,
+) -> iamraw.PagesHeadlineList:
+    page_parser = parse_page if not page_parser else page_parser
     textsize = texmex.document_textsize(navigators=ptcns)
     textdistance = texmex.document_textdist_from_ptcns(
         navigators=ptcns,
@@ -34,7 +38,7 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
     )
     collected = []
     for page in ptcns:
-        parsed = parse_page(page, textsize, textdistance)
+        parsed = page_parser(page, textsize, textdistance)
         if not parsed:
             continue
         collected.extend(parsed)
@@ -49,7 +53,14 @@ def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
     return result
 
 
-def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
+def parse_page(  # pylint:disable=R0914
+    ptcn: texmex.PTCN,
+    textsize,
+    textdistance,
+    headline_extractor: callable = None,
+):
+    if not headline_extractor:
+        headline_extractor = extract_headline
     bounds = texmex.textbounds(ptcn, ptcn.content)
     without_content = [item.bounds for item in bounds]
     # PageContentNavigator: skip header and footer content
@@ -61,7 +72,7 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
         if len(splitted) > 1:
             # TODO: REMOVE?
             continue
-        headline = extract_headline(
+        headline = headline_extractor(
             textinfo=item,
             textdistances=textdistances,
             textfeeds=textfeeds,
@@ -73,7 +84,7 @@ def parse_page(ptcn: texmex.PTCN, textsize, textdistance):
         )
         if not headline:
             # try again without double line extractor
-            headline = extract_headline(
+            headline = headline_extractor(
                 textinfo=item,
                 textdistances=textdistances,
                 textfeeds=textfeeds,
