@@ -243,9 +243,9 @@ def merge_headline(items):
                     current.bounding,
                     after.bounding,
                 ))
+                text = f'{before.text.strip()} {current.text.strip()} {after.text.strip()}'
                 new = texmex.style.TextInfo(
-                    text=
-                    f'{before.text.strip()} {current.text.strip()} {after.text.strip()}',
+                    text=text,
                     style=current.style,
                     bounding=bounding,
                     bounding_mean=current.bounding_mean,
