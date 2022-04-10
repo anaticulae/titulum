@@ -32,9 +32,9 @@ def run(
 ) -> iamraw.PagesHeadlineList:
     matrix, ptcns, _ = create_matrix(ptcns, fontstore)
     clustered = clusterme(matrix, ptcns)
-    result = extract_headlines(clustered)
-    result = convert_cluster(result, ptcns)
-    result = groupby_level_one(result)
+    extracted = extract_headlines(clustered)
+    converted = convert_cluster(extracted, ptcns)
+    result = groupby_level_one(converted)
     return result
 
 
@@ -58,8 +58,8 @@ def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
 def extract_headlines(clusters, cluster_size_min: int = 5, **kwargs):
     # find headline cluster
     flat, _ = headlines.cluster.validate.valid_headline_clusters(
-        clusters,
-        cluster_size_min,
+        clusters=clusters,
+        cluster_size_min=cluster_size_min,
         **kwargs,
     )
     # merge multiple headline
