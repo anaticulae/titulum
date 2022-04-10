@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import warnings
+
 import iamraw
 
 import headlines.cluster.clusters
@@ -57,3 +59,12 @@ def flatten(pages: iamraw.PageTextPropertiesList) -> iamraw.TextProperties:
                     page=page.page,
                 ))
     return result
+
+
+def disable_warnings():
+    # TODO: DO NOT DISABLE ALL WARNINGS
+    nowarning = lambda message, category=None, stacklevel=1, source=None: ''  # pylint:disable=W0613
+    warnings.warn = nowarning
+
+
+disable_warnings()
