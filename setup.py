@@ -44,6 +44,7 @@ if __name__ == "__main__":
         ],
         packages=[
             'headlines',
+            'headlines.cluster',
             'headlines.feature',
             'headlines.improve',
             'headlines.multiline',
