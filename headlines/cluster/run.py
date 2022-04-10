@@ -21,6 +21,7 @@ import utila
 
 import headlines.cluster.parser
 import headlines.cluster.validate
+import headlines.utils
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
 
@@ -33,24 +34,7 @@ def run(
     clustered = clusterme(matrix, ptcns)
     extracted = extract_headlines(clustered)
     converted = convert_cluster(extracted, ptcns)
-    result = groupby_level_one(converted)
-    return result
-
-
-def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
-    result = []
-    # detect chapter starts
-    levelone = [
-        index for (index, item) in enumerate(heads) if item.level in (None, 1)
-    ]
-    # group headlines into chapters
-    result = [
-        heads[index:after]
-        for (index, after) in zip(levelone[:-1], levelone[1:])
-    ]
-    if levelone:
-        # do not forget the last group
-        result.append(heads[levelone[-1]:])
+    result = headlines.utils.groupby_level_one(converted)
     return result
 
 

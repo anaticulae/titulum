@@ -17,6 +17,7 @@ import texmex
 import utila
 
 import headlines.level
+import headlines.utils
 
 # longer word chains may be a sentence or something else
 HEADLINE_TOKEN_LENGTH_MAX = configo.HV_INT_PLUS(default=20)
@@ -63,10 +64,9 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
             continue
         if not collected:
             continue
-        result = groupby_level_one(collected)
+        result = headlines.utils.groupby_level_one(collected)
         return result
     return []
-
 
 def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
     result = []
@@ -80,22 +80,6 @@ def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
         result.extend(extracted)
     return result
 
-
-def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
-    result = []
-    # detect chapter starts
-    levelone = [
-        index for (index, item) in enumerate(heads) if item.level in (None, 1)
-    ]
-    # group headlines into chapters
-    result = [
-        heads[index:after]
-        for (index, after) in zip(levelone[:-1], levelone[1:])
-    ]
-    if levelone:
-        # do not forget the last group
-        result.append(heads[levelone[-1]:])
-    return result
 
 
 def extract_page(
