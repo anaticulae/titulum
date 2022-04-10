@@ -42,16 +42,9 @@ def valid_headline_clusters(
     return flat, delete
 
 
-PAGE_HEIGHT = 841.89
-HEADER_HEIGHT = 70.0
-FOOTER_HEIGHT = 120.0
-
-
 def clean_cluster(
     cluster,
     x0_max_diff: float = 15.0,
-    ymin: float = HEADER_HEIGHT,
-    ymax: float = PAGE_HEIGHT - FOOTER_HEIGHT,
 ):
     # TODO: ACCEPT RIGHT PADDED TEXT
     # skip too right items
@@ -73,11 +66,6 @@ def clean_cluster(
     ]
     # Lebenslauf .............................. xx
     valid = [item for item in valid if item[0].text.count('.') < 6]
-    # in bounds
-    valid = [
-        item for item in valid
-        if ymin <= item[0].bounding.y0 <= item[0].bounding.y1 <= ymax
-    ]
     return valid
 
 
