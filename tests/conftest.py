@@ -53,6 +53,7 @@ def extract(resources):
         base=power.REPOSITORY,
         destination=power.generated(),
         files=resources,
+        codero=True,
         figureo=True,
         groupme=True,
         rawmaker_cleanup=True,
