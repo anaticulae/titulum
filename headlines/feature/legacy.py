@@ -10,8 +10,8 @@
 import utila
 
 
-def work(result: str) -> str:
-    if not utila.exists(result):
+def work(xresult: str) -> str:
+    if not utila.exists(xresult):
         return '[]'
-    content = utila.file_read(result)
+    content = utila.file_read(xresult)
     return content
