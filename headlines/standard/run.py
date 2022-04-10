@@ -218,6 +218,16 @@ def merges_next(current, after) -> bool:
         # raw level
         if parsed[2]:
             return False
+    # check equal alignment
+    # high diff to ensure that intendet second line is merged
+    aligned = utila.near(
+        current.bounding[0],
+        after.bounding[0],
+        diff=70.0,
+    )
+    aligned |= utila.near(current.bounding[2], after.bounding[2])
+    if not aligned:
+        return False
     return True
 
 
