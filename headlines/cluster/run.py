@@ -9,6 +9,7 @@
 
 import collections
 import itertools
+import warnings
 
 import configo
 import elements
@@ -18,9 +19,7 @@ import scipy.cluster.vq
 import texmex
 import utila
 
-import headlines.cluster.headline
 import headlines.cluster.parser
-import headlines.cluster.utils
 import headlines.cluster.validate
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
@@ -270,3 +269,12 @@ def verify_level(grouped: list) -> list:
         result.append(valid)
         # TODO: MOVE INVALID TO GROUP LEVEL 4?
     return result
+
+
+def disable_warnings():
+    # TODO: DO NOT DISABLE ALL WARNINGS
+    nowarning = lambda message, category=None, stacklevel=1, source=None: ''  # pylint:disable=W0613
+    warnings.warn = nowarning
+
+
+disable_warnings()
