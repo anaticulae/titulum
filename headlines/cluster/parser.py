@@ -40,7 +40,6 @@ def parse_vector(
         # empty page
         return []
     uppers = upperrate(navigator)
-    # lengths = textlength(navigator)
     # hashed = [item.text.strip() for item in navigator]
     sizes = textsizes(navigator)
     bolds = bold(navigator, fontstore)
@@ -62,60 +61,8 @@ def parse_vector(
     return result
 
 
-def textdistances(navigator, digits: int = 1) -> VerticalTextDistances:
-    # TODO: MOVE TO TEXMEX
-    if not navigator:
-        return []
-    if len(navigator) == 1:
-        # no predecessor and successor
-        return [VerticalTextDistance(None, None)]
-    ypos = vertical_position(navigator)
-
-    # first
-    result = [VerticalTextDistance(None, ypos[0].bottom - ypos[1].bottom)]
-    for before, current, after in zip(ypos[0:-2], ypos[1:-1], ypos[2:]):
-        # middles
-        top_distance = before.bottom - current.bottom
-        bottom_distance = current.bottom - after.bottom
-        result.append(VerticalTextDistance(top_distance, bottom_distance))
-    # last
-    result.append(VerticalTextDistance(ypos[-2].bottom - ypos[-1].bottom, None))
-
-    # round to have propper user output/developer handling
-    rounded = round_vertical_distances(result, digits=digits)
-    return rounded
-
-
-def round_vertical_distances(items, digits: int = 1):
-    """Round list of `VerticalTextDistances`.
-
-    >>> round_vertical_distances([VerticalTextDistance(1.333, None), VerticalTextDistance(5.88, 5.0)])
-    [VerticalTextDistance(top=1.3, bottom=None), VerticalTextDistance(top=5.9, bottom=5.0)]
-    """
-    result = []
-    for item in items:
-        before = utila.roundme(
-            item[0],
-            digits=digits,
-        ) if item[0] is not None else None
-        after = utila.roundme(
-            item[1],
-            digits=digits,
-        ) if item[1] is not None else None
-        result.append(VerticalTextDistance(before, after))
-
-    return result
-
-
 def textlength(navigator) -> utila.Ints:
     return textvalue(navigator, selector=lambda item: len(item.text.strip()))
-
-
-def textwidth(navigator) -> utila.Floats:
-    return textvalue(
-        navigator,
-        selector=lambda item: item.bounding.x1 - item.bounding.x0,
-    )
 
 
 def bold(navigator, fontstore) -> utila.Floats:
