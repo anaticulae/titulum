@@ -7,37 +7,18 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
 import pytest
 import utila
 import utilatest
 
 import headlines
 import tests
+import tests.conftest
 
 ARCHIVE = utila.join(headlines.ROOT, 'tests/standard/expected', exist=True)
 
 
-@pytest.mark.parametrize('source', [
-    pytest.param(power.BACHELOR028_PDF, id='bachelor028'),
-    pytest.param(power.BACHELOR032A_PDF, id='bachelor032a'),
-    pytest.param(power.BACHELOR032_PDF, id='bachelor032'),
-    pytest.param(power.BACHELOR036_PDF, id='bachelor036'),
-    pytest.param(power.BACHELOR039_PDF, id='bachelor039'),
-    pytest.param(power.BACHELOR041A_PDF, id='bachelor041a'),
-    pytest.param(power.BACHELOR067_PDF, id='bachelor067'),
-    pytest.param(power.BACHELOR078_PDF, id='bachelor078'),
-    pytest.param(power.BACHELOR086_PDF, id='bachelor086'),
-    pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
-    pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
-    pytest.param(power.MASTER031_PDF, id='master031'),
-    pytest.param(power.MASTER063_PDF, id='master063'),
-    pytest.param(power.MASTER072_PDF, id='master072'),
-    pytest.param(power.MASTER083_PDF, id='master083'),
-    pytest.param(power.MASTER089_PDF, id='master089'),
-    pytest.param(power.MASTER098_PDF, id='master098'),
-    pytest.param(power.DISS172_PDF, id='diss172'),
-])
+@pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_standard_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
