@@ -10,6 +10,7 @@
 import genex
 import power
 import pytest
+import utila
 
 import headlines
 
@@ -40,6 +41,9 @@ RESOURCES = [
     power.MASTER083_PDF,
     power.MASTER089_PDF,
     power.MASTER098_PDF,
+]
+TEST_TODO = [
+    pytest.param(source, id=utila.file_name(source)) for source in RESOURCES
 ]
 
 

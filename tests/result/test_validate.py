@@ -12,17 +12,13 @@ import utila
 import utilatest
 
 import headlines
+import tests
 import tests.conftest
 
 ARCHIVE = utila.join(headlines.ROOT, 'tests/result/expected', exist=True)
 
-TODO = [
-    pytest.param(source, id=utila.file_name(source))
-    for source in tests.conftest.RESOURCES
-]
 
-
-@pytest.mark.parametrize('source', TODO)
+@pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.longrun
 def test_result_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
