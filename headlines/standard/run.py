@@ -13,17 +13,10 @@ import iamraw
 import texmex
 import utila
 
+import headlines.config
 import headlines.level
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
-
-HEADLINES_COUNT_MIN = configo.HolyTable(items=[
-    (0, 7),
-    (50, 7),
-    (100, 10),
-    (150, 12),
-    (200, 15),
-])
 
 
 def run(
@@ -44,7 +37,7 @@ def run(
         if not parsed:
             continue
         collected.extend(parsed)
-    headlines_count_min = HEADLINES_COUNT_MIN(len(ptcns))
+    headlines_count_min = headlines.config.HEADLINE_COUNT_MIN(len(ptcns))
     if len(collected) < headlines_count_min:
         utila.debug(f'too few headlines: {len(collected)}, disable: standard')
         return []
