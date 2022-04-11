@@ -21,6 +21,7 @@ import utila
 
 import headlines.cluster.parser
 import headlines.cluster.validate
+import headlines.config
 import headlines.utils
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
@@ -32,13 +33,21 @@ def run(
 ) -> iamraw.PagesHeadlineList:
     matrix, ptcns, _ = create_matrix(ptcns, fontstore)
     clustered = clusterme(matrix, ptcns)
-    extracted = extract_headlines(clustered)
+    extracted = extract_headlines(
+        clustered,
+        document_length=len(ptcns),
+    )
     converted = convert_cluster(extracted, ptcns)
     result = headlines.utils.groupby_level_one(converted)
     return result
 
 
-def extract_headlines(clusters, cluster_size_min: int = 5, **kwargs):
+def extract_headlines(
+    clusters,
+    cluster_size_min: int = 5,
+    document_length: int = 30,
+    **kwargs,
+):
     # find headline cluster
     flat, _ = headlines.cluster.validate.valid_headline_clusters(
         clusters=clusters,
@@ -49,6 +58,11 @@ def extract_headlines(clusters, cluster_size_min: int = 5, **kwargs):
     flat = merge_headline(flat)
     # sort headlines
     flat = sorted(flat, key=lambda x: utila.alphabetically(x.text))
+    headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
+    if len(flat) < headline_count_min:
+        utila.debug(f'cluster: too few headlines {len(flat)}, require at '
+                    f'least {headline_count_min}, disable strategy')
+        return []
     # group headlines
     grouped = groupby_level(flat)
     # verify group

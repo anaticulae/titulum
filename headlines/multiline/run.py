@@ -68,6 +68,7 @@ def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
         return result
     return []
 
+
 def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
     result = []
     for navigator in ptcns:
@@ -79,7 +80,6 @@ def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
             continue
         result.extend(extracted)
     return result
-
 
 
 def extract_page(
