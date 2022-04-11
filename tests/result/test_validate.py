@@ -23,6 +23,7 @@ TODO = [
 
 
 @pytest.mark.parametrize('source', TODO)
+@utilatest.longrun
 def test_result_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(

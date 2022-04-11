@@ -31,6 +31,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
     pytest.param(power.BACHELOR090_PDF, id='bachelor090'),
     pytest.param(power.BACHELOR105_PDF, id='bachelor105'),
 ])
+@utilatest.longrun
 def test_cluster_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
