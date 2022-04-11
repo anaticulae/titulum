@@ -26,6 +26,8 @@ import headlines.utils
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
 
+HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
+
 
 def run(
     ptcns: texmex.PTCNs,
@@ -94,9 +96,6 @@ def convert_cluster(clusters: list, ptcns) -> list:
             )
             result.append(headline)
     return result
-
-
-HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
 
 
 def headline_level(line, clusters) -> int:
