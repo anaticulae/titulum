@@ -46,12 +46,17 @@ def clean_cluster(
     cluster,
     x0_max_diff: float = 15.0,
 ):
-    # TODO: ACCEPT RIGHT PADDED TEXT
-    # skip too right items
-    valid = [
-        item for item in cluster
-        if 35.0 <= item[0].bounding.x0 < (75.0 + x0_max_diff)
-    ]
+
+    def left_right_aligned(bounding: tuple) -> bool:
+        # skip too right or too left items
+        if 35.0 <= bounding[0] < (75.0 + x0_max_diff):
+            return True
+        # 595.28
+        if (595.28 - 75.0 - x0_max_diff) <= bounding[2] < 595.28 - 35.0:
+            return True
+        return False
+
+    valid = [item for item in cluster if left_right_aligned(item[0].bounding)]
     # skip `Kapitel 1`-pattern
     valid = [
         item for item in valid if not elements.noheadline(item[0].text) or
