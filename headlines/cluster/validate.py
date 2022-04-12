@@ -24,7 +24,10 @@ def valid_headline_clusters(
     collected = []
     delete = []
     for cluster in clusters:
-        cluster = clean_cluster(cluster, x0_max_diff=x0_max_diff)
+        cluster = clean_cluster(
+            cluster,
+            x0_max_diff=x0_max_diff,
+        )
         if len(cluster) <= cluster_size_min:
             continue
         rate, median = headline_rate(cluster)
