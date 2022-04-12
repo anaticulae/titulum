@@ -51,7 +51,7 @@ def finalize(collected) -> list:
     # TODO: ADJUST INTERFACE LATER
     # update level
     headlines.level.cluster_headline_level({0: collected})
-    result = groupby_level_one(collected)
+    result = headlines.utils.groupby_level_one(collected)
     return result
 
 
@@ -274,20 +274,3 @@ def should_skip(
     if headline_tosmall:
         return True
     return False
-
-
-def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
-    result = []
-    # detect chapter starts
-    levelone = [
-        index for (index, item) in enumerate(heads) if item.level in (None, 1)
-    ]
-    # group headlines into chapters
-    result = [
-        heads[index:after]
-        for (index, after) in zip(levelone[:-1], levelone[1:])
-    ]
-    if levelone:
-        # do not forget the last group
-        result.append(heads[levelone[-1]:])
-    return result
