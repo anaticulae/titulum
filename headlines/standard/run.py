@@ -133,33 +133,26 @@ def extract_headline(
         # for non page start check distance before and after
         fontdistance += textdistances[containerid]
         fontdistance = fontdistance / 2.0
-
     textfeed = textfeeds[containerid]
     textsize = texmex.TextStyle.textsizes(textinfo.style)
-
     distance_toosmall, headline_toosmall, higher_equalthree = too_small(
         text,
         fontdistance,
         textsize,
         **kwargs,
     )
-
     lastitem = look_forward == len(ptcn)
     if len(text) < HEADLINE_LENGTH_MIN:
         return None
-
     skipper = should_skip if skipper is None else skipper
-
     skip = skipper(
         distance_tosmall=distance_toosmall,
         headline_tosmall=headline_toosmall,
         textfeed=textfeed,
         lastitem=lastitem,
     )
-
     if skip and not higher_equalthree:
         return None
-
     raw_text = text.strip()
     # try to merge next container to parse double headline
     merge_next = double and not lastitem and merges_next(
