@@ -135,7 +135,7 @@ def skip_if_too_few(
     headline_count = len(utila.flatten(headlinex, append=True))
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
     if headline_count < headline_count_min:
-        utila.debug(f'cluster: too few headlines {headline_count}, require at '
+        utila.debug(f'too few headlines {headline_count}, require at '
                     f'least {headline_count_min}, disable strategy: {strategy}')
         return []
     return headlinex
