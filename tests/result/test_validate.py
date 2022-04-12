@@ -22,12 +22,22 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/result/expected', exist=True)
 @utilatest.longrun
 def test_result_validate(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
-    tests.Evaluate(
-        name='result --all',
+    ResultEvaluate(
         source=source,
-        pages=':',
-        expected=utila.file_name(source),
-        archive=ARCHIVE,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
+
+
+class ResultEvaluate(tests.Evaluate):
+
+    def __init__(self, source, workdir, monkeypatch):
+        super().__init__(
+            name='result --all',
+            source=source,
+            pages=':',
+            expected=utila.file_name(source),
+            archive=ARCHIVE,
+            workdir=workdir,
+            monkeypatch=monkeypatch,
+        )
