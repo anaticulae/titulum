@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.7.0
+
+### Feature
+
+* use new datatype with strategy field (38dc024a5bb3)
+* add method to convert to headline result (2e07168ad87d)
+* disable result for too few headlines (171b65fe722e)
+* add table with minimal headline count (1fe8b036574e)
+* add left and right alignment check (90cdd68dbafc)
+
+### Fix
+
+* adjust headlines path (fef105b3dc4b)
+* adjust filename, fix magic result value (ac79944df8d5)
+
 ## v0.6.0
 
 ### Feature
