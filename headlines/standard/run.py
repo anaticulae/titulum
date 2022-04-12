@@ -13,7 +13,7 @@ import iamraw
 import texmex
 import utila
 
-import headlines.config
+import headlines.judge
 import headlines.level
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
@@ -37,9 +37,11 @@ def run(
         if not parsed:
             continue
         collected.extend(parsed)
-    headlines_count_min = headlines.config.HEADLINE_COUNT_MIN(len(ptcns))
-    if len(collected) < headlines_count_min:
-        utila.debug(f'too few headlines: {len(collected)}, disable: standard')
+    if not headlines.judge.skip_if_too_few(
+            collected,
+            document_length=len(ptcns),
+            strategy=__name__,
+    ):
         return []
     result = finalizer(collected)
     return result
