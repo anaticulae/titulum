@@ -1,0 +1,81 @@
+1. Einleitung
+    1.1. Zielsetzung
+    1.2. Gliederung und Aufbau der Arbeit
+2. Theoretische Grundlagen
+    2.1. Grundlagen der Hybridfahrzeuge
+        2.1.1. Aufbau von Hybridfahrzeugen
+        2.1.2. Betriebsstrategien für Hybridfahrzeuge
+        2.1.3. Hybridangetriebene Schienenfahrzeuge
+        2.1.4. Bewertungsmethoden von Schienenfahrzeugen
+    2.2. Längsdynamikmodell des Fahrzeugs
+        2.2.1. Zugkraftmodell am Triebradsatz
+        2.2.2. Fahrwiderstände
+        2.2.3. Energie- und Leistungsbedarf
+        2.2.4. Zugeinheit
+        2.2.5. Spezifischer Kraftstoffverbrauch
+    2.3. Getriebetechnik Grundlagen
+        2.3.1. Übersetzungsverhältnis
+        2.3.2. Stirnradstufe
+        2.3.3. Umlaufrädergetriebe
+3. Analyse der Fahrzeuganforderungen
+    3.1. Vorgegebene Fahrprofile
+        3.1.1. Abfolge des Referenzzyklus
+        3.1.2. Häufigkeitsanalyse
+        3.1.3. Mindestanforderung
+        3.1.4. Ergebnis der Anforderungsanalyse
+    3.2. Analyse der Fahrzeugparameter
+    3.3. Analyse Systemstruktur des Getriebes
+        3.3.1. Getriebestruktur
+        3.3.2. Getriebeausgang
+        3.3.3. Generator
+        3.3.4. Fahrmotor
+        3.3.5. Verbrennungsmotor
+        3.3.6. Traktionsbatterie
+4. Systembeschreibung des Getriebemodells
+    4.1. Aufstellen der Systemgleichungen
+        4.1.1. Kinematische Gleichungen
+        4.1.2. Kinetische Gleichungen
+    4.2. Komponenten im Antriebsstrang
+        4.2.1. Verbrennungsmotor
+        4.2.2. Elektrische Maschinen
+        4.2.3. Batterie
+    4.3. Wirkungsgradbetrachtung des Leistungsflusses
+        4.3.1. Mechanisches Fahren
+        4.3.2. Elektrisches Fahren
+    4.4. Bestimmen der Zahnradkonfiguration
+5. Entwicklung der Betriebsstrategie
+    5.1. Mehrstufiges Optimierungsproblem
+        5.1.1. Systembeschreibung
+        5.1.2. Kosten
+an. Die verfeinerten Kosten sind von Zustand und Aktion
+        5.1.3. Strategie
+        5.1.4. Backward-Dynamic-Programming
+    5.2. Anwendung der Dynamischen Programmierung
+        5.2.1. Analyse der Fahrzustände der Referenzstrecke
+        5.2.2. Wiederholende Aktionsmöglichkeiten erzeugen
+        5.2.3. Simulation
+        5.2.4. Konvergenzanalyse
+    5.3. Simulationsergebnisse der dynamischen Optimierung
+        5.3.1. Optimallösungen für die Fahrprofile
+        5.3.2. Variation der Batteriekapazität
+    5.4. Ableiten der Betriebsstrategie
+        5.4.1. Vorgehen zum Ableiten des Betriebsstrategiekennfelds
+        5.4.2. Ergebnis
+6. Modellbildung und Simulation in Velodyn
+    6.1. Modellierung der Lokomotivtypen
+        6.1.1. Konventionelle Lokomotive
+        6.1.2. Hybridlokomotive
+    6.2. Simulationsergebnisse der Längsdynamiksimulation
+        6.2.1. Konventionelles Lokomotivmodell
+        6.2.2. Hybrid-Modell
+        6.2.3. Vergleich der Simulationsergebnisse
+    6.3. Sensitivitätsanalyse der Modellparameter
+        6.3.1. Analyse der Betriebsstrategie
+        6.3.2. Einfluss der Parametrisierung auf das Simulationsergebnis
+7. Zusammenfassung und Ausblick
+Abbildungsverzeichnis
+Tabellenverzeichnis
+Symbolverzeichnis
+Abkürzungsverzeichnis
+Literaturverzeichnis
+A. Anhang

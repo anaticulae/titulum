@@ -1,0 +1,62 @@
+STRATEGY:headlines.feature.standard
+
+Einleitung
+Kapitel 1
+Zeitabhängiges Verhalten
+elektrischer Verbindungen
+            z. B. die Ausgangsleistung, begrenzt. Diese Schaltungen werden dennoch als
+    1.1 Ursachen für zeitabhängige Widerstands- änderungen
+        1.1.1 Zyklische mechanische Belastung
+        1.1.2 Temperaturänderung durch Wechselsignale
+        1.1.3 Zusammenfassung
+    1.2 Entstehung von Harmonischen und Inter- modulationen
+    1.3 Messung von Nichtlinearitäten
+Kapitel 2
+Einfluss von Degradationen auf die Linearität elektrischer
+    2.1 Abgrenzung der Begriﬄichkeiten und De- fektbreite Null
+    2.2 Modellierung elektrischer Verbindungen
+    2.3 Ermittlung eines günstigen Messfrequenz- bereiches
+    2.4 Zusammenhang zwischen Defekt und Mess- signal
+Kapitel 3
+Entwicklung eines
+Simulationsmodells zur
+Erkennung kleinster Defekte in Leiterbahnen
+    3.1 Thermisch-elektrische FEM Simulation ei- ner Mikrostreifenleiterbahn
+    3.2 Anforderungen an eine geeignete Simula- tionsumgebung
+    3.3 Modellierung des thermischen Verhaltens einer Mikrostreifenleitung
+        3.3.1 Aufstellen der Differentialgleichungen
+        3.3.2 Simulation des Temperaturverlaufs
+        3.3.3 Simulation des nichtlinearen elektrischen Verhal- tens
+        3.3.4 Parameterstudien an dem entwickelten Simulati- onsmodell
+        3.3.5 Grenzen der Simulation
+Kapitel 4
+Experimentelle Verifikation
+    4.1 Auswahl und Beschreibung der Testobjek- te
+    4.2 Alterung der Testobjekte
+        4.2.1 Beschleunigte Alterung als Testbedingung
+        4.2.2 Diskussion der Fehlermechanismen natürlicher und beschleunigter Alterung
+        4.2.3 Reproduzierbarkeit der Schädigung
+    4.3 Messaufbau
+        4.3.2 Elektrische Messung
+        4.3.3 Beschränkungen der verwendeten Messtechnik
+    4.4 Ergebnisse der Messungen
+        4.4.1 Dritte Harmonische der Leiterbahnteststruktur
+        4.4.2 Intermodulation in Flip-Chip-Lotverbindungen
+    4.5 Bestätigung verteilter IDe-Quellen
+    4.6 Zusammenfassung und Bewertung der Er- gebnisse
+        4.6.1 Vergleich zwischen Simulation und Experiment
+        4.6.2 Ableitungen für die praktische Umsetzung des Mess- verfahrens
+Kapitel 5
+Verallgemeinerung des Messprinzips
+    5.1 Vereinfachung des Messaufbaus durch ge- eignete Wahl der Signalfrequenzen
+    5.2 Höhere Selektivität durch Auswertung der Phaseninformation zwischen Eingangs- und
+    5.3 Wechsel der Modulationsquelle
+Ausblick
+Anhang A
+Frequenz- und Phasenselektive Messung sehr kleiner
+    A.1 Das Lock-in Prinzip
+                        A.1.1 Allgemeine Berechnung von Fourierkoeffzieinten
+                        A.1.2 Beschreibung des Lock-in Prinzips im Zeitbereich
+                        A.1.3 Beseitigung der Frequenz- und Phasenabhängig- keit des Ausgangssignals
+Stichwortverzeichnis
+Literaturverzeichnis

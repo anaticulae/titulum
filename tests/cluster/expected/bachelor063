@@ -1,0 +1,63 @@
+1  Einleitung
+2  Grundlagen
+    2.1  Blutdruck
+        2.1.1  Invasive Messung des arteriellen Drucks
+        2.1.2  Nicht-invasive Messung des arteriellen Drucks
+            2.1.2.1  Auskultatorische Methode
+            2.1.2.2  Oszillometrische Methode
+            2.1.2.3  Volumenkompensationsmethode
+    2.2  Ultraschall-Doppler -Blutflussmessung
+    2.3  Digitale Regelung
+        2.3.1  Grundprinzip der Regelungste chnik
+        2.3.2  Besonderheiten der digitalen Regelung
+        2.3.3  Der PI-Regler
+    2.4  Programmiersprache LabVIEW
+    2.5  Valsalva-Press-Versuch
+3  Aufgabenstellung
+    3.1  Bestehender Versuchsaufbau
+    3.2  Anforderungen an den neuen Versuchsaufbau
+4  Material und Methoden
+    4.1  Realisierung einer digitalen Steuerung/Regelung
+        4.1.1  Programmierung
+        4.1.2  Anpassung der Hardware
+    4.2  Anpassung der Messwerte mit alternativem Verfahren
+        4.2.1  Oszillometrische Bestimmung des mittleren arteriellen Blutdrucks
+        4.2.2  Anpassung der Druckwerte
+        4.2.3  Manuelle Eingabe alternativer Werte
+    4.3  Erstellung einer Bedienoberfläche
+        4.3.1  Anforderungen an die Bedienoberfläche
+        4.3.2  Hauptprogramm
+        4.3.3  Sub-VI „Messprogramm“
+    4.4  Überarbeitung der Sondenfixierung
+5  Ergebnisse
+    5.1  Optimierter Versuchsaufbau
+    5.2  Testmessungen
+        5.2.1  Durchführung
+        5.2.2  Ergebnisse
+6  Diskussion und Ausblick
+7  Anhang
+    7.1  Programmstruktur
+        7.1.1  Hauptprogramm
+        7.1.2  Sub-VI „Messprogramm“
+    7.2  Hardwareaufbau
+            7.2.1.4  Pneumatikplan Druckerzeugungseinheit
+    7.3  Sondenfixierung
+    7.4  Testmessungen
+        7.4.1  Messprotokoll
+Literaturverzeichnis
+            Diplomarbeit, Fachhochschule Ulm (1996)
+4. Auflage, Fachbuchverlag Leipzig im Carl Hanser Verlag, München (2009)
+            http://www.hemodynamic.com/abp/index.html, Internetpräsenz, Bern (2010)
+            Bachelorarbeit, Hochschule Ulm (2010)
+8. Auflage, Springer-Verlag, Heidelberg (2010)
+6. Auflage, Springer-Verlag, Heidelberg (2010)
+            Vorlesungsskript SS2010, Hochschule Ulm (2010)
+            Vorlesungsskript SS2011, Hochschule Ulm (2011)
+12. Auflage, Vieweg+Teubner, Wiesbaden (2008)
+Abbildungsverzeichnis
+Glossar
+Lebenslauf
+            Persönliche Daten
+            Schule
+            Studium
+            Praktika
