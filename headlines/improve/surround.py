@@ -43,6 +43,7 @@ def headline_expand(headline, page):
         if isinstance(headline_end, tuple):
             headline_end = headline_end[-1]
         after = page[headline_end + 1]
+    # TODO: UNUSED AFTER
     if before:
         if elements.noheadline_pattern(before.text):
             headline.decorator = headline_start - 1
