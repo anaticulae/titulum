@@ -10,6 +10,7 @@
 import serializeraw
 
 import headlines.cluster.run
+import headlines.utils
 
 
 def work(
@@ -40,9 +41,13 @@ def work(
         fontcontent,
         pages=pages,
     )
-    detected = headlines.cluster.run.run(
+    groups = headlines.cluster.run.run(
         ptcns=ptcns,
         fontstore=fontstore,
+    )
+    detected = headlines.utils.convert_headline_result(
+        groups=groups,
+        strategy=__name__,
     )
     dumped = serializeraw.dump_headlines(detected)
     return dumped

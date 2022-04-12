@@ -11,6 +11,7 @@ import serializeraw
 
 import headlines.feature
 import headlines.nlarge.run
+import headlines.utils
 
 
 def work(
@@ -36,6 +37,10 @@ def work(
         fontcontent,
         pages=pages,
     )
-    detected = headlines.nlarge.run.run(ptcns)
+    groups = headlines.nlarge.run.run(ptcns)
+    detected = headlines.utils.convert_headline_result(
+        groups=groups,
+        strategy=__name__,
+    )
     dumped = serializeraw.dump_headlines(detected)
     return dumped

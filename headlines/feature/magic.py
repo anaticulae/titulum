@@ -7,6 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import serializeraw
+
+import headlines.utils
+
 
 def work() -> str:
-    return '[]'
+    detected = headlines.utils.convert_headline_result(
+        groups=[],
+        strategy=__name__,
+    )
+    dumped = serializeraw.dump_headlines(detected)
+    return dumped

@@ -7,11 +7,19 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import serializeraw
 import utila
+
+import headlines.utils
 
 
 def work(xresult: str) -> str:
     if not utila.exists(xresult):
-        return '[]'
+        detected = headlines.utils.convert_headline_result(
+            groups=[],
+            strategy=__name__,
+        )
+        dumped = serializeraw.dump_headlines(detected)
+        return dumped
     content = utila.file_read(xresult)
     return content

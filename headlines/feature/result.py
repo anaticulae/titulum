@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
 import serializeraw
 import utila
 
@@ -31,14 +32,14 @@ def work(
             pages=pages,
         ) if source else None for source in sources
     ]
-    best = select_best(headlines)
+    best: iamraw.HeadlineResult = select_best(headlines)
     if not best:
-        return '[]'
+        best = iamraw.HeadlineResult()
     dumped = serializeraw.dump_headlines(best)
     return dumped
 
 
-def select_best(headlines) -> list:
+def select_best(headlines) -> iamraw.HeadlineResult:
     if not headlines:
         return []
     # TODO: USE BETTER SELECTOR

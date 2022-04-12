@@ -36,6 +36,10 @@ def work(
         fontcontent,
         pages=pages,
     )
-    detected = headlines.standard.run.run(ptcns)
+    groups = headlines.standard.run.run(ptcns)
+    detected = headlines.utils.convert_headline_result(
+        groups=groups,
+        strategy=__name__,
+    )
     dumped = serializeraw.dump_headlines(detected)
     return dumped
