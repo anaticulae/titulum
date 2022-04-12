@@ -29,11 +29,6 @@ WORKPLAN = [
         output=('cluster',),
     ),
     utila.create_step(
-        'magic',
-        inputs=[],
-        output=('magic',),
-    ),
-    utila.create_step(
         'multiline',
         inputs=[
             utila.ResultFile('rawmaker', 'text_text'),
@@ -102,7 +97,6 @@ WORKPLAN = [
         'result',
         inputs=[
             utila.ResultFile('headlines', 'cluster_cluster', optional=True),
-            utila.ResultFile('headlines', 'magic_magic', optional=True),
             utila.ResultFile('headlines', 'multiline_multiline', optional=True),
             utila.ResultFile('headlines', 'nolevel_nolevel', optional=True),
             utila.ResultFile('headlines', 'nlarge_nlarge', optional=True),

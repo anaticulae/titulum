@@ -14,7 +14,6 @@ import utila
 
 def work(
     xcluster: str = None,
-    xmagic: str = None,
     xmultiline: str = None,
     xnolevel: str = None,
     xnlarge: str = None,
@@ -24,7 +23,7 @@ def work(
 ) -> str:
     sources = [
         item if utila.exists(item) else None for item in
-        [xcluster, xmagic, xmultiline, xnolevel, xnlarge, xsingle, xstandard]
+        [xcluster, xmultiline, xnolevel, xnlarge, xsingle, xstandard]
     ]
     headlines = [
         serializeraw.load_headlines(
