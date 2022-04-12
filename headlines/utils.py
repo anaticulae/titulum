@@ -25,3 +25,19 @@ def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
         # do not forget the last group
         result.append(heads[levelone[-1]:])
     return result
+
+
+def convert_headline_result(
+    groups: list,
+    strategy: str = None,
+) -> iamraw.HeadlineResult:
+    """\
+    >>> convert_headline_result([[iamraw.Headline(title='first')]])
+    HeadlineResult(groups=[HeadlineGroup(headlines=[Headline(title='first', ...)], number=None)])
+    >>> convert_headline_result([], __name__).__strategy__
+    'headlines.utils'
+    """
+    groups = [iamraw.HeadlineGroup(headlines=group) for group in groups]
+    result = iamraw.HeadlineResult(groups=groups)
+    result.__strategy__ = strategy
+    return result
