@@ -146,6 +146,7 @@ def rename(path):
     path = utila.rreplace(
         path,
         pattern='headlines__legacy_result',
-        replace='words__word_result',
+        replace='words__headlines_headlines',
     )
+    # TODO: WHAT SHALL WE DO WITH: words__headlines_oneline.yaml?
     return path
