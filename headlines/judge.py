@@ -11,6 +11,7 @@ import configo
 import elements
 import utila
 
+import headlines.config
 import headlines.visitor
 
 
@@ -124,3 +125,17 @@ def too_many_error(headlinex, second: bool = False) -> bool:
     utila.debug('skip invalid, too many error: '
                 f'{error}/{error_max}:{headline_count}:second:{second}')
     return True
+
+
+def skip_if_too_few(
+    headlinex,
+    document_length,
+    strategy: str = None,
+):
+    headline_count = len(utila.flatten(headlinex, append=True))
+    headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
+    if headline_count < headline_count_min:
+        utila.debug(f'cluster: too few headlines {headline_count}, require at '
+                    f'least {headline_count_min}, disable strategy: {strategy}')
+        return []
+    return headlinex

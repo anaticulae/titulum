@@ -17,6 +17,7 @@ import texmex
 import utila
 
 import headlines.config
+import headlines.judge
 import headlines.level
 import headlines.utils
 
@@ -43,19 +44,21 @@ HEADLINE_H1_TRY = configo.HolyList(items=[
 
 
 def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
-    headlines_count_min = headlines.config.HEADLINE_COUNT_MIN(len(ptcns))
     for h1_try in HEADLINE_H1_TRY:
         utila.debug(f'multiline, try h1_size_min: {h1_try}')
         collected = collect(
             ptcns,
             h1_size_min=h1_try,
         )
+        if not collected:
+            continue
         if headlines.judge.invalid_extraction(collected):
             continue
-        if len(collected) < headlines_count_min:
-            utila.debug(f'too few headlines: {len(collected)}, skip mutliline')
-            continue
-        if not collected:
+        if not headlines.judge.skip_if_too_few(
+                collected,
+                document_length=len(ptcns),
+                strategy=__name__,
+        ):
             continue
         result = headlines.utils.groupby_level_one(collected)
         return result
