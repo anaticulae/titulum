@@ -41,3 +41,10 @@ class ResultEvaluate(tests.Evaluate):
             workdir=workdir,
             monkeypatch=monkeypatch,
         )
+
+    def raw(self, value) -> str:
+        if not value:
+            return ''
+        result = f'STRATEGY:{value.__strategy__}\n\n'
+        result += super().raw(value)
+        return result
