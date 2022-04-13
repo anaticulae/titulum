@@ -46,11 +46,11 @@ def merge_levelfour(extracted, levelfour):
     def insert(current, result):
         for chapter in result:
             for index, item in enumerate(chapter):
+                if current.page > item.page:
+                    continue
                 start = item.container
                 if isinstance(start, tuple):
                     start = start[0]
-                if current.page > item.page:
-                    continue
                 if current.page == item.page and current.container > start:
                     continue
                 chapter.insert(index, current)
