@@ -14,3 +14,6 @@ sections>=1.19.0<2.0.0
 groupme>=0.29.1<1.0.0
 figureo>=0.17.2<1.0.0
 codero>=0.4.0<1.0.0
+
+# remove later
+rawmaker>=2.34.0<3.0.0
