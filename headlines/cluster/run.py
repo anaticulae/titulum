@@ -202,7 +202,7 @@ def groupby_level(items) -> list:
     return result
 
 
-def merge_headline(items):
+def merge_headline(items: list) -> list:
     """Merge multi-line-headlines into a single line."""
     result = []
     done = set()
@@ -213,6 +213,11 @@ def merge_headline(items):
             # use item only onces
             continue
         if current.style.fontid != after.style.fontid:
+            result.append(current)
+            done.add(id(current))
+            continue
+        if current == after:
+            # page end
             result.append(current)
             done.add(id(current))
             continue
