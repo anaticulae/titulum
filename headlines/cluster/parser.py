@@ -65,10 +65,12 @@ def textlength(navigator) -> utila.Ints:
     return textvalue(navigator, selector=lambda item: len(item.text.strip()))
 
 
-def bold(navigator, fontstore) -> utila.Floats:
+# float is required to use cluster algorithm
+BOLD = 100.0
+NO_BOLD = 10.0
 
-    bold_ = 100.0
-    no_bold = 10.0
+
+def bold(navigator, fontstore) -> utila.Floats:
 
     def more_than_eighty_or_nothing(items):
         """Bold detection requires that more than eigthy percent of the
@@ -86,16 +88,18 @@ def bold(navigator, fontstore) -> utila.Floats:
             return set(items)
         return {item}
 
-    def isbold(item):
+    def isbold(item) -> float:
         fontids = texmex.TextStyle.fontids(
             item.style,
             more_than_eighty_or_nothing,
         )
         if len(fontids) > 1:
-            return no_bold
+            return NO_BOLD
         font = fontstore[item.style.fontid]
         weight = font.weight
-        return bold_ if weight == iamraw.Weight.BOLD else no_bold
+        if weight == iamraw.Weight.BOLD:
+            return BOLD
+        return NO_BOLD
 
     return textvalue(navigator, selector=isbold)
 
