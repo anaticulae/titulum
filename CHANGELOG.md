@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.7.1
+
+### Feature
+
+* use central headline length judger (024f56d940a3)
+
+### Fix
+
+* do not skip headlines at page end (53b87f4f0c16)
+* fix error message (fdcdaf1bc39a)
+
 ## v0.7.0
 
 ### Feature
