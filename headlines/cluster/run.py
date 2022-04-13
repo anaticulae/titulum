@@ -261,7 +261,10 @@ def merge_headline(items: list) -> list:
 def verify_level(grouped: list) -> list:
     result = []
     for group in grouped:
-        if not any(elements.noheadline_pattern(item.text) for item in group):
+        without_chapterpattern = not any(
+            elements.noheadline_pattern(item.text) for item in group)
+        if without_chapterpattern:
+            # no chapter pattern inside group, add whole group
             result.append(group)
             continue
         # remove no-chapter-pattern
