@@ -1,4 +1,4 @@
-STRATEGY:headlines.feature.cluster
+STRATEGY:headlines.feature.standard
 
 1  Einleitung
 2  Grundlagen
@@ -43,30 +43,19 @@ STRATEGY:headlines.feature.cluster
         7.1.2  Sub-VI „Messprogramm“
         7.1.3  Blockdiagramm der optimierten Regelschleife
     7.2  Hardwareaufbau
+        7.2.1  Schalt- und Anschlusspläne
             7.2.1.1  Schaltplan Verteilerplatine
             7.2.1.2  Schaltplan Netzversorgung
             7.2.1.3  Anschlussplan
             7.2.1.4  Pneumatikplan Druckerzeugungseinheit
+        7.2.2  Zeichnungen
+            7.2.2.1  Frontplatte
             7.2.2.2  Rückwand
     7.3  Sondenfixierung
         7.3.1  Zeichnung Befestigungsblock
     7.4  Testmessungen
         7.4.1  Messprotokoll
 Literaturverzeichnis
-            Diplomarbeit, Fachhochschule Ulm (1996)
-4. Auflage, Fachbuchverlag Leipzig im Carl Hanser Verlag, München (2009)
-            http://www.hemodynamic.com/abp/index.html, Internetpräsenz, Bern (2010)
-            Bachelorarbeit, Hochschule Ulm (2010)
-8. Auflage, Springer-Verlag, Heidelberg (2010)
-6. Auflage, Springer-Verlag, Heidelberg (2010)
-            Vorlesungsskript SS2010, Hochschule Ulm (2010)
-            Vorlesungsskript SS2011, Hochschule Ulm (2011)
-12. Auflage, Vieweg+Teubner, Wiesbaden (2008)
-2. Auflage, Oldenbourg-Verlag, München (2008)
 Abbildungsverzeichnis
 Glossar
 Lebenslauf
-            Persönliche Daten
-            Schule
-            Studium
-            Praktika
