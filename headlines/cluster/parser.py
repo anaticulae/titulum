@@ -40,7 +40,6 @@ def parse_vector(
         # empty page
         return []
     uppers = upperrate(navigator)
-    # hashed = [item.text.strip() for item in navigator]
     sizes = textsizes(navigator)
     bolds = bold(navigator, fontstore)
     italics = italic(navigator, fontstore)
@@ -182,22 +181,6 @@ def topbottom(navigator) -> VerticalTextDistances:
     bottoms.append(bounds[-1].bottomdist)
     bottoms: list = utila.roundme(bottoms, convert=False)
     return tops, bottoms
-
-
-def vertical_position(navigator) -> VerticalTextDistances:
-    if not navigator:
-        return []
-    border = iamraw.Border(0, navigator.width, 0, navigator.height)
-    bounds = texmex.textbounds(navigator, border)
-    # ignore empty content
-    bounds = [item.bounds for item in bounds if len(item.text)]
-    dist = [
-        VerticalTextDistance(
-            item.topdist,
-            item.bottomdist,
-        ) for item in bounds
-    ]
-    return dist
 
 
 def leftright(navigator) -> VerticalTextDistances:
