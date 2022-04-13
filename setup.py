@@ -47,6 +47,7 @@ if __name__ == "__main__":
             'headlines.cluster',
             'headlines.feature',
             'headlines.improve',
+            'headlines.levelfour',
             'headlines.multiline',
             'headlines.nlarge',
             'headlines.nolevel',
