@@ -33,7 +33,7 @@ def convert_headline_result(
 ) -> iamraw.HeadlineResult:
     """\
     >>> convert_headline_result([[iamraw.Headline(title='first')]])
-    HeadlineResult(groups=[HeadlineGroup(headlines=[Headline(title='first', ...)], number=None)])
+    HeadlineResult(groups=[HeadlineGroup(headlines=[Headline(title='first', ...)
     >>> convert_headline_result([], __name__).__strategy__
     'headlines.utils'
     """
