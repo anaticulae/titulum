@@ -8,12 +8,14 @@
 # =============================================================================
 
 import serializeraw
+import utila
 
 import headlines.cluster.run
+import headlines.improve.levelfour
 import headlines.utils
 
 
-def work(
+def work(  # pylint:disable=R0914
     text: str,
     textpositions: str,
     sizeandborder: str,
@@ -21,12 +23,16 @@ def work(
     fontheader: str = None,
     fontcontent: str = None,
     sections: str = None,
+    xlevelfour: str = None,
     pages: tuple = None,
 ) -> str:
     pages = headlines.feature.headlinepart(
         pages=pages,
         sections=sections,
     )
+    levelfour = None
+    if utila.exists(xlevelfour):
+        levelfour = serializeraw.load_headlines(xlevelfour, pages=pages)
     fontstore = serializeraw.create_fontstore(
         header=fontheader,
         content=fontcontent,
@@ -45,8 +51,12 @@ def work(
         ptcns=ptcns,
         fontstore=fontstore,
     )
+    improved = headlines.improve.levelfour.merge_ifbetter(
+        groups,
+        levelfour,
+    )
     detected = headlines.utils.convert_headline_result(
-        groups=groups,
+        groups=improved,
         strategy=__name__,
     )
     dumped = serializeraw.dump_headlines(detected)

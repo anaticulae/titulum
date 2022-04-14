@@ -16,19 +16,6 @@ DESCRIPTION = ''
 
 WORKPLAN = [
     utila.create_step(
-        'cluster',
-        inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('groupme', 'footer_footerheader'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
-        ],
-        output=('cluster',),
-    ),
-    utila.create_step(
         'levelfour',
         inputs=[
             utila.ResultFile('rawmaker', 'text_text'),
@@ -40,6 +27,20 @@ WORKPLAN = [
             utila.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('levelfour',),
+    ),
+    utila.create_step(
+        'cluster',
+        inputs=[
+            utila.ResultFile('rawmaker', 'text_text'),
+            utila.ResultFile('rawmaker', 'text_positions'),
+            utila.ResultFile('rawmaker', 'border_pages'),
+            utila.ResultFile('groupme', 'footer_footerheader'),
+            utila.ResultFile('rawmaker', 'fonts_header'),
+            utila.ResultFile('rawmaker', 'fonts_content'),
+            utila.ResultFile('sections', 'section_result', optional=True),
+            utila.ResultFile('headlines', 'levelfour_levelfour', optional=True),
+        ],
+        output=('cluster',),
     ),
     utila.create_step(
         'multiline',

@@ -10,6 +10,12 @@
 import utila
 
 
+def merge_ifbetter(before, levelfour):
+    if not levelfour:
+        return before
+    return before
+
+
 def has_levelfour(headlines):
     """\
     >>> import iamraw
