@@ -18,6 +18,7 @@ import tests.conftest
 ARCHIVE = utila.join(headlines.ROOT, 'tests/levelfour/expected', exist=True)
 
 
+@utilatest.longrun
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_validate_levelfour(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
