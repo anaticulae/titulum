@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import elements
 import iamraw
 import texmex
 
@@ -31,7 +32,20 @@ def run(
         levelfour,
         ptcns,
     )
-    for item in converted:
+    filtered = nolevelfour(converted)
+    for item in filtered:
         item.level = 4
-    result = [converted]
+    result = [filtered]
     return result
+
+
+def nolevelfour(headlinex: iamraw.Headlines) -> iamraw.Headlines:
+    """Elements which are part of headline list, can not be part of level 4."""
+    filtered = [
+        item for item in headlinex
+        if not elements.isheadline(item.title, strict=True)
+    ]
+    filtered = [
+        item for item in filtered if not elements.noheadline(item.title)
+    ]
+    return filtered
