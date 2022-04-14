@@ -18,7 +18,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/multiline/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-def test_multiline_validate(source, testdir, monkeypatch):
+def test_validate_multiline(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='multiline',

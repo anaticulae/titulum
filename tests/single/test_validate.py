@@ -19,7 +19,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/single/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-def test_single_validate(source, testdir, monkeypatch):
+def test_validate_single(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='single',

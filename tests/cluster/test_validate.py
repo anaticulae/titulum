@@ -19,7 +19,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.longrun
-def test_cluster_validate(source, testdir, monkeypatch):
+def test_validate_cluster(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='cluster',

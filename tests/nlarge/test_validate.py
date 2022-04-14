@@ -18,7 +18,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/nlarge/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-def test_nlarge_validate(source, testdir, monkeypatch):
+def test_validate_nlarge(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='nlarge',

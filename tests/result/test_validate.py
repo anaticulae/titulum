@@ -20,7 +20,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/result/expected', exist=True)
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.longrun
-def test_result_validate(source, testdir, monkeypatch):
+def test_validate_result(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     ResultEvaluate(
         source=source,

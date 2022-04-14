@@ -72,7 +72,7 @@ def extract_headlines(
     return result
 
 
-def convert_cluster(clusters: list, ptcns) -> list:
+def convert_cluster(clusters: list, ptcns: texmex.PTCNs) -> list:  # pylint:disable=R0914
     clusters = [{item.text.strip() for item in level} for level in clusters]
     result = []
     for page in ptcns:
