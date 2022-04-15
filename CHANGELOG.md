@@ -2,6 +2,15 @@
 
 Every noteable change is logged here.
 
+## v0.8.0
+
+### Feature
+
+* use levelfour result as input to improve result (3a7cce7b2641)
+* do not treat valid headlines as level four headlines (ae3530b16feb)
+* add levelfour step (4109e18c7d0b)
+* add method to merge level four and check if exists (de30a41cfb6a)
+
 ## v0.7.1
 
 ### Feature
