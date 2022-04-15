@@ -148,7 +148,10 @@ def invalid_headline_group(items) -> bool:
         # parsed as headline.
         line_length = [len(item.text) for item in items.text]
         median = statistics.median(line_length)
-        if median <= HEADLINE_MEDIAN(items.size):
+        median_max = HEADLINE_MEDIAN(items.size)
+        if median <= median_max:
+            utila.verbose(f'invalid headline group, median: {median}, '
+                          f'max: {median_max}')
             return True
     return False
 
