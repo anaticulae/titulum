@@ -7,21 +7,54 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import collections
+
 import utila
+
+import headlines.judge
+import headlines.utils
 
 
 def merge_ifbetter(before, levelfour):
     if not levelfour:
         return before
-    return before
+    levelfour = levelfour[0]
+    improved = improve(
+        current=before,
+        levelfour=levelfour,
+    )
+    # check if produced result is better
+    result = headlines.judge.select_best((before, improved))
+    # TODO: CHECK IF IT IS BETTER THAN BEFORE
+    return result
 
 
-def has_levelfour(headlines):
+def improve(current: list, levelfour):
+    """Do not add headlines which are also part of level four."""
+    # TODO: DIRTY BUT WORKS
+    flat = utila.flatten(current)
+    done = collections.defaultdict(set)
+    for item in levelfour:
+        done[item.page].add(item.container)
+    selected = []
+    for item in flat:
+        if item.container in done[item.page]:
+            utila.debug(f'headline is levelfour: {item}, skip')
+            continue
+        selected.append(item)
+    selected.extend(levelfour)
+    selected.sort(key=lambda x: x.container)
+    selected.sort(key=lambda x: x.page)
+    result = headlines.utils.groupby_level_one(selected)
+    return result
+
+
+def has_levelfour(items):
     """\
     >>> import iamraw
     >>> assert has_levelfour(iamraw.HeadlineResult()) is not None
     """
-    flat = utila.flatten(headlines)
+    flat = utila.flatten(items)
     maxlevel = max(
         [item.level for item in flat if item.level is not None],
         default=0,

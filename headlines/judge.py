@@ -9,10 +9,29 @@
 
 import configo
 import elements
+import iamraw
 import utila
 
 import headlines.config
 import headlines.visitor
+
+
+def select_best(results) -> iamraw.HeadlineResult:
+    if not results:
+        return []
+    # TODO: USE BETTER SELECTOR
+    best = results[0]
+    for headline in results[1:]:
+        if length_flat(headline) < length_flat(best):
+            continue
+        best = headline
+    return best
+
+
+def length_flat(items):
+    items = utila.flatten(items, append=True)
+    items = utila.flatten(items, append=True)
+    return len(items)
 
 
 def invalid_extraction(items) -> bool:
