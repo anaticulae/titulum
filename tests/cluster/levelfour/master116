@@ -1,0 +1,131 @@
+1. Einleitung
+    1.1. Zielsetzung
+    1.2. Gliederung und Aufbau der Arbeit
+2. Theoretische Grundlagen
+    2.1. Grundlagen der Hybridfahrzeuge
+        2.1.1. Aufbau von Hybridfahrzeugen
+            Serielle Hybridstruktur
+            Parallele Hybridstruktur
+            Leistungsverzweigte Hybridstruktur
+        2.1.2. Betriebsstrategien für Hybridfahrzeuge
+            Start-Stopp-Funktion
+            Elektrisches Boosten
+            Rekuperation
+            Elektrisches Fahren
+            Lastpunktanhebung und Lastpunktverlagerung
+        2.1.3. Hybridangetriebene Schienenfahrzeuge
+            Railpower GG20B Greengoat
+            Alstom H3
+            Toshiba HD300
+            Übersicht Hybridlokomotiven
+        2.1.4. Bewertungsmethoden von Schienenfahrzeugen
+            Prüfzyklen von Schienenfahrzeugen
+            Anforderungen an Referenzzyklen für Hybridfahrzeuge
+    2.2. Längsdynamikmodell des Fahrzeugs
+        2.2.1. Zugkraftmodell am Triebradsatz
+        2.2.2. Fahrwiderstände
+            Luftwiderstand
+            Rollwiderstand
+            Steigungswiderstand
+            Beschleunigungswiderstand
+        2.2.3. Energie- und Leistungsbedarf
+        2.2.4. Zugeinheit
+        2.2.5. Spezifischer Kraftstoffverbrauch
+    2.3. Getriebetechnik Grundlagen
+        2.3.1. Übersetzungsverhältnis
+        2.3.2. Stirnradstufe
+        2.3.3. Umlaufrädergetriebe
+            Aufbau und Kinematik einer einfachen Planetenradstufe
+            Leistungsverzweigung
+3. Analyse der Fahrzeuganforderungen
+    3.1. Vorgegebene Fahrprofile
+        3.1.1. Abfolge des Referenzzyklus
+        3.1.2. Häufigkeitsanalyse
+        3.1.3. Mindestanforderung
+        3.1.4. Ergebnis der Anforderungsanalyse
+    3.2. Analyse der Fahrzeugparameter
+    3.3. Analyse Systemstruktur des Getriebes
+        3.3.1. Getriebestruktur
+        3.3.2. Getriebeausgang
+        3.3.3. Generator
+        3.3.4. Fahrmotor
+        3.3.5. Verbrennungsmotor
+        3.3.6. Traktionsbatterie
+4. Systembeschreibung des Getriebemodells
+    4.1. Aufstellen der Systemgleichungen
+        4.1.1. Kinematische Gleichungen
+        4.1.2. Kinetische Gleichungen
+    4.2. Komponenten im Antriebsstrang
+        4.2.1. Verbrennungsmotor
+        4.2.2. Elektrische Maschinen
+        4.2.3. Batterie
+    4.3. Wirkungsgradbetrachtung des Leistungsflusses
+        4.3.1. Mechanisches Fahren
+        4.3.2. Elektrisches Fahren
+            Generator
+            Elektrische Fahrmaschine
+    4.4. Bestimmen der Zahnradkonfiguration
+5. Entwicklung der Betriebsstrategie
+    5.1. Mehrstufiges Optimierungsproblem
+        5.1.1. Systembeschreibung
+        5.1.2. Kosten
+        5.1.3. Strategie
+        5.1.4. Backward-Dynamic-Programming
+    5.2. Anwendung der Dynamischen Programmierung
+        5.2.1. Analyse der Fahrzustände der Referenzstrecke
+        5.2.2. Wiederholende Aktionsmöglichkeiten erzeugen
+        5.2.3. Simulation
+            Rückwärtsrechnung
+            Vorwärtsrechnung
+        5.2.4. Konvergenzanalyse
+    5.3. Simulationsergebnisse der dynamischen Optimierung
+        5.3.1. Optimallösungen für die Fahrprofile
+        5.3.2. Variation der Batteriekapazität
+    5.4. Ableiten der Betriebsstrategie
+        5.4.1. Vorgehen zum Ableiten des Betriebsstrategiekennfelds
+        5.4.2. Ergebnis
+6. Modellbildung und Simulation in Velodyn
+    6.1. Modellierung der Lokomotivtypen
+        6.1.1. Konventionelle Lokomotive
+        6.1.2. Hybridlokomotive
+            Velodynmodell
+            Systemregelung durch den Hybridmanager
+    6.2. Simulationsergebnisse der Längsdynamiksimulation
+        6.2.1. Konventionelles Lokomotivmodell
+        6.2.2. Hybrid-Modell
+        6.2.3. Vergleich der Simulationsergebnisse
+            Vergleich mit der konventionellen Lokomotive
+            Vergleich mit dem theoretischen Optimum
+            Vergleich der Methodik
+    6.3. Sensitivitätsanalyse der Modellparameter
+        6.3.1. Analyse der Betriebsstrategie
+        6.3.2. Einfluss der Parametrisierung auf das Simulationsergebnis
+7. Zusammenfassung und Ausblick
+Abbildungsverzeichnis
+Tabellenverzeichnis
+Symbolverzeichnis
+Abkürzungsverzeichnis
+            Generator
+Literaturverzeichnis
+A. Anhang
+    A.1. Häufigkeitsanalyse
+    A.2. Anforderungsanalyse
+    A.3. Streckenprofile
+    A.4. Fahrzeuganforderung
+    A.5. Softwareübersicht
+        A.5.1. Allgemeine Dateien
+            Ordner: General/Daten/EMaschine
+            Ordner: General/Daten/ICE
+            Ordner: General/Getriebe
+            Ordner: General/Komponenten/EMaschine
+            Ordner: General/Komponenten/ICE
+            Ordner: General/Komponenten
+            Ordner: General/Strecken/Analyse
+            Ordner: General/Strecken
+        A.5.2. Theoretisches Maximum
+            Ordner: TheoretischesVerbrauchsoptimum
+        A.5.3. VeLoDyn-Modell
+            Ordner: BrEcvt
+            Ordner: BrEcvt/Kennfeld
+        A.5.4. Simulationsdaten
+            Ordner: Simulationsdaten

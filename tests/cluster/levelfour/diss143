@@ -1,0 +1,58 @@
+Einleitung
+            elektrischer Verbindungen
+            änderungen
+        1.1.1 Zyklische mechanische Belastung
+        1.1.2 Temperaturänderung durch Wechselsignale
+        1.1.3 Zusammenfassung
+            modulationen
+    1.3 Messung von Nichtlinearitäten
+            fektbreite Null
+    2.2 Modellierung elektrischer Verbindungen
+            signal
+            Leiterbahnen
+            ner Mikrostreifenleiterbahn
+            einer Mikrostreifenleitung
+        3.3.1 Aufstellen der Differentialgleichungen
+        3.3.2 Simulation des Temperaturverlaufs
+            onsmodell
+        3.3.5 Grenzen der Simulation
+    4.2 Alterung der Testobjekte
+        4.2.1 Beschleunigte Alterung als Testbedingung
+        4.2.3 Reproduzierbarkeit der Schädigung
+    4.3 Messaufbau
+        4.3.2 Elektrische Messung
+        4.3.3 Beschränkungen der verwendeten Messtechnik
+    4.4 Ergebnisse der Messungen
+        4.4.1 Dritte Harmonische der Leiterbahnteststruktur
+        4.4.2 Intermodulation in Flip-Chip-Lotverbindungen
+    4.5 Bestätigung verteilter IDe-Quellen
+        4.6.1 Vergleich zwischen Simulation und Experiment
+            verfahrens
+            Messprinzips
+            eignete Wahl der Signalfrequenzen
+    5.3 Wechsel der Modulationsquelle
+Ausblick
+    A.1 Das Lock-in Prinzip
+        A.1.1 Allgemeine Berechnung von Fourierkoeffzieinten
+        A.1.2 Beschreibung des Lock-in Prinzips im Zeitbereich
+            keit des Ausgangssignals
+Stichwortverzeichnis
+            Ausfall
+            Ausfallkriterium
+            Ermüdung
+            Fehlerkriterium
+            Fehlermechanismus
+            Fließen
+            Glasübergangstemperatur
+            Harmonische
+            Hysterese
+            Intermodulation
+            Kriechen
+            Lebensdauer
+            Lebensdauertest
+            Reflow-Löten
+            Restlebensdauer
+            Vorhersagevorsprung
+            Übertragungsfunktion
+            Übertragungssystem
+Literaturverzeichnis

@@ -15,6 +15,11 @@ import headlines
 import tests
 
 ARCHIVE = utila.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
+ARCHIVE_LEVELFOUR = utila.join(
+    headlines.ROOT,
+    'tests/cluster/levelfour',
+    exist=True,
+)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
@@ -27,6 +32,21 @@ def test_validate_cluster(source, testdir, monkeypatch):
         pages=':',
         expected=utila.file_name(source),
         archive=ARCHIVE,
+        workdir=testdir.tmpdir,
+        monkeypatch=monkeypatch,
+    ).evaluate()
+
+
+@pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
+@utilatest.longrun
+def test_combined_cluster_levelfour(source, testdir, monkeypatch):
+    utilatest.fixture_requires(source)
+    tests.Evaluate(
+        name='cluster --levelfour',
+        source=source,
+        pages=':',
+        expected=utila.file_name(source),
+        archive=ARCHIVE_LEVELFOUR,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()

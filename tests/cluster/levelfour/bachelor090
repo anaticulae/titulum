@@ -1,0 +1,118 @@
+1. Einleitung
+    1.1. Motivation
+    1.2. Zielsetzung und Aufbau der Arbeit
+    2.1. Embedded System
+        2.1.1. Systembegriff
+        2.1.2. Computersysteme
+        2.1.3. Entwicklungen im Embedded-Bereich
+            Softwareentwicklung
+    2.3. Controller Area Network - CAN
+        2.3.1. Topologie
+        2.3.2. Datenübertragung
+            Abitrierungsphase
+            Bitstromkompressor
+            CAN-Nachricht
+3. Methodik
+    3.1. Modellgetriebene Softwareentwicklung
+        3.1.1. Entwicklungswerkzeuge
+        3.1.2. Stand der Technik im Automobilbereich
+    3.2. Automatische Codegenerierung aus Modellen
+        3.2.1. Konzept
+            Geschützte Bereiche
+            Generierung für eine abstrakte Schnittstelle
+            Parametrisierte Codegenerierung
+        3.2.2. Probleme beim Erzeugen von Quellcode
+        3.2.3. Validierung der Ergebnisse
+    3.3. Strategien zur Zerlegung der Probleme
+        3.3.1. Randbedingungen
+        3.3.2. Modularisierung
+        3.3.3. Information Hiding
+        3.3.4. Kopplung
+    3.4. Umsetzung des Softwaresystems
+        3.4.1. Manuell erzeugter Quellcode
+        3.4.2. Modulweise Automatisierung, manuelle Verknüpfung
+        3.4.3. Vollständige Automatisierung
+        3.4.4. Zusammenfassung der Umsetzung
+    3.5. Simulink
+        3.5.1. Embedded Coder
+        3.5.2. Verwendung von S-Funktionen
+        3.5.3. Erzeugen des Simulinkmodells
+            Konfiguration des Simulinkmodells
+            Anpassen der Simulation
+            Kommunikation durch Ports
+    3.6. Testen der Software
+        3.6.1. Softwarespezifikation
+        3.6.2. Grundprinzip der Prüfung
+        3.6.3. Klassifikation der Tests nach Komplexität
+        3.6.4. Testen eingebetteter Systeme
+            Model in the loop
+            Software in the loop
+            Hardware in the loop
+        3.6.5. Bewertung des Testens als Prüfverfahren
+    3.7. Debugging der Software
+            Brute Force
+            Induction
+            Deduction
+    3.8. Eignung für die Umsetzung
+4. Umsetzung
+    4.1. Problemstellung
+    4.2. Vorgehen um Code zu erzeugen
+    4.3. Übersicht der praktischen Entwicklung
+        4.3.1. Entwicklungsumgebung Ubuntu
+            Programm anlegen3
+            Programm verwalten
+        4.3.2. Arbeit auf der OBU
+    4.4. Allgemeiner Aufbau der Algorithmen
+    4.5. Umsetzung der Algorithmen
+        4.5.1. Algorithmus zur Durchmesserberechnung
+        4.5.2. Moduldefinition
+            Einlesen
+            Buffer
+            Durchmesser
+            Statistische Auswertung
+    4.6. Komponententest
+        4.6.1. Testen der Komponente Einlesen
+            Lesen vom Speicher
+            Deserialisierung der Nachrichten
+        4.6.2. Testen des Buffers
+        4.6.3. Testen der Durchmesserberechnung
+        4.6.4. Verifikation des Histogramms
+            entwickelten Komponenten
+        4.7.1. Manuelle Integration
+        4.7.2. Vollständige Integration in Simulink
+            Integrationstest Einlesen
+            Manueller Einzeltest der Gesamtintegration
+            Test der Gesamtintegration mit Histogramm
+            Ergebnis der Integration
+        4.7.3. Bewertung
+5. Diskussion und Ausblick
+A. Anhang
+    A.1. Konfiguration
+        A.1.1. Software
+            Simulink-Modell
+            Putty
+            Player - Ubuntu
+        A.1.2. OBU
+    A.2. Befehlsreferenz
+A.3. Verzeichnisübersicht Ubuntu
+A.4. Verzeichnisübersicht OBU
+    A.5. Umsetzung
+        A.5.1. Konfiguration der Modelle
+        A.5.2. S-Funktion erzeugen
+        A.5.3. S-Funktion einbinden
+        A.5.4. Konfiguration Mex
+A.6. Testergebnisse
+            Dateiübersicht
+            Aus Datei lesen - Softwaretest Übersicht:
+            Ordner: Test/readFromFile/readTest/
+            Nachrichten deserialisieren - Softwaretest:
+            Ordner: Test/einlesen/einlesenTest/
+            SiL- und HiL-Test Durchmesserberechnung auf der OBU:
+            Ordner: Test/SiLUndHiLDurchmesser/
+            MiL-Test Histogramm
+            Ordner: Test/Histogramm/
+            Modulweise Automatisierung mit manueller Verknüpfung
+            Ordner: AutomatisierungManuelleVerknüpfung/
+            Vollständige Automatisierung
+            Ordner: KompletteAutomatisierung/
+Literaturverzeichnis
