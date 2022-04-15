@@ -38,7 +38,7 @@ def test_validate_cluster(source, testdir, monkeypatch):
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-@utilatest.longrun
+@utilatest.nightly
 def test_combined_cluster_levelfour(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     tests.Evaluate(
