@@ -19,6 +19,7 @@ import scipy.cluster.vq
 import texmex
 import utila
 
+import headlines.cluster.merge
 import headlines.cluster.parser
 import headlines.cluster.validate
 import headlines.config
@@ -57,7 +58,7 @@ def extract_headlines(
         **kwargs,
     )
     # merge multiple headline
-    flat = merge_headline(flat)
+    flat = headlines.cluster.merge.merge_headline(flat)
     # sort headlines
     flat = sorted(flat, key=lambda x: utila.alphabetically(x.text))
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
@@ -199,66 +200,6 @@ def groupby_level(items) -> list:
             level = 4
         grouped[level - 1].append(item)
     result = [grouped[number] for number in range(len(grouped))]
-    return result
-
-
-def merge_headline(items: list) -> list:
-    """Merge multi-line-headlines into a single line."""
-    result = []
-    done = set()
-    for current, before, after in items:
-        # use id to use object and not hashed object, cause it is possible
-        # than two items of different pages are complete identically.
-        if id(current) in done:
-            # use item only onces
-            continue
-        if current.style.underlined != after.style.underlined:
-            result.append(current)
-            done.add(id(current))
-            continue
-        if current.style.fontid != after.style.fontid:
-            result.append(current)
-            done.add(id(current))
-            continue
-        if current == after:
-            # page end
-            result.append(current)
-            done.add(id(current))
-            continue
-        if current.style.fontid == before.style.fontid and current.style.underlined == after.style.underlined:
-            if current == before:
-                # start of page
-                bounding = utila.rectangle_max((
-                    current.bounding,
-                    after.bounding,
-                ))
-                new = texmex.style.TextInfo(
-                    text=f'{current.text.strip()} {after.text.strip()}',
-                    style=current.style,
-                    bounding=bounding,
-                    bounding_mean=current.bounding_mean,
-                )
-                result.append(new)
-                done.add(id(current))
-                done.add(id(after))
-            else:
-                # all styles are equal, merge three of them
-                bounding = utila.rectangle_max((
-                    before.bounding,
-                    current.bounding,
-                    after.bounding,
-                ))
-                text = f'{before.text.strip()} {current.text.strip()} {after.text.strip()}'
-                new = texmex.style.TextInfo(
-                    text=text,
-                    style=current.style,
-                    bounding=bounding,
-                    bounding_mean=current.bounding_mean,
-                )
-                result.append(new)
-                done.add(id(current))
-                done.add(id(before))
-                done.add(id(after))
     return result
 
 
