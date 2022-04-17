@@ -16,7 +16,15 @@ import utila
 
 def main():
     pdf = sys.argv[1]
-    completed = utila.run(f'baw test skip --generate --no_insta | grep {pdf}')
+    completed = utila.run(
+        f'baw test skip --generate --no_insta | grep {pdf}',
+        expect=None,
+    )
+    if completed.returncode:
+        if completed.stderr.strip():
+            utila.error(completed.stderr)
+        utila.error('could not locate any tests')
+        sys.exit(completed.returncode)
     tests = completed.stdout.strip()
     tests = re.sub(r'[ ]{0,15}\<Function[ ]', '', tests)
     tests = re.sub(r'\]?>', '', tests)
