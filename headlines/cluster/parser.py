@@ -43,17 +43,20 @@ def parse_vector(
     sizes = textsizes(navigator)
     bolds = bold(navigator, fontstore)
     italics = italic(navigator, fontstore)
+    underlines = underlined(navigator)
     fonts = textfonts(navigator, fontstore)
     top, bottom = topbottom(navigator)
     left, right = leftright(navigator)
     equal_length = [
-        len(item) for item in [sizes, fonts, top, bottom, left, right]
+        len(item)
+        for item in [sizes, fonts, top, bottom, left, right, underlines]
     ]
     assert len(set(equal_length)) == 1, f'different iter length {equal_length}'
     result = [
         sizes,
         bolds,
         italics,
+        underlines,
         left,
         uppers,
     ]
@@ -101,6 +104,14 @@ def bold(navigator, fontstore) -> utila.Floats:
         return NO_BOLD
 
     return textvalue(navigator, selector=isbold)
+
+
+def underlined(navigator) -> utila.Floats:
+
+    def isunderlined(item):
+        return 100.0 if item.style.underlined else 10.0
+
+    return textvalue(navigator, selector=isunderlined)
 
 
 def italic(navigator, fontstore) -> utila.Floats:
