@@ -21,16 +21,7 @@ def merge_headline(items: list) -> list:
         if id(current) in done:
             # use item only onces
             continue
-        if current.style.underlined != after.style.underlined:
-            result.append(current)
-            done.add(id(current))
-            continue
-        if current.style.fontid != after.style.fontid:
-            result.append(current)
-            done.add(id(current))
-            continue
-        if current == after:
-            # page end
+        if different_style(current, after):
             result.append(current)
             done.add(id(current))
             continue
@@ -69,3 +60,14 @@ def merge_headline(items: list) -> list:
                 done.add(id(before))
                 done.add(id(after))
     return result
+
+
+def different_style(current, after) -> bool:
+    if current.style.underlined != after.style.underlined:
+        return True
+    if current.style.fontid != after.style.fontid:
+        return True
+    if current == after:
+        # page end
+        return True
+    return False
