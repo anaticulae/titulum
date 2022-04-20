@@ -25,7 +25,7 @@ def merge_headline(items: list) -> list:
             result.append(current)
             done.add(id(current))
             continue
-        if current.style.fontid == before.style.fontid and current.style.underlined == after.style.underlined:
+        if current.style.fontid == before.style.fontid and current.style.underlined == before.style.underlined:
             if current == before:
                 # start of page
                 bounding = utila.rectangle_max((
