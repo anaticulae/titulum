@@ -25,40 +25,53 @@ def merge_headline(items: list) -> list:
             result.append(current)
             done.add(id(current))
             continue
-        if current.style.fontid == before.style.fontid and current.style.underlined == before.style.underlined:
-            if current == before:
-                # start of page
-                bounding = utila.rectangle_max((
-                    current.bounding,
-                    after.bounding,
-                ))
-                new = texmex.style.TextInfo(
-                    text=f'{current.text.strip()} {after.text.strip()}',
-                    style=current.style,
-                    bounding=bounding,
-                    bounding_mean=current.bounding_mean,
-                )
-                result.append(new)
-                done.add(id(current))
-                done.add(id(after))
-            else:
-                # all styles are equal, merge three of them
-                bounding = utila.rectangle_max((
-                    before.bounding,
-                    current.bounding,
-                    after.bounding,
-                ))
-                text = f'{before.text.strip()} {current.text.strip()} {after.text.strip()}'
-                new = texmex.style.TextInfo(
-                    text=text,
-                    style=current.style,
-                    bounding=bounding,
-                    bounding_mean=current.bounding_mean,
-                )
-                result.append(new)
-                done.add(id(current))
-                done.add(id(before))
-                done.add(id(after))
+        if current.style.fontid != before.style.fontid:
+            continue
+        if current.style.underlined != before.style.underlined:
+            continue
+        if current == before:
+            # start of page
+            merged = merge_lines(
+                current,
+                after,
+            )
+            result.append(merged)
+            done.add(id(current))
+            done.add(id(after))
+        else:
+            # all styles are equal, merge three of them
+            merged = merge_lines(
+                before,
+                current,
+                after,
+            )
+            result.append(merged)
+            done.add(id(before))
+            done.add(id(current))
+            done.add(id(after))
+    return result
+
+
+def merge_lines(*args) -> texmex.TextInfo:
+    bounds = []
+    text = []
+    for line in args:
+        bounds.append(line.bounding)
+        text.append(line.text.strip())
+    bounding_max = utila.rectangle_max(bounds)
+    text: str = ' '.join(text)
+    if len(args) == 2:
+        # start of page
+        current = args[0]
+    else:
+        # three equal style
+        current = args[1]
+    result = texmex.TextInfo(
+        text=text,
+        style=current.style,
+        bounding=bounding_max,
+        bounding_mean=current.bounding_mean,
+    )
     return result
 
 
