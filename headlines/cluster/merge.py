@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import elements
 import texmex
 import utila
 
@@ -25,12 +26,7 @@ def merge_headline(items: list) -> list:
             result.append(current)
             done.add(id(current))
             continue
-        if current.style.fontid != before.style.fontid:
-            continue
-        if current.style.underlined != before.style.underlined:
-            continue
-        if current == before:
-            # start of page
+        if different_style(current, before):
             merged = merge_lines(
                 current,
                 after,
@@ -38,17 +34,17 @@ def merge_headline(items: list) -> list:
             result.append(merged)
             done.add(id(current))
             done.add(id(after))
-        else:
-            # all styles are equal, merge three of them
-            merged = merge_lines(
-                before,
-                current,
-                after,
-            )
-            result.append(merged)
-            done.add(id(before))
-            done.add(id(current))
-            done.add(id(after))
+            continue
+        # all styles are equal, merge three of them
+        merged = merge_lines(
+            before,
+            current,
+            after,
+        )
+        result.append(merged)
+        done.add(id(before))
+        done.add(id(current))
+        done.add(id(after))
     return result
 
 
@@ -82,5 +78,8 @@ def different_style(current, after) -> bool:
         return True
     if current == after:
         # page end
+        return True
+    if elements.parse_headline(after.text):
+        # do not merge new headline start
         return True
     return False
