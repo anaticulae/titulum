@@ -46,6 +46,7 @@ def work(  # pylint:disable=R0914
         fontheader,
         fontcontent,
         pages=pages,
+        state=None,
     )
     groups = headlines.cluster.run.run(
         ptcns=ptcns,
