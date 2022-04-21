@@ -10,6 +10,7 @@
 import collections
 import typing
 
+import elements
 import iamraw
 import texmex
 import utila
@@ -47,9 +48,10 @@ def parse_vector(
     fonts = textfonts(navigator, fontstore)
     top, bottom = topbottom(navigator)
     left, right = leftright(navigator)
+    visibles = visible(navigator)
     equal_length = [
-        len(item)
-        for item in [sizes, fonts, top, bottom, left, right, underlines]
+        len(item) for item in
+        [sizes, fonts, top, bottom, left, right, underlines, visibles]
     ]
     assert len(set(equal_length)) == 1, f'different iter length {equal_length}'
     result = [
@@ -59,12 +61,28 @@ def parse_vector(
         underlines,
         left,
         uppers,
+        visibles,
     ]
     return result
 
 
 def textlength(navigator) -> utila.Ints:
     return textvalue(navigator, selector=lambda item: len(item.text.strip()))
+
+
+def visible(navigator) -> utila.Ints:
+
+    def invisible(item):
+        if not item.visible:
+            return True
+        if elements.noheadline(item.text):
+            return True
+        return False
+
+    return textvalue(
+        navigator,
+        selector=lambda x: 100 if not invisible(x) else 1,
+    )
 
 
 # float is required to use cluster algorithm

@@ -48,7 +48,7 @@ def valid_headline_clusters(
 def clean_cluster(
     cluster,
     x0_max_diff: float = 15.0,
-):
+) -> list:
 
     def left_right_aligned(bounding: tuple) -> bool:
         # skip too right or too left items
