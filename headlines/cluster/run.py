@@ -52,7 +52,7 @@ def extract_headlines(
     **kwargs,
 ):
     # find headline cluster
-    flat, _ = headlines.cluster.validate.valid_headline_clusters(
+    flat = headlines.cluster.validate.valid_headline_clusters(
         clusters=clusters,
         cluster_size_min=cluster_size_min,
         **kwargs,

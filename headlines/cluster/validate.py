@@ -22,7 +22,6 @@ def valid_headline_clusters(
     whitespace_rate_max: float = 0.2,
 ):
     collected = []
-    delete = []
     for cluster in clusters:
         cluster = clean_cluster(
             cluster,
@@ -40,9 +39,8 @@ def valid_headline_clusters(
         if whitespace_rate(cluster) > whitespace_rate_max:
             continue
         collected.append(cluster)
-        delete.append(cluster)
     flat = utila.flatten(collected)
-    return flat, delete
+    return flat
 
 
 def clean_cluster(
