@@ -59,8 +59,6 @@ def extract_headlines(
     )
     # merge multiple headline
     flat = headlines.cluster.merge.merge_headline(flat)
-    # sort headlines
-    flat = sorted(flat, key=lambda x: utila.alphabetically(x.text))
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
     if len(flat) < headline_count_min:
         utila.debug(f'cluster: too few headlines {len(flat)}, require at '
