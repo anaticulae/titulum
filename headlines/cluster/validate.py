@@ -28,22 +28,46 @@ def valid_headline_clusters(
             cluster,
             x0_max_diff=x0_max_diff,
         )
-        if len(cluster) <= cluster_size_min:
-            continue
-        rate, median = headline_rate(cluster)
-        if rate < cluster_rate_min:
-            continue
-        if median < cluster_headline_median_length_min:
-            continue
-        if noheadline_cluster(cluster):
-            continue
-        if whitespace_rate(cluster) > whitespace_rate_max:
-            continue
-        if is_hidden(cluster):
+        if invalid_cluster(
+                cluster,
+                x0_max_diff=x0_max_diff,
+                cluster_rate_min=cluster_rate_min,
+                cluster_size_min=cluster_size_min,
+                headline_median_length_min=cluster_headline_median_length_min,
+                whitespace_rate_max=whitespace_rate_max,
+        ):
             continue
         collected.append(cluster)
     flat = utila.flatten(collected)
     return flat
+
+
+def invalid_cluster(  # pylint:disable=R0911
+    cluster,
+    cluster_size_min: int = 5,
+    cluster_rate_min: float = 0.3,
+    headline_median_length_min: int = 10,
+    x0_max_diff: float = 100.0,
+    whitespace_rate_max: float = 0.2,
+) -> bool:
+    cluster = clean_cluster(
+        cluster,
+        x0_max_diff=x0_max_diff,
+    )
+    if len(cluster) <= cluster_size_min:
+        return True
+    rate, median = headline_rate(cluster)
+    if rate < cluster_rate_min:
+        return True
+    if median < headline_median_length_min:
+        return True
+    if noheadline_cluster(cluster):
+        return True
+    if whitespace_rate(cluster) > whitespace_rate_max:
+        return True
+    if is_hidden(cluster):
+        return True
+    return False
 
 
 def clean_cluster(
