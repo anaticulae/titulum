@@ -74,51 +74,24 @@ def extract_headlines(
 
 
 def convert_cluster(clusters: list, ptcns: texmex.PTCNs) -> list:  # pylint:disable=R0914
-    clusters = [{item.text.strip() for item in level} for level in clusters]
     result = []
-    for page in ptcns:
-        for containerid, line in enumerate(page):
-            line_text = line.text.strip()
-            current = headline_level(line_text, clusters)
-            if current is None:
-                continue
-            parsed = elements.parse_headline(line_text)
+    for index, cluster in enumerate(clusters):
+        for item in cluster:
+            text = item.text
+            title, level, rawlevel = text, index + 1, ''
+            parsed = elements.parse_headline(text)
             if parsed:
                 title, level, rawlevel = parsed
-            else:
-                title, level, rawlevel = line_text, current + 1, ''
             headline = iamraw.Headline(
                 title=title,
                 level=level,
-                page=page.page,
-                raw=line_text,
+                raw=text,
                 raw_level=rawlevel,
-                container=containerid,
+                # page=page.page,
+                # container=containerid,
             )
             result.append(headline)
     return result
-
-
-def headline_level(line, clusters) -> int:
-    current = search_level(line, clusters)
-    if current == -1:
-        return None
-    # TODO: MOVE TO doctextstyle.features
-    if elements.noheadline(
-            line,
-            wordcount_max=HEADLINE_WORDCOUT_MAX,
-    ):
-        return None
-    return current
-
-
-def search_level(line, clusters):
-    # TODO: ADD MECHANISM TO CHECK IF ITEM IS NEAR TO CLUSTER TO FIND
-    # MORE HEADLINES
-    for index, cluster in enumerate(clusters):
-        if line in cluster:
-            return index
-    return -1
 
 
 def clusterme(matrix, navis, numbers: int = 20, runtime: int = 12000):
