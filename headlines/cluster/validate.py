@@ -10,6 +10,7 @@
 import statistics
 
 import elements
+import texmex
 import utila
 
 
@@ -37,6 +38,8 @@ def valid_headline_clusters(
         if noheadline_cluster(cluster):
             continue
         if whitespace_rate(cluster) > whitespace_rate_max:
+            continue
+        if is_hidden(cluster):
             continue
         collected.append(cluster)
     flat = utila.flatten(collected)
@@ -87,6 +90,18 @@ def whitespace_rate(cluster) -> float:
     if not charcount:
         return 0.0
     return whitespaces / charcount
+
+
+def is_hidden(cluster) -> bool:
+    hidden, other = utila.partition(
+        items=cluster,
+        key=lambda x: x[0].state == texmex.TextState.HIDDEN,
+    )
+    hidden_rate = utila.rate_rel(
+        len(hidden),
+        len(other),
+    )
+    return False
 
 
 def noheadline_cluster(cluster, pagerate_max: float = 0.5):
