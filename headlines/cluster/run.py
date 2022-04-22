@@ -126,7 +126,7 @@ def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
             if len(container) == 1:
                 headline.container = container[0]
             else:
-                headline.container = container[0], select_end(container)
+                headline.container = container[0], select_end(container)  # pylint:disable=R0204
             break
     items.sort(key=lambda x: 0 if not x.container else x.container[0]
                if isinstance(x.container, tuple) else x.container)

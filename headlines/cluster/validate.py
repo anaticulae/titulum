@@ -121,7 +121,7 @@ def is_hidden(cluster) -> bool:
         items=cluster,
         key=lambda x: x[0].state == texmex.TextState.HIDDEN,
     )
-    hidden_rate = utila.rate_rel(
+    hidden_rate = utila.rate_rel(  # pylint:disable=W0612
         len(hidden),
         len(other),
     )
