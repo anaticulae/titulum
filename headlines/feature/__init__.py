@@ -16,6 +16,7 @@ import utila
 INVALID = (
     iamraw.sections.Introduction,
     iamraw.sections.Unknown,
+    iamraw.MultipleSection,
 )
 
 
