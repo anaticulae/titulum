@@ -91,7 +91,77 @@ def convert_cluster(clusters: list, ptcns: texmex.PTCNs) -> list:  # pylint:disa
                 # container=containerid,
             )
             result.append(headline)
+    result = optimize_page_container(
+        result,
+        ptcns,
+    )
     return result
+
+
+def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
+    for headline in items:
+        headline.container = -1
+        start, end = headline.raw[0:25], headline.raw[-25:]
+        for page in reversed(ptcns):
+            content = page.debug
+            content = content.replace('\n', ' ')
+            starts = utila.findindex(content, token=start)
+            if not starts:
+                continue
+            ends = utila.findindex(content, token=end)
+            if not ends:
+                continue
+            container = []
+            for index, line in enumerate(page):
+                if startswith(line.text, headline.raw):
+                    container.append(index)
+                    continue
+                if container and line.text.endswith(end[-10:]):
+                    # end requires that start is detected
+                    container.append(index)
+            if not container:
+                utila.debug(f'could not locate on p{page.page}: {headline.raw}')
+                continue
+            headline.page = page.page
+            if len(container) == 1:
+                headline.container = container[0]
+            else:
+                headline.container = container[0], select_end(container)
+            break
+    items.sort(key=lambda x: 0 if not x.container else x.container[0]
+               if isinstance(x.container, tuple) else x.container)
+    items.sort(key=lambda x: x.page)
+    return items
+
+
+def startswith(linestart: str, headline: str) -> bool:
+    if linestart.startswith(headline[0:25]):
+        if len(headline) < len(linestart):
+            return False
+        return True
+    return False
+
+
+def select_end(items) -> int:
+    """\
+    >>> select_end((2, 3, 4, 6))
+    4
+    >>> select_end((2, 5, 6))
+    5
+    """
+    # TODO: MAY IMPROVE LATER
+    assert len(items) >= 2
+    start = items[0]
+    end = items[1]
+    diff = end - start
+    if diff > 1:
+        return end
+    for item in items[2:]:
+        diff = item - end
+        if diff > 1:
+            break
+        end = item
+    return end
 
 
 def clusterme(matrix, navis, numbers: int = 20, runtime: int = 12000):
