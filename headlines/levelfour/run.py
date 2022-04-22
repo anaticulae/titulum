@@ -38,6 +38,8 @@ def run(
     filtered = nolevelfour(converted)
     if levelfour_invalid(filtered):
         filtered = []
+    if len(filtered) < 5:  # TODO: HOLY VALUE
+        filtered = []
     for item in filtered:
         item.level = 4
     result = [filtered]
