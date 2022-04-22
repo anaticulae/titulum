@@ -7,9 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import statistics
+
 import elements
 import iamraw
 import texmex
+import utila
 
 import headlines.cluster.run
 
@@ -33,6 +36,8 @@ def run(
         ptcns,
     )
     filtered = nolevelfour(converted)
+    if levelfour_invalid(filtered):
+        filtered = []
     for item in filtered:
         item.level = 4
     result = [filtered]
@@ -49,3 +54,11 @@ def nolevelfour(headlinex: iamraw.Headlines) -> iamraw.Headlines:
         item for item in filtered if not elements.noheadline(item.title)
     ]
     return filtered
+
+
+def levelfour_invalid(headlinex) -> bool:
+    median = statistics.median([len(item.title) for item in headlinex])
+    if median > 40:
+        utila.debug(f'invalid levelfour, median: {median} too high')
+        return True
+    return False
