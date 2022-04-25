@@ -67,6 +67,8 @@ def invalid_cluster(  # pylint:disable=R0911
         return True
     if is_hidden(cluster):
         return True
+    if duplicated_level(cluster):
+        return True
     return False
 
 
@@ -91,6 +93,28 @@ def clean_cluster(
         not elements.noheadline_pattern(item[0].text)
     ]
     return valid
+
+
+def duplicated_level(cluster) -> bool:
+    """\
+    Bachelor067 produces a lot of first level headlines which are part
+    of lists.
+
+    If cluster contains too many duplicated levels, we disable this
+    cluster.
+    """
+    if len(cluster) < 10:
+        return False
+    parsed = [elements.parse_headline(item[0].text) for item in cluster]
+    levels = [item[2] for item in parsed if item]
+    unique = set(levels)
+    unique_rate = utila.rate_rel(
+        len(unique),
+        len(levels),
+    )
+    if unique_rate < 0.35:
+        return True
+    return False
 
 
 def headline_rate(cluster):
