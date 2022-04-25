@@ -34,7 +34,7 @@ def run(
     ptcns: texmex.PTCNs,
     fontstore: iamraw.FontStore,
 ) -> iamraw.PagesHeadlineList:
-    matrix, ptcns, _ = create_matrix(ptcns, fontstore)
+    matrix, ptcns = create_matrix(ptcns, fontstore)
     clustered = clusterme(matrix, ptcns)
     extracted = extract_headlines(
         clustered,
@@ -198,7 +198,7 @@ def create_matrix(ptcns, fontstore):
     # round it
     merged: numpy.array = numpy.array(merged, dtype=numpy.uint32)
     matrix = numpy.array(merged, dtype=numpy.double)
-    return matrix, ptcns, fontstore
+    return matrix, ptcns
 
 
 def merge_neighbors(navis):

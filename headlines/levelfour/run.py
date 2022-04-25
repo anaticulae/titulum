@@ -21,7 +21,7 @@ def run(
     ptcns: texmex.PTCNs,
     fontstore: iamraw.FontStore,
 ) -> iamraw.PagesHeadlineList:
-    matrix, ptcns, _ = headlines.cluster.run.create_matrix(ptcns, fontstore)
+    matrix, ptcns = headlines.cluster.run.create_matrix(ptcns, fontstore)
     clustered = headlines.cluster.run.clusterme(matrix, ptcns)
     extracted = headlines.cluster.run.extract_headlines(
         clustered,
