@@ -77,7 +77,7 @@ def extract(resources):
         figureo=True,
         groupme=True,
         tablero=True,
-        rawmaker_cleanup=True,
+        cleanup=True,
         sections=True,
         pages=':',
         worker=WORKER,
