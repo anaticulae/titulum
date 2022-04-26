@@ -15,6 +15,7 @@ import utila
 
 import headlines.judge
 import headlines.level
+import headlines.utils
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
