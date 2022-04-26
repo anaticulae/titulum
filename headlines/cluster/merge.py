@@ -45,6 +45,11 @@ def merge_headline(items: list) -> list:
         done.add(id(before))
         done.add(id(current))
         done.add(id(after))
+    # filter invalid headlines
+    result = [
+        item for item in result if not elements.noheadline(item.text) or
+        elements.parse_headline(item.text)
+    ]
     return result
 
 
