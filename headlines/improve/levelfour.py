@@ -43,10 +43,16 @@ def improve(current: list, levelfour):
             continue
         selected.append(item)
     selected.extend(levelfour)
-    selected.sort(key=lambda x: x.container)
+    selected.sort(key=lambda x: container(x.container))
     selected.sort(key=lambda x: x.page)
     result = headlines.utils.groupby_level_one(selected)
     return result
+
+
+def container(item):
+    if isinstance(item, tuple):
+        return item[0]
+    return item
 
 
 def has_levelfour(items):
