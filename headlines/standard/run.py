@@ -27,6 +27,9 @@ def run(
     page_parser = parse_page if not page_parser else page_parser
     finalizer = finalize if not finalizer else finalizer
     textsize = texmex.document_textsize(navigators=ptcns)
+    if textsize is None:
+        utila.error('empty document, skip standard')
+        return []
     textdistance = texmex.document_textdist_from_ptcns(
         navigators=ptcns,
         digits=0,

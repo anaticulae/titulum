@@ -174,6 +174,9 @@ def select_end(items) -> int:
 def clusterme(matrix, navis, numbers: int = 20, runtime: int = 12000):
     # running kmeans with invalid `k`/`numbers` leads to non determining loop.
     assert isinstance(numbers, int), type(numbers)
+    if len(matrix) == 0:  # pylint:disable=compare-to-zero
+        utila.error('empty matrix data, skip cluster strategy')
+        return []
     merged = scipy.cluster.vq.whiten(matrix)
     if len(merged) < numbers:
         utila.error(f'too few data: {len(merged)} to run vector strategy')
