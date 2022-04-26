@@ -41,10 +41,16 @@ def work(
 def select_best(headlines) -> iamraw.HeadlineResult:
     if not headlines:
         return []
-    # TODO: USE BETTER SELECTOR
     best = headlines[0]
     for headline in headlines[1:]:
-        if len(headline) < len(best):
+        if score_result(headline) < score_result(best):
             continue
         best = headline
     return best
+
+
+def score_result(result) -> int:
+    # TODO: USE BETTER SELECTOR
+    if not result:
+        return 0
+    return len(result)
