@@ -125,6 +125,7 @@ def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
                     # line.text = ''
                     # end requires that start is detected
                     container.append(index)
+                    break
             if not container:
                 utila.debug(f'could not locate on p{page.page}: {headline.raw}')
                 continue
