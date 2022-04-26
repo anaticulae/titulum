@@ -2,6 +2,38 @@
 
 Every noteable change is logged here.
 
+## v0.9.0
+
+### Feature
+
+* skip invalid headlines (25c73448d42e)
+* skip cluster with too many duplicated levels (e2050aabc84a)
+* skip hidden items (4ef9fe053014)
+* verify levelfour result (084cf5c40b4e)
+* skip cluster with to many hidden lines (d88f8c8d0799)
+* assign page and container for detected headlines (945e257c0077)
+* use improved cluster (48bfc43cbcb8)
+* use improved merger (c457999a487e)
+* add visible column to improve parser result (b29f9daeeca2)
+* load visible and invisible data (700f11b6b78b)
+* use underline to merge headlines (82ff30e57e95)
+* add underline as cluster attribute (3c037cbe1d76)
+* log invalid multiline group (54ec147f9b6a)
+* use level four headlines to improve result (c6cf6623306d)
+
+### Fix
+
+* stop after detecting headline end (a55495c56a91)
+* find headline only once (f73e10c5ed0a)
+* sort tuple correctly (b4e94d0beecb)
+* score None result correctly (fd19e6271470)
+* adjust check for empty data (817c73401c48)
+* skip too few headlines (8b2a915a1430)
+* skip multipart section as possible chapter section (e7de5feaf123)
+* sorting headlines seams to be useless (8f61336ec8a5)
+* after is already checked (b42c3ef7219f)
+* inform about empty tests (100d64bab86a)
+
 ## v0.8.0
 
 ### Feature
