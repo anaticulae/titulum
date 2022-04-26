@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.9.1
+
+### Fix
+
+* add missing import (b7970ceabd18)
+* skip empty page data (706919e98e84)
+
 ## v0.9.0
 
 ### Feature
