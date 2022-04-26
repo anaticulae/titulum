@@ -59,6 +59,8 @@ def nolevelfour(headlinex: iamraw.Headlines) -> iamraw.Headlines:
 
 
 def levelfour_invalid(headlinex) -> bool:
+    if not headlinex:
+        return True
     median = statistics.median([len(item.title) for item in headlinex])
     if median > 40:
         utila.debug(f'invalid levelfour, median: {median} too high')
