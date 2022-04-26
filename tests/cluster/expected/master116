@@ -102,10 +102,24 @@ Beschleunigungswiderstand
         6.3.2. Einfluss der Parametrisierung auf das Simulationsergebnis
 7. Zusammenfassung und Ausblick
 Abbildungsverzeichnis
+    2.16. Komplexes Zugmodell bestehend aus einzelnen Massen und Massenträg­ heiten.
+    3.6. Verfahren zum Ermitteln der Anforderungen aus einem gegebenen Stre­ ckenabschnitt. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+    4.5. Wirkungsgradkennfeld der elektrischen Maschinen in Abhängigkeit der Drehzahl und des Drehmoments. Daten aus [IAV15]. . . . . . . . . . . . . 42
+    5.3. Vorgehen zum Erzeugen des Betriebsstrategiekennfeldes für die Referenz­ strecke.
+    5.5. Aktionsraum aus der Diskretisierung der Getriebezustände über ein Gitter
+    5.10. Konvergenzanalyse der relativ geleisteten Arbeit des Verbrennungsmotors in Abhängigkeit der Auflösung des Diskretisierungsgitters. . . . . . . . . . 58
+    6.6. Auswertung des Fahrerleistungswunsches durch Kennfeld der maximalen Zugkraft in Abhängigkeit des Fahrstufenreglers. . . . . . . . . . . . . . . . 67
+    6.8. Begrenzung des maximalen Verbrennungsmotormoments durch Limitie­ rung des Generators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+    6.12. Skalierung der Betriebsstrategie und Gesamtverbrauch auf der Referenz­ strecke.
+    6.18. Änderung des relativen Kraftstoffverbrauchs durch Änderung der relativen Batteriespeicherfähigkeit.
 Tabellenverzeichnis
+    5.1. Optimale Verbrauchsdaten auf den Teilstrecken und der zusammenge­ setzten Referenzstrecke. Die Verbrauchsdaten bilden den theoretischen
+    6.3. Vergleich der Verbrauchsdaten der konventionellen Lokomotive mit der hybridisierten Lokomotive in der Simulink-Simulation.
 Symbolverzeichnis
+Symbol
+            𝑛𝑒𝐶𝑉 𝑇,𝑎𝑢𝑠𝑔𝑎𝑛𝑔 1/𝑚𝑖𝑛 Ausgangsdrehzahl des Hybridgetriebes 1/𝑚𝑖𝑛 Drehzahl des Generators
+            𝑃𝐼𝐶𝐸,𝑠𝑡𝑟𝑎𝑡𝑒𝑔𝑖𝑒 kW Leistungsvorgabe des Verbrennungsmotors durch die Fahrstrategie
 Abkürzungsverzeichnis
-            Generator
 Literaturverzeichnis
 A. Anhang
     A.1. Häufigkeitsanalyse
@@ -118,8 +132,6 @@ A. Anhang
             Ordner: General/Daten/ICE
             Ordner: General/Getriebe
             Ordner: General/Komponenten/EMaschine
-            Ordner: General/Komponenten/ICE
-            Ordner: General/Komponenten
             Ordner: General/Strecken/Analyse
             Ordner: General/Strecken
         A.5.2. Theoretisches Maximum

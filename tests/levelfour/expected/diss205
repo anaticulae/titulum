@@ -1,14 +1,19 @@
-            Zahlendarstellung
-            Grundlagen und Definitionen
-            Bauwerksmodells
-            Bauwerksmodell
-            Zusammenhang und deren Strukturierung
-            Entwurf
-            Entwurfsfindung
-            geometrischen Constraint-Systemen
-            im Bauwesen
-            Prototypische Implementierung
-            Erzeugungsoperatoren
-            Modellversuche und Ergebnisse
+            6.15) Optimierung die Suche nach jenem Wert dar, für den die aktuell betrachtete Grenze
+            ANHANG A Modell
+            ANHANG B Werte der Auswertung der Beispiele
+            Bauwerksmodelle
+            Forschung bei Geometriemodellen
+            Heuristische Ansätze
+            Zusätzliche Constraints
+            Interaktion im Lösungsprozess
+            Geometrische Anfrage
+            Intervallen
+            Gauß-Seidel mit Präkonditionierung
+            Komponentenweise Berechnung
+            Constraints
+            Hierarchiebaum der Funktionalen Einheiten
+            Ebenenmodell
+            Komponentenweises Intervall-Newton-Verfahren
+            Berechnung der globalen Hülle
+            Zusammenfassung, Fazit und Ausblick
             Übersicht der Algorithmen
-            Modell

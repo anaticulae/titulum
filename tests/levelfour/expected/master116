@@ -27,7 +27,8 @@
             Vergleich mit der konventionellen Lokomotive
             Vergleich mit dem theoretischen Optimum
             Vergleich der Methodik
-            Generator
+            𝑛𝑒𝐶𝑉 𝑇,𝑎𝑢𝑠𝑔𝑎𝑛𝑔 1/𝑚𝑖𝑛 Ausgangsdrehzahl des Hybridgetriebes 1/𝑚𝑖𝑛 Drehzahl des Generators
+            𝑃𝐼𝐶𝐸,𝑠𝑡𝑟𝑎𝑡𝑒𝑔𝑖𝑒 kW Leistungsvorgabe des Verbrennungsmotors durch die Fahrstrategie
             Ordner: General/Daten/EMaschine
             Ordner: General/Daten/ICE
             Ordner: General/Getriebe

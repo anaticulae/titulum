@@ -8,15 +8,14 @@ STRATEGY:headlines.feature.cluster
 2.  Betreuung und Klientel
     2.1.  Betreutes Wohnen bei der ADV gGmbH
             Aufgabenbereiche und Ziele der Betreuung
+            - spezielle Berücksichtigung von Suchtproblemen (u.a. Rückfallprävention, Konsumkontrollprogramme) - Kooperation mit anderen Hilfeträgern
             Zielgruppe
     2.2.  Klientel
-            nach Beubler et al. 2007, S. 100
         2.2.1. Persönlichkeitsstörungen
             Verhalten von Klienten mit Beziehungsstörung
             Vorhandene Persönlichkeitsstörungen bei der Klientel
         2.2.2. Therapeut-Klient-Beziehung
             Erster Kontakt
-            Voraussetzungen
             Mögliche Probleme und Fehler
 3.  Wirksamkeit der Verhaltenstherapie
             S3-Leitlinie „Screening, Diagnose und Behandlung alkoholbezogener Störungen“
@@ -33,38 +32,43 @@ STRATEGY:headlines.feature.cluster
             Positive und aversive Stimuli
             Situation in der ADV gGmbH
     4.1.  Psychoedukation
-Inhalt
-            Voraussetzungen
-            Anwendung
             Psychoedukation in der Substitution
             Compliance
             Psychoedukation bei Angehörigen
             Selbstbeobachtung als Teil der Psychoedukation
         4.1.1. Selbstbeobachtung
             Definition
-            Voraussetzungen
             Anwendung
-            Mögliche Probleme
-Inhalt
-            Voraussetzungen
+            Anwendung
+        4.1.2. Konsumtagebuch
             Vorteile
+            Mögliche Probleme
             Mögliche Probleme
     4.2.  Kontingenzmanagement
 Inhalt
+Inhalt
+Inhalt
             Voraussetzungen
+            Voraussetzungen
+            Voraussetzungen
+            Voraussetzungen
+            Voraussetzungen
+1.  Positive Verstärkung ist ein Privileg und kein automatisches Recht;
+2.  befriedigende  soziale  Interaktionen  werden  geschätzt  und  als  erstrebenswertes  Ziel angesehen;
             Anwendungsbereiche
             Ziele
-            Kontingenzvertrag
             Arbeit mit Angehörigen
 5.  Forschungsfragen und Hypothesen
             Zu untersuchende Forschungsfragen:
             Aus den genannten Forschungsfragen werden folgende Hypothesen abgeleitet:
+            Ergebnis in der Erhebung zeigen. 7.  Die  Dokumentation  und  die  Selbstbeobachtung  an  sich regen  bereits
 6.  Forschungsplan
     6.1.  Methode
             Konsumtagebuch
             Tabelle 2 Konsumtagebuch Phase 1, modifiziert nach GK Quest Akademie GmbH 2016
             Tabelle 3 Konsumtagebuch Phase 2, modifiziert nach GK Quest Akademie GmbH 2016
             Fragebogen
+            Kontingenzvertrag
             Kontingenzvertrag
     6.2.  Beteiligter Personenkreis
             Klienten
@@ -74,6 +78,7 @@ Inhalt
             Vorgehen
             Zeitraum
     6.4.  Testphase
+            Auswertung der Testphase: Klient 1:
             Klient 2:
     6.5.  Einbringen ins Team und Intervention
 7.  Datenauswertung
@@ -92,7 +97,7 @@ Inhalt
             Aufbau und Ablauf der qualitativen Inhaltsanalyse nach Mayring:
             Kategorienbildung
     7.4.  Interpretation der Ergebnisse
-            Gruppe Psychoedukation (PE)
+        7.4.1. Interpretation der Ergebnisse der Konsumtagebücher anhand der quantitativen Auswertung durch statistische Daten
             Klient Testphase PE:
             Abbildung 3 Boxplot Klient 1 TP PE Zigarettenkonsum
             Abbildung 4 Boxplot Klient 1 TP PE THC Konsum
@@ -101,26 +106,37 @@ Inhalt
             Abbildung 6 Boxplot Klient 1 PE Kaffeekonsum
             Klient 2 PE:
             Klient 3 PE:
+            Abbildung 7 Boxplot Klient 3 PE Zigarettenkonsum Abbildung 8 Boxplot Klient 3 PE Kaffeekonsum
             Klient 4 PE:
-            Abbildung 10 Boxplot Klient 4 PE Zigarettenkonsum
+            Abbildung 9 Boxplot Klient 4 PE Alkoholkonsum Abbildung 10 Boxplot Klient 4 PE Zigarettenkonsum
             Abbildung 11 Boxplot Klient 4 PE THC Bong Konsum
-            Gruppe Kontingenzvertrag (KV)
             Klient Testphase KV:
             Abbildung 12 Boxplot Klient 2 TP KV Zigarettenkonsum
             Klient 1 KV:
             Abbildung 13 Boxplot Klient 1 KV Zigarettenkonsum
-            Kontrollgruppe (KG)
             Klient 1 KG:
             Abbildung 14 Boxplot Klient 1 KG Zigarettenkonsum
             Klient 3 KG:
             Abbildung 15 Boxplot Klient 3 KG Zigarettenkonsum
-            Fazit
+        7.4.2. Interpretation der Ergebnisse der Fragebögen anhand der qualitativen Auswertung durch die qualitative Inhaltsanalyse nach Mayring
             Psychoedukation (PE) inkl. Testphase (6 Therapeuten im Vergleich):
             Kontingenzvertrag (KV) inkl. Testphase (4 Therapeuten im Vergleich):
             Kontrollgruppe (KG):
             Fazit
+            Fazit
+8.  Beantwortung der Forschungsfragen und Hypothesen sowie Fazit und weiterführende Fragen
 Forschungsfragen
             Hypothesen
+1.  Konsumtagebücher  als  Messinstrument  verhaltenstherapeutische  Standardmethoden unterstützen bzw. erhöhen die Selbstbeobachtung der Klienten.
+1.  Konsumtagebücher  als  Messinstrument  verhaltenstherapeutische  Standardmethoden unterstützen bzw. erhöhen die Selbstbeobachtung der Klienten.
+2.  Die  Wirksamkeit  von  verhaltenstherapeutischen  Methoden  auf  die  kontinuierliche Führung  eines  Konsumtagebuchs  und  der  damit  einhergehenden  bewussten
+3.  Die Konsumreduzierung an sich ist durch den Vergleich der Konsumtagebücher vor und nach der Intervention messbar.
+4.  In den Konsumtagebüchern zeigen sich vor und nach der Intervention Unterschiede im Konsum.
+5.  Bei  der  Gruppe  „Psychoedukation“  (PE)  werden  kaum  Veränderungen  im Konsumtagebuch  auftreten,  da  die  Bezugsbetreuer  die  Psychoedukation  fest  in  ihre
+6.  Der  Vertrag  kann  Zwang  bei  Klienten  auslösen,  er  wird  sich  dennoch  in  einem  guten Ergebnis in der Erhebung zeigen.
+7.  Die  Dokumentation  und  die  Selbstbeobachtung  an  sich regen  bereits
+9.  Durch  das  regelmäßige  Üben  der  Selbstbeobachtung  kann  der  Fokus  intensiviert  und die Selbstbeobachtung trainiert und verbessert werden.
+9.  Durch  das  regelmäßige  Üben  der  Selbstbeobachtung  kann  der  Fokus  intensiviert  und die Selbstbeobachtung trainiert und verbessert werden.
             Fazit und weiterführende Fragen:
 Literatur- und Quellenverzeichnis
             Bücher und Nachschlagewerke
@@ -131,10 +147,5 @@ Tabellen
 Anhang
             E-Mail an Therapeuten zur Ankündigung der Erhebung für die Masterarbeit:
             Konsumtagebuch-Vorlage KISS
-            Abbildung 17 Konsumtagebuch KISS Innenseite, Quelle: GK Quest Akademie GmbH 2016
-            Handout für Intervention 1 - Psychoedukation im Einzelgespräch
-            Handout für Intervention 2 – Vertrag abschließen
             allgemeinen vorgegebenen Standards sollten jedoch drin bleiben!
             + Vertragsvorlage
-            Vertrag zum Führen des Konsumtagebuchs
-Versicherung selbständiger Arbeit

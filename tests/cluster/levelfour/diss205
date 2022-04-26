@@ -1,8 +1,169 @@
+ANHANG A Modell
+            ANHANG B Werte der Auswertung der Beispiele
+KAPITEL 1
+Einführung
+    1.1 Entwurfsentscheidungen in Bauwerksmodellen
+    1.2 Motivation
+    1.3 Ziel und Abgrenzung
+    1.4 Einbezogene Forschungsgebiete
+    1.5 Eigene zugehörige Veröffentlichungen
+    1.6 Eindeutigkeit der Begriffe
+    1.7 Verwendete Fachterminologie und Zahlendarstellung
+    1.8 Aufbau der Arbeit
+    2.1 Grundsätzliche Modell-Klassifikation
+    2.2 Regeln und Constraints
+    2.3 Constraint-Satisfaction-Problem
+    2.4 Constraint-Graph
+    2.5 Solid Modeling
+            Bauwerksmodelle
+    3.1 Wissen und wissensbasierte Modellierung
+    3.2 Wissensrepräsentation in Expertensystemen
+    3.3 Definition eines digitalen Bauwerksmodells
+    3.4 Der Modellcharakter eines digitalen Bauwerksmodells
+    3.5 Objektorientierung in einem digitalen Bauwerksmodell
+        3.5.1 Zerlegung des Bauwerksmodells
+        3.5.2 Abstraktion zur Strukturierung
+        3.5.3 Hierarchische Strukturierung
+    3.6 Aspekte eines digitalen Bauwerksmodells
+        3.6.1 Ein erläuterndes Beispiel
+        3.6.2 Semantische Objektbildung und -strukturierung
+        3.6.3 Geometrische Objektbildung und -strukturierung
+        3.6.4 Wissensbildung über die Anforderungen und den Zusammenhang und deren Strukturierung
+    3.7 Aktueller Stand der digitalen Bauwerksmodelle
+    3.8 Validierung von Bauwerksmodellen
+    3.9 Modellierungsansatz: Der Mengen-basierte Entwurf
+    3.10 Vorschlag eines Entwicklungsprozesses bei der Entwurfsfindung
+    3.11 Diskussion des Wissens in Bauwerksmodellen
+            Forschung bei Geometriemodellen
+    4.1 Einleitung
+    4.2 Computer-Aided Design
+    4.3 Ansätze zur Geometriemodellierung
+        4.3.1 Parametrisches Modellieren
+        4.3.2 Nichtparametrisches Modellieren
+        4.3.3 Parametrisch prozedurales Modellieren
+        4.3.4 Constraint-basiertes Modellieren von Geometrie
+        4.3.5 Vergleich der Modellierungsformen
+    4.4 Lösungsverfahren für geometrische CSP
+        4.4.1 Anforderungen und Eigenschaften
+        4.4.2 Algebraische Methoden
+        4.4.3 Logik-basierter Ansatz
+        4.4.4 Theorembeweis-Verfahren
+        4.4.5 Graphen-basierte Ansätze
+    4.5 Das Problem der multiplen Lösungen in geometrischen Constraint-Systemen
+        4.5.1 Hintergründe
+        4.5.2 Suche nach der beabsichtigten Lösung
+            Heuristische Ansätze
+            Zusätzliche Constraints
+            Interaktion im Lösungsprozess
+            Geometrische Anfrage
+        4.5.3 Bestimmung möglicher Parameterwerte
+    4.6 Constraint-basiertes Modellieren von Geometrie im Bauwesen
+    4.7 Diskussion und Forschungsbedarf
+            Intervallen
+    5.1 Intervalle
+    5.2 Grundlegende Literatur zu Intervallen
+    5.3 Intervallarithmetik
+        5.3.1 Einführung
+        5.3.2 Erweiterte Intervalle und Intervallarithmetik
+        5.3.3 Intervall-Abhängigkeits-Problem
+    5.4 Constraint-basierte Systeme mit Intervallen
+        5.4.1 Intervall-Constraints
+        5.4.2 Intervall-Constraint-Satisfaction-Problem
+        5.4.3 Konsistenzen eines Intervall-Constraint-Systems
+        5.4.4 Ansätze für Lösungsverfahren und ihre Einflussgrößen
+        5.4.5 Das Branch-and-Prune-Verfahren
+        5.4.6 Iterative Suchverfahren bei differenzierbaren Funktionen
+Grundlagen
+            Gauß-Seidel mit Präkonditionierung
+            Komponentenweise Berechnung
+        5.4.7 Algorithmen zur Berechnung der Hüllen-Konsistenz
+        5.4.8 Algorithmen zur Berechnung der Box-Konsistenz
+    5.5 Optimierungsverfahren
+    5.6 Eignung und Aufwand der Algorithmen
+    5.7 Softwarebibliotheken für Intervalle
+    5.8 Vergleichbare Arbeiten und Entwicklungsbedarf
+            Constraints
+    6.1 Ziele und Idee des Modells
+    6.2 Beschreibung der Wissensintegration
+        6.2.1 Zerlegung in Einheiten
+        6.2.2 Konstruktiver Grundgedanke
+        6.2.3 Integration weiterer Randbedingungen
+    6.3 Beschreibung des Modells
+        6.3.1 Ausgeprägte Objektorientierung
+        6.3.2 Parameter mit Intervallen
+        6.3.3 Constraints
+        6.3.4 Wissenseinheit
+        6.3.5 Funktionale Einheit
+        6.3.6 Erzeugungsoperatoren der Geometrie
+        6.3.7 Konsequenzen und Diskussion des Modells
+            Hierarchiebaum der Funktionalen Einheiten
+            Ebenenmodell
+Diskussion
+    7.1 Technische Grundlagen
+    7.2 Implementierte Funktionale Einheiten
+    7.3 Implementierte Geometrie-Constraints
+        7.3.1 Punkt-Koinzidenz
+        7.3.2 Gerichtete Linien-Koinzidenz
+        7.3.3 Abstand zweier Punkte
+        7.3.4 Abstand Punkt zu Gerade
+        7.3.5 Rechter Winkel zweier Geraden
+        7.3.6 Parallele Geraden
+        7.3.7 Abstand zweier Geraden
+        7.3.8 Rechter Winkel mit vorzeichenbehaftetem Abstand
+        7.3.9 Positive Orientierung von 3 Punkten
+        7.3.10 Länge eines Kantenzugs
+        7.3.11 Fläche eines Polygons
+    7.4 Implementierte geometrische Erzeugungsoperatoren
+        7.4.1 Linien-Extrusion
+        7.4.2 Polygon-Extrusion
+    7.5 Such- und Optimierungsalgorithmen
+        7.5.1 Grundalgorithmus
+        7.5.2 Allgemeine Pruning-Operatoren
+            Komponentenweises Intervall-Newton-Verfahren
+        7.5.3 Optimierung und Optimierungsziele
+        7.5.4 Methode der oberen Begrenzung
+        7.5.5 Zielfunktion für die geometrische Anfrage
+    7.6 Wertebereiche der Parameter
+        7.6.1 Berechnung der Wertebereiche
+        7.6.2 Visualisierung der Lösungsräume
+    7.7 Diskussion
+    8.1 Aufbau und Vorgehen
+    8.2 Beispiel: Rechteck-Wand
+        8.2.1 Ziele
+        8.2.2 Aufbau
+        8.2.3 Berechnung der globalen Hülle
+        8.2.4 Optimierung
+        8.2.5 Bewertung
+    8.3 Beispiel: Trapez-Wand
+        8.3.1 Ziele
+        8.3.2 Aufbau
+        8.3.3 Berechnung der globalen Hülle
+        8.3.4 Optimierung
+        8.3.5 Bewertung
+    8.4 Beispiel: Valides Polygon
+        8.4.1 Ziele
+        8.4.2 Aufbau
+        8.4.3 Bestimmung der Startkonfiguration
+        8.4.4 Konfiguration: Lockerung einer schwarzen Constraint
+        8.4.5 Konfiguration: Lockerung zweier schwarzer Constraints
+        8.4.6 Bewertung
+    8.5 Beispiel: Raum-begrenzt-durch-Wände
+        8.5.1 Ziele
+        8.5.2 Aufbau
+            Berechnung der globalen Hülle
+        8.5.3 Bewertung
+    8.6 Fazit der Beispiele
+KAPITEL 9
+            Zusammenfassung, Fazit und Ausblick
+    9.1 Zusammenfassung und Fazit
+    9.2 Fazit
+    9.3 Ausblick
 Literaturverzeichnis
 Abbildungsverzeichnis
 Tabellenverzeichnis
             Übersicht der Algorithmen
-            Modell
+    7.3 Prove-Operator für die Aktualisierung der bisher besten Lösung bei der Minimierung nach der Methode der oberen Begrenzung . . . . . . . . . . . 124
+    B.1 Beispiel: Rechteck-Wand
     B.2 Beispiel: Trapez-Wand
     B.3 Beispiel: Valides Polygon
     B.4 Beispiel: Raum-begrenzt-durch-Wände

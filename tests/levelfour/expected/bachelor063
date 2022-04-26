@@ -1,10 +1,23 @@
+            Datei existiert? Datei existiert nicht?
+            Systole/Diastole ≠ 0 Systole/Diastole = 0
+            Anzahl der Werte < 300 Anzahl der Werte > 300
             2.1.2.1  Auskultatorische Methode
             2.1.2.2  Oszillometrische Methode
             2.1.2.3  Volumenkompensationsmethode
+            Klick Button „Beenden“
+            Klick Button „Start“
+            Klick Button „Wiedergabe“
+            Klick Button „Blutdruckwerte“
+            Klick Button „Dateiname“
+            kontinuierlich: Anzeigeschleife
+            Klick Button „Anpassung durchführen“
+            Klick Button „Zurücksetzen“
+            Klick Button „Stop“
             7.2.1.1  Schaltplan Verteilerplatine
             7.2.1.2  Schaltplan Netzversorgung
             7.2.1.3  Anschlussplan
             7.2.1.4  Pneumatikplan Druckerzeugungseinheit
+            7.2.2.1  Frontplatte
             7.2.2.2  Rückwand
             Persönliche Daten
             Schule

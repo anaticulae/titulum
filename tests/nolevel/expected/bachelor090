@@ -1,23 +1,23 @@
-    Brute Force
-    Induction
-    Deduction
+Brute Force
+Induction
+Deduction
 A.1. Konfiguration
-    A.1.1. Software
-    A.1.2. OBU
+A.1.1. Software
+A.1.2. OBU
 A.2. Befehlsreferenz
 A.3. Verzeichnisübersicht Ubuntu
 A.4. Verzeichnisübersicht OBU
 A.5. Umsetzung
-    A.5.1. Konfiguration der Modelle
-    A.5.2. S-Funktion erzeugen
-    A.5.3. S-Funktion einbinden
+A.5.1. Konfiguration der Modelle
+A.5.2. S-Funktion erzeugen
+A.5.3. S-Funktion einbinden
 A.5.4. Konfiguration Mex
 A.6. Testergebnisse
 Dateiübersicht
-    Aus Datei lesen - Softwaretest Übersicht:
-    Nachrichten deserialisieren - Softwaretest:
-    SiL- und HiL-Test Durchmesserberechnung auf der OBU:
-    MiL-Test Histogramm
-    Modulweise Automatisierung mit manueller Verknüpfung
-    Vollständige Automatisierung
+Aus Datei lesen - Softwaretest Übersicht:
+Nachrichten deserialisieren - Softwaretest:
+SiL- und HiL-Test Durchmesserberechnung auf der OBU:
+MiL-Test Histogramm
+Modulweise Automatisierung mit manueller Verknüpfung
+Vollständige Automatisierung
 Literaturverzeichnis
