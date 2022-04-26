@@ -114,9 +114,15 @@ def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
             container = []
             for index, line in enumerate(page):
                 if startswith(line.text, headline.raw):
+                    # detect headline only once to determine correct page
+                    # and container.
+                    line.text = ''
                     container.append(index)
                     continue
                 if container and line.text.endswith(end[-10:]):
+                    # detect headline only once to determine correct page
+                    # and container.
+                    # line.text = ''
                     # end requires that start is detected
                     container.append(index)
             if not container:
