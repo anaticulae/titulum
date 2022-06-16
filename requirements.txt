@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-utila>=2.72.0<3.0.0
-iamraw>=4.70.3<5.0.0
-elements>=0.18.3<1.0.0
+utila>=2.77.0<3.0.0
+iamraw>=4.74.1<5.0.0
+elements>=0.21.0<1.0.0
 
 scipy>=1.6.3<2.0.0
