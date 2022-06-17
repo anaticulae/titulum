@@ -41,7 +41,9 @@ def run(
         document_length=len(ptcns),
     )
     converted = convert_cluster(extracted, ptcns)
+    utila.verbose(f'cluster: converted {converted}')
     result = headlines.utils.groupby_level_one(converted)
+    utila.verbose(f'cluster: result {result}')
     return result
 
 
@@ -66,10 +68,13 @@ def extract_headlines(
         utila.debug(f'cluster: too few headlines {len(flat)}, require at '
                     f'least {headline_count_min}, disable strategy')
         return []
+    utila.verbose(f'cluster: flat {flat}')
     # group headlines
     grouped = groupby_level(flat)
+    utila.verbose(f'cluster: grouped {grouped}')
     # verify group
     result = verify_level(grouped)
+    utila.verbose(f'cluster: verified {result}')
     return result
 
 
