@@ -257,7 +257,8 @@ def groupby_level(items) -> list:
         if level is None:
             level = 4
         grouped[level - 1].append(item)
-    result = [grouped[number] for number in range(len(grouped))]
+    group_max = max(grouped.keys()) + 1
+    result = [grouped[number] for number in range(group_max)]
     return result
 
 
