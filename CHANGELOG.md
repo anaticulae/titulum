@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.10.0
+
+### Feature
+
+* do not drop result if no level one is given (45de9701bc18)
+* extend debugging information (dac3bdf72c07)
+
+### Fix
+
+* do not skip data if no all levels are filled (4daa62a29a9d)
+
 ## v0.9.1
 
 ### Fix
