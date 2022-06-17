@@ -1,1 +1,56 @@
-
+    1.1 Stufen eines Bildverarbeitungssystems
+    1.2 Aufbau der Arbeit
+    1.3 Wissenschaftlicher Beitrag
+    2.1 Tiefenbild Segmentierungstechniken
+    2.2 Objekterkennung
+        2.2.1 Template Matching
+        2.2.2 Principal-Component-Analysis (PCA)
+        2.2.3 Klassifikation von Merkmalen
+    3.1 Erzeugung von Tiefenbildern
+    3.2 Eigenschaften von Tiefenbildern
+    4.1 Bildvorverarbeitung
+        4.1.1 Kontrastverbesserung
+        4.1.2 Glattung durch lokale Operatoren
+        4.1.3 Glattung durch morphologische Operatoren
+    4.2 Segmentierungsverfahren
+        4.2.1 Canny Kantendetektion
+        4.2.2 k-means Clustering
+        4.2.3 Schwellwertverfahren
+    4.3 Konturextraktion
+    4.4 Verbesserungen am Eingabebild
+        4.4.1 Parallele Projektion
+        4.4.2 Entfernung der Bodenpunkte im Tiefenbild
+        4.4.3 Manipulation der Grauwertinterpolation
+    4.5 Endfassung des Konturextraktionsalgorithmus
+    5.1 Anforderungen an die Konturreprasentationen
+    5.2 Anforderung an die Merkmale
+    5.3 Einfache geometrische Merkmale
+    5.4 Merkmalsextraktion mittels Momenten
+        5.4.1 Hu-Momente
+        5.4.2 Zernike-Momente
+    5.5 Reprasentation durch den Curvature-Scale-Space (CSS)
+        5.5.1 Krummung einer ebenen Kurve
+        5.5.2 Eigenschaften der CSS-Reprasentation
+        5.5.3 Merkmalsextraktion mit der Eigen-CSS Methode
+        5.5.4 CSS-Reprasentation zur Beschreibung von teilweise verdeckten Objekten
+    5.6 Angular-Radial-Transformation (ART)
+    5.7 Reprasentation durch Fourier-Deskriptoren
+    5.8 Border-Signature
+    6.1 Merkmalsauswahl
+        6.1.1 plus l-take away r Algorithmus
+        6.1.2 Principal-Component-Analysis (PCA)
+    6.2 Klassifikationsstrategien
+    6.3 Klassifikation mittels Support-Vector-Machines (SVM)
+        6.3.1 Primare Form
+        6.3.2 Duales Optimierungsproblem
+        6.3.3 SVM zur Klassifikation von mehreren Objekten
+    6.4 Viola Jones AdaBoost Klassifikator
+    7.1 Receiver-Operating-Characteristics (ROC)-Analyse
+        7.1.1 ROC-Kurven
+        7.1.2 Flache unter der ROC-Kurve (AUC)
+        7.1.3 Multi-Klassen ROC-Analyse
+        7.1.4 Konvexe Hulle der ROC-Kurve und kombinierte Klassifikatoren
+        7.1.5 Linien gleicher Exaktheit und der optimale Schwellwert
+    7.2 Ergebnis der Performanz-Analyse
+        7.2.1 Vergleich mit dem Viola Jones AdaBoost Klassifikator
+        7.2.2 Klassifikation von verdeckten Konturen
