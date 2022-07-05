@@ -10,7 +10,7 @@
 import genex
 import power
 import pytest
-import utila
+import utilatest
 
 import headlines
 
@@ -57,9 +57,7 @@ RESOURCES = [
     power.MASTER116_PDF,
     power.MASTER155_PDF,
 ]
-TEST_TODO = [
-    pytest.param(source, id=utila.file_name(source)) for source in RESOURCES
-]
+TEST_TODO = utilatest.simplify_testfile_names(RESOURCES)
 
 
 @pytest.mark.usefixtures('session')
