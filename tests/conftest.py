@@ -71,11 +71,11 @@ def extract(resources):
     genex.extract(
         files=resources,
         caption=True,
+        cleanup=True,
         codero=True,
         figureo=True,
         groupme=True,
-        tablero=True,
-        cleanup=True,
         sections=True,
+        tablero=True,
         worker=WORKER,
     )
