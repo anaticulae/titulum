@@ -151,6 +151,17 @@ def startswith(linestart: str, headline: str) -> bool:
         if len(headline) < len(linestart):
             return False
         return True
+    try:
+        _, without_number = headline.split(maxsplit=1)
+    except ValueError:
+        return False
+    if linestart.startswith(without_number[0:25]):
+        # try to match without number cause some layout processing divides
+        # number and headline text if gap between number and text is too
+        # high.
+        if len(headline) < len(without_number):
+            return False
+        return True
     return False
 
 
