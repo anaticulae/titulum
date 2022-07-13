@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.11.0
+
+### Feature
+
+* skip too many headlines on a single page (209ce3270cd7)
+* limit headline font size (b4ab83f9fa25)
+* improve headline lookup (b50cb370bf4c)
+
+### Fix
+
+* use improve test name generator (b83c6a5dcbf3)
+
 ## v0.10.0
 
 ### Feature
