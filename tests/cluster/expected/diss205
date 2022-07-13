@@ -1,8 +1,8 @@
+Intervallen
 ANHANG A Modell
             ANHANG B Werte der Auswertung der Beispiele
 KAPITEL 1
 Einführung
-    1.1 Entwurfsentscheidungen in Bauwerksmodellen
     1.2 Motivation
     1.3 Ziel und Abgrenzung
     1.4 Einbezogene Forschungsgebiete
@@ -52,14 +52,13 @@ Einführung
     4.5 Das Problem der multiplen Lösungen in geometrischen Constraint-Systemen
         4.5.1 Hintergründe
         4.5.2 Suche nach der beabsichtigten Lösung
-            Heuristische Ansätze
             Zusätzliche Constraints
+            Heuristische Ansätze
             Interaktion im Lösungsprozess
 Geometrische Anfrage
         4.5.3 Bestimmung möglicher Parameterwerte
     4.6 Constraint-basiertes Modellieren von Geometrie im Bauwesen
     4.7 Diskussion und Forschungsbedarf
-Intervallen
     5.1 Intervalle
     5.2 Grundlegende Literatur zu Intervallen
     5.3 Intervallarithmetik
@@ -125,6 +124,7 @@ Diskussion
         7.5.5 Zielfunktion für die geometrische Anfrage
     7.6 Wertebereiche der Parameter
         7.6.1 Berechnung der Wertebereiche
+            6.15) Optimierung die Suche nach jenem Wert dar, für den die aktuell betrachtete Grenze
         7.6.2 Visualisierung der Lösungsräume
     7.7 Diskussion
     8.1 Aufbau und Vorgehen
@@ -155,7 +155,6 @@ Diskussion
     8.6 Fazit der Beispiele
 KAPITEL 9
 Zusammenfassung, Fazit und Ausblick
-    9.1 Zusammenfassung und Fazit
     9.2 Fazit
     9.3 Ausblick
 Literaturverzeichnis
