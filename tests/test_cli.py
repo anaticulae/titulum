@@ -10,5 +10,5 @@
 import tests
 
 
-def test_cli_help(monkeypatch):
-    tests.run('--help', monkeypatch=monkeypatch)
+def test_cli_help(mp):
+    tests.run('--help', mp=mp)

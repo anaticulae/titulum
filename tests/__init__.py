@@ -21,12 +21,11 @@ run, fail = utilatest.create_cli_runner(headlines)
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, name, source, pages, expected, archive, workdir,
-                 monkeypatch):
+    def __init__(self, name, source, pages, expected, archive, workdir, mp):
         super().__init__(
             program=functools.partial(
                 run,
-                monkeypatch=monkeypatch,
+                mp=mp,
             ),
             step=f'{name} -VVV' if name else '',
             pages=pages,

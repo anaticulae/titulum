@@ -18,7 +18,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/nolevel/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-def test_validate_nolevel(source, testdir, monkeypatch):
+def test_validate_nolevel(source, td, mp):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='nolevel',
@@ -26,6 +26,6 @@ def test_validate_nolevel(source, testdir, monkeypatch):
         pages=':',
         expected=utila.file_name(source),
         archive=ARCHIVE,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()

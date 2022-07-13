@@ -19,7 +19,7 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/standard/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-def test_validate_standard(source, testdir, monkeypatch):
+def test_validate_standard(source, td, mp):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='standard',
@@ -27,6 +27,6 @@ def test_validate_standard(source, testdir, monkeypatch):
         pages=':',
         expected=utila.file_name(source),
         archive=ARCHIVE,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()

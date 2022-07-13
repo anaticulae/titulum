@@ -20,18 +20,18 @@ ARCHIVE = utila.join(headlines.ROOT, 'tests/result/expected', exist=True)
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.longrun
-def test_validate_result(source, testdir, monkeypatch):
+def test_validate_result(source, td, mp):
     utilatest.fixture_requires(source)
     ResultEvaluate(
         source=source,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
 
 
 class ResultEvaluate(tests.Evaluate):
 
-    def __init__(self, source, workdir, monkeypatch):
+    def __init__(self, source, workdir, mp):
         super().__init__(
             name='result --all',
             source=source,
@@ -39,7 +39,7 @@ class ResultEvaluate(tests.Evaluate):
             expected=utila.file_name(source),
             archive=ARCHIVE,
             workdir=workdir,
-            monkeypatch=monkeypatch,
+            mp=mp,
         )
 
     def raw(self, value) -> str:

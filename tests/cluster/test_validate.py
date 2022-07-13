@@ -24,7 +24,7 @@ ARCHIVE_LEVELFOUR = utila.join(
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.longrun
-def test_validate_cluster(source, testdir, monkeypatch):
+def test_validate_cluster(source, td, mp):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='cluster',
@@ -32,14 +32,14 @@ def test_validate_cluster(source, testdir, monkeypatch):
         pages=':',
         expected=utila.file_name(source),
         archive=ARCHIVE,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 @utilatest.nightly
-def test_combined_cluster_levelfour(source, testdir, monkeypatch):
+def test_combined_cluster_levelfour(source, td, mp):
     utilatest.fixture_requires(source)
     tests.Evaluate(
         name='cluster --levelfour',
@@ -47,6 +47,6 @@ def test_combined_cluster_levelfour(source, testdir, monkeypatch):
         pages=':',
         expected=utila.file_name(source),
         archive=ARCHIVE_LEVELFOUR,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
