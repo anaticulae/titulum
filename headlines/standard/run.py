@@ -21,6 +21,8 @@ HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
 HEADLINE_FONT_SIZE_MAX = configo.HV_INT_PLUS(default=75, limit=120)
 
+HEADLINE_COUNT_PERPAGE_MAX = configo.HV_INT_PLUS(default=5)
+
 
 def run(
     ptcns: texmex.PTNs,
@@ -113,6 +115,9 @@ def parse_page(  # pylint:disable=R0914
         if [item for item in containers if single.contains(item)]:
             continue
         result.append(headline)
+    if len(result) > HEADLINE_COUNT_PERPAGE_MAX:
+        utila.debug(f'too many headlines: {len(result)} on page: {ptcn.page}')
+        return []
     return result
 
 
