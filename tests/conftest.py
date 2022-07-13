@@ -60,7 +60,7 @@ RESOURCES = [
     power.MASTER116_PDF,
     power.MASTER155_PDF,
 ]
-TEST_TODO = utilatest.simplify_testfile_names(RESOURCES)
+TEST_TODO = utilatest.test_resources(RESOURCES)
 
 
 @pytest.mark.usefixtures('session')
