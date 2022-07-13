@@ -19,6 +19,8 @@ import headlines.utils
 
 HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
 
+HEADLINE_FONT_SIZE_MAX = configo.HV_INT_PLUS(default=75, limit=120)
+
 
 def run(
     ptcns: texmex.PTNs,
@@ -123,7 +125,7 @@ def extract_headline(
     skipper=None,
     double: bool = False,
     **kwargs,
-):  # pylint:disable=R0914
+):  # pylint:disable=R0914,R1260,R0911
     """\
     double - parse two line as possible headline(backup strategy)
 
@@ -158,6 +160,8 @@ def extract_headline(
         lastitem=lastitem,
     )
     if skip and not higher_equalthree:
+        return None
+    if textsize > HEADLINE_FONT_SIZE_MAX:
         return None
     raw_text = text.strip()
     # try to merge next container to parse double headline
