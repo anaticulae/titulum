@@ -9,10 +9,12 @@
 
 import power
 import serializeraw
+import utilatest
 
 import headlines.cluster.parser
 
 
+@utilatest.requires(power.BACHELOR067_PDF)
 def test_filter_level4_headlines_bachelor067():
     """Rawmaker determines bold font correctly."""
     source = power.link(power.BACHELOR067_PDF)
