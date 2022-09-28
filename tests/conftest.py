@@ -20,7 +20,6 @@ pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
 PACKAGE = headlines.PROCESS
 power.setup(headlines.ROOT)
-WORKER = 4
 
 RESOURCES = [
     power.BACHELOR028_PDF,
@@ -61,6 +60,8 @@ RESOURCES = [
     power.MASTER116_PDF,
     power.MASTER155_PDF,
 ]
+WORKER = utilatest.worker_count(8, onci=len(RESOURCES))
+
 TEST_TODO = utilatest.test_resources(RESOURCES)
 
 
