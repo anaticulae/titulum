@@ -2,6 +2,26 @@
 
 Every noteable change is logged here.
 
+## v0.12.0 (2022-10-04)
+
+### Feature
+
+* use modern data source (9ea4d0bd41be)
+
+### Chore
+
+* use newer headnote to get better results (71e83c5400c3)
+* upgrade requirements.txt (64b52767fc7a)
+* add missing headnote generator (b4774eb55127)
+* archive generated data if nightly fails (64be0a1035a5)
+* add separate generator step (304905677e67)
+* upgrade requirements.txt (22a1baae16d2)
+* use opengl for resource generator (d69044baf401)
+* add missing resource generator (e38ffac5f420)
+* increase worker count on CI (0b2e76d6cc29)
+* add Jenkinsfile (99b6d94d6552)
+* upgrade requirements.txt (155f32d45ce6)
+
 ## v0.11.0
 
 ### Feature
