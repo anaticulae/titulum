@@ -67,8 +67,8 @@
 5. Diskussion und Ausblick
 A. Anhang
     A.1. Konfiguration
-A.1.1. Software
-            A.1.2. OBU
+            A.1.1. Software
+A.1.2. OBU
     A.2. Befehlsreferenz
     A.3. Verzeichnisübersicht Ubuntu
     A.4. Verzeichnisübersicht OBU
@@ -77,7 +77,7 @@ A.5. Umsetzung
             A.5.2. S-Funktion erzeugen
             A.5.3. S-Funktion einbinden
             A.5.4. Konfiguration Mex
-    A.6. Testergebnisse
+A.6. Testergebnisse
     Dateiübersicht
             Aus Datei lesen - Softwaretest Übersicht:
             Nachrichten deserialisieren - Softwaretest:

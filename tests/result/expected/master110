@@ -16,8 +16,8 @@ Tiefenbilder
 Konturextraktion
     4.1 Bildvorverarbeitung
         4.1.1 Kontrastverbesserung
-        4.1.2 Glattung durch lokale Operatoren
-        4.1.3 Glattung durch morphologische Operatoren
+        4.1.2 Glättung durch lokale Operatoren
+        4.1.3 Glättung durch morphologische Operatoren
     4.2 Segmentierungsverfahren
         4.2.1 Canny Kantendetektion
         4.2.2 k-means Clustering
@@ -28,20 +28,20 @@ Konturextraktion
         4.4.2 Entfernung der Bodenpunkte im Tiefenbild
         4.4.3 Manipulation der Grauwertinterpolation
     4.5 Endfassung des Konturextraktionsalgorithmus
-Konturreprasentation und Merkmalsextraktion
-    5.1 Anforderungen an die Konturreprasentationen
+Konturrepräsentation und Merkmalsextraktion
+    5.1 Anforderungen an die Konturrepräsentationen
     5.2 Anforderung an die Merkmale
     5.3 Einfache geometrische Merkmale
     5.4 Merkmalsextraktion mittels Momenten
         5.4.1 Hu-Momente
         5.4.2 Zernike-Momente
-    5.5 Reprasentation durch den Curvature-Scale-Space (CSS)
-        5.5.1 Krummung einer ebenen Kurve
-        5.5.2 Eigenschaften der CSS-Reprasentation
+    5.5 Repräsentation durch den Curvature-Scale-Space (CSS)
+        5.5.1 Krümmung einer ebenen Kurve
+        5.5.2 Eigenschaften der CSS-Repräsentation
         5.5.3 Merkmalsextraktion mit der Eigen-CSS Methode
-        5.5.4 CSS-Reprasentation zur Beschreibung von teilweise verdeckten Objekten
+        5.5.4 CSS-Repräsentation zur Beschreibung von teilweise verdeckten Objekten
     5.6 Angular-Radial-Transformation (ART)
-    5.7 Reprasentation durch Fourier-Deskriptoren
+    5.7 Repräsentation durch Fourier-Deskriptoren
     5.8 Border-Signature
 Klassifikation
     6.1 Merkmalsauswahl
@@ -55,9 +55,9 @@ Klassifikation
 Performanzevaluation
     7.1 Receiver-Operating-Characteristics (ROC)-Analyse
         7.1.1 ROC-Kurven
-        7.1.2 Flache unter der ROC-Kurve (AUC)
+        7.1.2 Fläche unter der ROC-Kurve (AUC)
         7.1.3 Multi-Klassen ROC-Analyse
-        7.1.4 Konvexe Hulle der ROC-Kurve und kombinierte Klassifikatoren
+        7.1.4 Konvexe Hülle der ROC-Kurve und kombinierte Klassifikatoren
         7.1.5 Linien gleicher Exaktheit und der optimale Schwellwert
     7.2 Ergebnis der Performanz-Analyse
         7.2.1 Vergleich mit dem Viola Jones AdaBoost Klassifikator

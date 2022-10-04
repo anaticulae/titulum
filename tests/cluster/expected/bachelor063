@@ -43,6 +43,7 @@
             Klick Button „Wiedergabe“
             Klick Button „Blutdruckwerte“
             Klick Button „Dateiname“
+            Klick Button „Voreinstellungen“
         7.1.2  Sub-VI „Messprogramm“
             kontinuierlich: Anzeigeschleife
             Klick Button „Anpassung durchführen“
@@ -61,12 +62,6 @@
     7.3  Sondenfixierung
         7.3.1  Zeichnung Befestigungsblock
     7.4  Testmessungen
-        7.4.1  Messprotokoll
 Literaturverzeichnis
 Abbildungsverzeichnis
 Glossar
-Lebenslauf
-            Persönliche Daten
-Schule
-            Studium
-            Praktika

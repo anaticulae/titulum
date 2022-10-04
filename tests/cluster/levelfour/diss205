@@ -125,7 +125,6 @@ Diskussion
         7.5.5 Zielfunktion für die geometrische Anfrage
     7.6 Wertebereiche der Parameter
         7.6.1 Berechnung der Wertebereiche
-            6.15) Optimierung die Suche nach jenem Wert dar, für den die aktuell betrachtete Grenze
         7.6.2 Visualisierung der Lösungsräume
     7.7 Diskussion
     8.1 Aufbau und Vorgehen
@@ -159,6 +158,8 @@ KAPITEL 9
     9.2 Fazit
     9.3 Ausblick
 Literaturverzeichnis
+            „Decomposition of geometric constraint systems: a survey“. In: International Journal
+            „Proposing a Central AEC Ontology That Allows for Domain Specific Extensions“. In:
 Abbildungsverzeichnis
 Tabellenverzeichnis
             Übersicht der Algorithmen
