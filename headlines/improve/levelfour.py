@@ -62,7 +62,7 @@ def has_levelfour(items):
     """
     flat = utila.flat(items)
     maxlevel = max(
-        [item.level for item in flat if item.level is not None],
+        (item.level for item in flat if item.level is not None),
         default=0,
     )
     if maxlevel >= 4:

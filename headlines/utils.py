@@ -15,7 +15,7 @@ def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
     result = []
     # detect chapter starts
     levelone = [
-        index for (index, item) in enumerate(heads) if item.level in (None, 1)
+        index for (index, item) in enumerate(heads) if item.level in (None, 1)  # pylint:disable=R6201
     ]
     if not levelone:
         utila.debug('cluster: no level one')
