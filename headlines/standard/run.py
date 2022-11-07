@@ -125,7 +125,7 @@ def extract_headline(
     textinfo,
     textdistances,
     textfeeds,
-    ptcn: texmex.PageTextContentNavigator,
+    ptcn: texmex.PTCN,
     containerid: int,
     skipper=None,
     double: bool = False,

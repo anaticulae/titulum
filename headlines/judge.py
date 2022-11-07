@@ -29,8 +29,8 @@ def select_best(results) -> iamraw.HeadlineResult:
 
 
 def length_flat(items):
-    items = utila.flatten(items, append=True)
-    items = utila.flatten(items, append=True)
+    items = utila.flat(items, append=True)
+    items = utila.flat(items, append=True)
     return len(items)
 
 
@@ -40,7 +40,7 @@ def invalid_extraction(items) -> bool:
     1. Strategy: Check longest sequence of level one headlines.
     2. Strategy: Check headline ends with awkward characters.
     """
-    items = utila.flatten(items, append=True)
+    items = utila.flat(items, append=True)
     if all(item.level == 1 for item in items):
         # level one extraction strategy
         return False
@@ -67,8 +67,8 @@ def score_levelerror(items: list) -> int:
     This is may indicated by user, but mostly by selecting the wrong
     headline determination algorithm.
     """
-    flat = utila.flatten(items)
-    flat = utila.flatten(flat, append=True)
+    flat = utila.flat(items)
+    flat = utila.flat(flat, append=True)
     error = 0
     rawlevel = [
         item.raw_level
@@ -128,7 +128,7 @@ ERROR_MAX_PLUS = configo.HV_PERCENT_PLUS(default=150)
 def too_many_error(headlinex, second: bool = False) -> bool:
     if not headlinex:
         return False
-    headline_count = len(utila.flatten(headlinex))
+    headline_count = len(utila.flat(headlinex))
     if headline_count < 10:  # TODO: MAGIC NUMBER
         # TODO: THINK ABOUT THIS
         # disable check for too few headlines
@@ -151,7 +151,7 @@ def skip_if_too_few(
     document_length,
     strategy: str = None,
 ):
-    headline_count = len(utila.flatten(headlinex, append=True))
+    headline_count = len(utila.flat(headlinex, append=True))
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
     if headline_count < headline_count_min:
         utila.debug(f'too few headlines {headline_count}, require at '

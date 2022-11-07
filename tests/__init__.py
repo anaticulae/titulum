@@ -44,7 +44,7 @@ class Evaluate(utilatest.BaseLiner):
         return loaded
 
     def raw(self, value) -> str:
-        value = utila.flatten(value)
+        value = utila.flat(value)
         collected = [rawline(item) for item in value]
         result = utila.NEWLINE.join(collected)
         return result

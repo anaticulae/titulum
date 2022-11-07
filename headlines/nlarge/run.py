@@ -20,7 +20,7 @@ import texmex
 import utila
 
 
-def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
+def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
     result = []
     for page in ptcns:
         headline = headline_frompage(page)

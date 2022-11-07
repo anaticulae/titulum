@@ -18,7 +18,7 @@ import headlines.utils
 SINGLEPAGE_LINES_MAX = configo.HV_INT_PLUS(default=3)
 
 
-def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
+def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
     collected = []
     for page in ptcns:
         parsed = parse_page(page)

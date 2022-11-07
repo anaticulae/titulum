@@ -31,6 +31,6 @@ def headlinepart(pages: tuple, sections: str = None) -> tuple:
     # TODO: A LITTLE BIT COMPLICATED
     loaded = [item for item in loaded if not isinstance(item, INVALID)]
     valid = [utila.rlist(item.start, item.end) for item in loaded]
-    valid = utila.flatten(valid)
+    valid = utila.flat(valid)
     result = tuple(item for item in valid if not utila.should_skip(item, pages))
     return result

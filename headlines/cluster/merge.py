@@ -59,7 +59,7 @@ def merge_lines(*args) -> texmex.TextInfo:
     for line in args:
         bounds.append(line.bounding)
         text.append(line.text.strip())
-    bounding_max = utila.rectangle_max(bounds)
+    bounding_max = utila.rect_max(bounds)
     text: str = ' '.join(text)
     if len(args) == 2:
         # start of page

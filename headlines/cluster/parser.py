@@ -8,7 +8,6 @@
 # =============================================================================
 
 import collections
-import typing
 
 import elements
 import iamraw
@@ -19,7 +18,7 @@ VerticalTextDistance = collections.namedtuple(
     'VerticalTextDistance',
     'top, bottom',
 )
-VerticalTextDistances = typing.List[VerticalTextDistance]
+VerticalTextDistances = list[VerticalTextDistance]
 
 
 def parses(
@@ -173,7 +172,7 @@ def textsizes(navi: texmex.NavigatorMixin) -> utila.Floats:
         fontsizes = [
             [char.size] * (char.end - char.start) for char in line.style
         ]
-        fontsizes = utila.flatten(fontsizes)
+        fontsizes = utila.flat(fontsizes)
         collected.append(utila.mode(fontsizes, minimize=True))
     return collected
 
@@ -187,7 +186,7 @@ def textfonts(
     for line in navi:
         # determine most common font family
         family = [[char.font] * char.width for char in line.style]
-        family = utila.flatten(family)
+        family = utila.flat(family)
         collected.append(utila.mode(family))
     collected = [hash(fontstore[item].name) for item in collected]
     return collected

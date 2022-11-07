@@ -43,7 +43,7 @@ HEADLINE_H1_TRY = configo.HolyList(items=[
 ])
 
 
-def run(ptcns: texmex.PageTextContentNavigators) -> iamraw.PagesHeadlineList:
+def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
     for h1_try in HEADLINE_H1_TRY:
         utila.debug(f'multiline, try h1_size_min: {h1_try}')
         collected = collect(
@@ -79,7 +79,7 @@ def collect(ptcns, h1_size_min: float) -> iamraw.Headlines:
 
 
 def extract_page(
-    ptcn: texmex.PageTextContentNavigator,
+    ptcn: texmex.PTCN,
     h1_size_min: float = 12.01,
 ) -> iamraw.Headlines:
     """Extract headlines on selected page."""

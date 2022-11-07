@@ -32,7 +32,7 @@ def merge_ifbetter(before, levelfour):
 def improve(current: list, levelfour):
     """Do not add headlines which are also part of level four."""
     # TODO: DIRTY BUT WORKS
-    flat = utila.flatten(current)
+    flat = utila.flat(current)
     done = collections.defaultdict(set)
     for item in levelfour:
         done[item.page].add(item.container)
@@ -60,7 +60,7 @@ def has_levelfour(items):
     >>> import iamraw
     >>> assert has_levelfour(iamraw.HeadlineResult()) is not None
     """
-    flat = utila.flatten(items)
+    flat = utila.flat(items)
     maxlevel = max(
         [item.level for item in flat if item.level is not None],
         default=0,
