@@ -2,6 +2,24 @@
 
 Every noteable change is logged here.
 
+## v0.12.1 (2022-12-04)
+
+### Chore
+
+* ensure that layout is installed (1dc898c3cb95)
+* remove headline dependency (7475a8e67866)
+* use quick installer (8f1a8314ec85)
+* upgrade pipeline (5fd61c4c3c3f)
+* upgrade pipe library (aebeb9d00e63)
+* convert nightly to all (f98bdc89dd44)
+* reduce feedback time (80328d2cfc64)
+* upgrade requirements.txt (97b61e6c390b)
+* upgrade pipe library (80fb98527ddd)
+* upgrade environment (b0b77a38ec40)
+* reduce resource to decrease required runtime (709e02dadd55)
+* do not run in privileged mode (a3aba4859aff)
+* increase baw version (11a61d3eeee8)
+
 ## v0.12.0 (2022-10-04)
 
 ### Feature
