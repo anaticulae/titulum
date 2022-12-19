@@ -7,6 +7,9 @@ pipeline{
         }
     }
     stages{
+        stage('integrate'){
+            steps{script{baw.integrate()}}
+        }
         stage('setup'){
             steps{script{baw.setup()}}
         }
