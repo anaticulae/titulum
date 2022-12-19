@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.12.2 (2022-12-19)
+
+### Chore
+
+* upgrade requirements.txt (db113dd52761)
+* add integrate step (bc369c071475)
+* add rebase step (d8dd6c1c7a07)
+* upgrade Jenkinsfile (cf1dd77c9b88)
+* upgrade pipe library (17e585b29137)
+
 ## v0.12.1 (2022-12-04)
 
 ### Chore
