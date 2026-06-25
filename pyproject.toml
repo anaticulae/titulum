@@ -44,6 +44,7 @@ dev = [
     "capita>=1.25.2,<2.0.0",
     "rawmaker>=2.40.3,<3.0.0",
     "layouta>=1.0.0,<2.0.0",
+    "pagenumber>=1.0.0,<2.0.0",
 ]
 
 [project.urls]
