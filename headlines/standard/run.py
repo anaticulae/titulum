@@ -183,12 +183,12 @@ def extract_headline(
         dist_bottom = None if lastitem else textdistances[look_forward]
     except IndexError:
         return None
-    style = dict(
-        textsize=textsize,
-        before=dist_top,
-        after=dist_bottom,
-        feed=textfeed,
-    )
+    style = {
+        "textsize": textsize,
+        "before": dist_top,
+        "after": dist_bottom,
+        "feed": textfeed,
+    }
     decoration = headline_decoration(
         navigator=ptcn,
         containerid=containerid,

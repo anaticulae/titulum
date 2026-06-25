@@ -22,8 +22,9 @@ def work(
     pages: tuple = None,
 ) -> str:
     sources = [
-        item if utilo.exists(item) else None for item in
-        [xcluster, xmultiline, xnolevel, xnlarge, xsingle, xstandard]
+        item if utilo.exists(item) else None
+        for item in (xcluster, xmultiline, xnolevel, xnlarge, xsingle,
+                     xstandard)
     ]
     headlines = [
         serializeraw.load_headlines(

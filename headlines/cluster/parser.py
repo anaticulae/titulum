@@ -49,11 +49,11 @@ def parse_vector(
     left, right = leftright(navigator)
     visibles = visible(navigator)
     equal_length = [
-        len(item) for item in
-        [sizes, fonts, top, bottom, left, right, underlines, visibles]
+        len(item) for item in (sizes, fonts, top, bottom, left, right,
+                               underlines, visibles)
     ]
     assert len(set(equal_length)) == 1, f'different iter length {equal_length}'
-    result = [
+    result = (
         sizes,
         bolds,
         italics,
@@ -61,7 +61,7 @@ def parse_vector(
         left,
         uppers,
         visibles,
-    ]
+    )
     return result
 
 
