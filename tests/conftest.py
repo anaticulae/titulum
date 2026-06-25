@@ -70,15 +70,15 @@ def pytest_sessionstart():
 def extract(resources):
     gennex.extract(
         files=resources,
-        caption=True,
-        cleanup=True,
-        codero=True,
-        figureo=True,
-        footnote=True,
-        headnote=True,
+        # caption=True,
+        # cleanup=True,
+        # codero=True,
+        # figureo=True,
+        # footnote=True,
+        # headnote=True,
         groupme=True,
         pagenumber=True,
         sections=True,
-        tablero=True,
+        # tablero=True,
         worker=WORKER,
     )
