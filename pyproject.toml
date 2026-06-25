@@ -49,6 +49,9 @@ dev = [
 Homepage = "https://github.com/anaticulae/headlines"
 Repository = "https://github.com/anaticulae/headlines"
 
+[project.scripts]
+headlines = "headlines.cli:main"
+
 [tool.semantic_release]
 version_toml = [
     "pyproject.toml:project.version",
