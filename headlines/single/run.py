@@ -7,15 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
-import elements
+import configos
+import elementae
 import iamraw
 import texmex
 
 import headlines.judge
 import headlines.utils
 
-SINGLEPAGE_LINES_MAX = configo.HV_INT_PLUS(default=3)
+SINGLEPAGE_LINES_MAX = configos.HV_INT_PLUS(default=3)
 
 
 def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
@@ -40,9 +40,9 @@ def parse_page(ptcn) -> iamraw.Headlines:
         # TODO: HOLY VALUE
         if line.bounding_mean < 18.0:
             continue
-        if not elements.isheadline(line.text):
+        if not elementae.isheadline(line.text):
             continue
-        parsed = elements.parse_headline(line.text)
+        parsed = elementae.parse_headline(line.text)
         if parsed:
             title, level, rawlevel = parsed
         else:

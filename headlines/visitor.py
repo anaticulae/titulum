@@ -21,13 +21,13 @@ Visit table of content by numbered level.
 
 import itertools
 
-import elements
+import elementae
 
 
 def groupby_level(  # pylint:disable=R1260
     items,
     selector=None,
-    determine_level=elements.level_numbered,
+    determine_level=elementae.level_numbered,
     subgroups: bool = True,
 ):
     if not items:

@@ -9,7 +9,7 @@
 
 import collections
 
-import utila
+import utilo
 
 import headlines.judge
 import headlines.utils
@@ -32,14 +32,14 @@ def merge_ifbetter(before, levelfour):
 def improve(current: list, levelfour):
     """Do not add headlines which are also part of level four."""
     # TODO: DIRTY BUT WORKS
-    flat = utila.flat(current)
+    flat = utilo.flat(current)
     done = collections.defaultdict(set)
     for item in levelfour:
         done[item.page].add(item.container)
     selected = []
     for item in flat:
         if item.container in done[item.page]:
-            utila.debug(f'headline is levelfour: {item}, skip')
+            utilo.debug(f'headline is levelfour: {item}, skip')
             continue
         selected.append(item)
     selected.extend(levelfour)
@@ -60,7 +60,7 @@ def has_levelfour(items):
     >>> import iamraw
     >>> assert has_levelfour(iamraw.HeadlineResult()) is not None
     """
-    flat = utila.flat(items)
+    flat = utilo.flat(items)
     maxlevel = max(
         (item.level for item in flat if item.level is not None),
         default=0,
@@ -83,7 +83,7 @@ def has_levelfour(items):
 
 
 def merge_levelfour(extracted, levelfour):
-    utila.debug('merge_levelfour')
+    utilo.debug('merge_levelfour')
     # avoid side effects
     result = [item[:] for item in extracted]
     levelfour = levelfour[:]

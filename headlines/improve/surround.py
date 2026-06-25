@@ -15,8 +15,8 @@ detected headline.
 
 import contextlib
 
-import elements
-import utila
+import elementae
+import utilo
 
 
 def run(headlines, ptcns):
@@ -26,7 +26,7 @@ def run(headlines, ptcns):
 def before_and_after(headlines, ptcns):
     for chapter in headlines:
         for headline in chapter:
-            page = utila.select_page(ptcns, headline.page)
+            page = utilo.select_page(ptcns, headline.page)
             headline_expand(headline, page)
     return headlines
 
@@ -45,6 +45,6 @@ def headline_expand(headline, page):
         after = page[headline_end + 1]
     # TODO: UNUSED AFTER
     if before:
-        if elements.noheadline_pattern(before.text):
+        if elementae.noheadline_pattern(before.text):
             headline.decorator = headline_start - 1
     return headline

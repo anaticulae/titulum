@@ -8,18 +8,18 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 import headlines.utils
 
 
 def work(xresult: str) -> str:
-    if not utila.exists(xresult):
+    if not utilo.exists(xresult):
         detected = headlines.utils.convert_headline_result(
             groups=[],
             strategy=__name__,
         )
         dumped = serializeraw.dump_headlines(detected)
         return dumped
-    content = utila.file_read(xresult)
+    content = utilo.file_read(xresult)
     return content

@@ -7,17 +7,17 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import headlines.cluster.parser
 
 
-@utilatest.requires(power.BACHELOR067_PDF)
+@utilotest.requires(hoverpower.BACHELOR067_PDF)
 def test_filter_level4_headlines_bachelor067():
     """Rawmaker determines bold font correctly."""
-    source = power.link(power.BACHELOR067_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR067_PDF)
 
     page59 = serializeraw.ptcn_frompath(source, pages=59)[0]
     fontstore = serializeraw.fs_frompath(source, pages=59)

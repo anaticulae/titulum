@@ -11,34 +11,34 @@
 import re
 import sys
 
-import utila
+import utilo
 
 
 def main():
     pdf = sys.argv[1]
-    completed = utila.run(
+    completed = utilo.run(
         f'baw test skip --generate --no_insta | grep {pdf}',
         expect=None,
     )
     if completed.returncode:
         if completed.stderr.strip():
-            utila.error(completed.stderr)
-        utila.error('could not locate any tests')
+            utilo.error(completed.stderr)
+        utilo.error('could not locate any tests')
         sys.exit(completed.returncode)
     tests = completed.stdout.strip()
     tests = re.sub(r'[ ]{0,15}\<Function[ ]', '', tests)
     tests = re.sub(r'\]?>', '', tests)
-    utila.log(tests + utila.NEWLINE * 5)
+    utilo.log(tests + utilo.NEWLINE * 5)
     tests = tests.splitlines()
     for test in tests:
         cmd = f'baw test nightly -k {test} --no_inst -n1'
-        utila.log(cmd + '\n\n')
-        completed = utila.run(
+        utilo.log(cmd + '\n\n')
+        completed = utilo.run(
             cmd,
             expect=None,
         )
-        utila.log(completed.stdout)
-        utila.log(completed.stderr)
+        utilo.log(completed.stdout)
+        utilo.log(completed.stderr)
 
 
 if __name__ == "__main__":

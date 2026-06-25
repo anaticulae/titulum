@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
-import elements
+import configos
+import elementae
 import iamraw
-import utila
+import utilo
 
 
 def cluster_headline_level(items: iamraw.PagesHeadlineList) -> dict:
@@ -41,7 +41,7 @@ def cluster_headline_level(items: iamraw.PagesHeadlineList) -> dict:
 
     left_or_right = 100.0  # decide if text is right or left feeded
     tolerance = [
-        utila.roundme((
+        utilo.roundme((
             first * 0.15,
             second * 3.0,
             left_or_right,
@@ -68,7 +68,7 @@ def update_level(items: iamraw.PagesHeadlineList, border, diff) -> dict:
             after = headline.level['after']
             feed = headline.level['feed']
             current = (textsize, after, feed)
-            matched = utila.near_dims(  # pylint:disable=E1101,unexpected-keyword-arg
+            matched = utilo.near_dims(  # pylint:disable=E1101,unexpected-keyword-arg
                 current,
                 border,
                 diff,
@@ -76,7 +76,7 @@ def update_level(items: iamraw.PagesHeadlineList, border, diff) -> dict:
             )
             if headline.raw_level:
                 # raw_level is stronger than style extraction!
-                headline.level = elements.level_numbered(headline.raw_level)
+                headline.level = elementae.level_numbered(headline.raw_level)
                 continue
             if matched is None:
                 headline.level = None
@@ -87,7 +87,7 @@ def update_level(items: iamraw.PagesHeadlineList, border, diff) -> dict:
     return items
 
 
-TEXTSIZE_DIFF_MAX = configo.HV_FLOAT_PLUS(default=1.5)
+TEXTSIZE_DIFF_MAX = configos.HV_FLOAT_PLUS(default=1.5)
 
 
 def equal_headline_cluster(
@@ -108,16 +108,16 @@ def equal_headline_cluster(
 
         return matcher(candidat, clusteritem)
 
-    return utila.determine_cluster(
+    return utilo.determine_cluster(
         todo,
         classificator,
         min_elements=min_elements,
     )
 
 
-LEFT_FEED_MAX = configo.HV_FLOAT_PLUS(default=15.0)
+LEFT_FEED_MAX = configos.HV_FLOAT_PLUS(default=15.0)
 
-RIGHT_FEED_MIN = configo.HV_FLOAT_PLUS(default=200.0)
+RIGHT_FEED_MIN = configos.HV_FLOAT_PLUS(default=200.0)
 
 
 def equal_feed(candidat, clusteritem) -> bool:
@@ -135,14 +135,14 @@ def equal_feed(candidat, clusteritem) -> bool:
 
 
 def equal_fontsize(candidat, clusteritem) -> bool:
-    return utila.near(
+    return utilo.near(
         current=candidat['textsize'],
         expected=clusteritem['textsize'],
         diff=TEXTSIZE_DIFF_MAX,
     )
 
 
-AFTER_DIFF_MAX = configo.HolyTable(items=(
+AFTER_DIFF_MAX = configos.HolyTable(items=(
     (0, 0.15),
     (10, 0.15),
     (12, 0.15),
@@ -163,7 +163,7 @@ def equal_after(candidat, clusteritem) -> bool:
         return True
     after_diff_max = AFTER_DIFF_MAX(clusteritem['textsize'])
     # 15 percent diff
-    if not utila.near(
+    if not utilo.near(
             current=candidat['after'],
             expected=clusteritem['after'],
             diff=after_diff_max,

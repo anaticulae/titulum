@@ -8,24 +8,24 @@
 # =============================================================================
 
 import pytest
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import headlines
 import tests
 import tests.conftest
 
-ARCHIVE = utila.join(headlines.ROOT, 'tests/single/expected', exist=True)
+ARCHIVE = utilo.join(headlines.ROOT, 'tests/single/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_validate_single(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     tests.Evaluate(
         name='single',
         source=source,
         pages=':',
-        expected=utila.file_name(source),
+        expected=utilo.file_name(source),
         archive=ARCHIVE,
         workdir=td.tmpdir,
         mp=mp,

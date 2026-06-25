@@ -7,135 +7,135 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import utila
-import utila.cli
+import utilo
+import utilo.cli
 
 import headlines
 
 DESCRIPTION = ''
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'levelfour',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('levelfour',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'cluster',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
-            utila.ResultFile('headlines', 'levelfour_levelfour', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('headlines', 'levelfour_levelfour', optional=True),
         ],
         output=('cluster',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'multiline',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('multiline',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'nolevel',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('nolevel',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'nlarge',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('nlarge',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'single',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('single',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'standard',
         inputs=[
-            utila.ResultFile('rawmaker', 'text_text'),
-            utila.ResultFile('rawmaker', 'text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('footnote', 'result_result'),
-            utila.ResultFile('rawmaker', 'fonts_header'),
-            utila.ResultFile('rawmaker', 'fonts_content'),
-            utila.ResultFile('sections', 'section_result', optional=True),
+            utilo.ResultFile('rawmaker', 'text_text'),
+            utilo.ResultFile('rawmaker', 'text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('footnote', 'result_result'),
+            utilo.ResultFile('rawmaker', 'fonts_header'),
+            utilo.ResultFile('rawmaker', 'fonts_content'),
+            utilo.ResultFile('sections', 'section_result', optional=True),
         ],
         output=('standard',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'result',
         inputs=[
-            utila.ResultFile('headlines', 'cluster_cluster', optional=True),
-            utila.ResultFile('headlines', 'multiline_multiline', optional=True),
-            utila.ResultFile('headlines', 'nolevel_nolevel', optional=True),
-            utila.ResultFile('headlines', 'nlarge_nlarge', optional=True),
-            utila.ResultFile('headlines', 'single_single', optional=True),
-            utila.ResultFile('headlines', 'standard_standard', optional=True),
+            utilo.ResultFile('headlines', 'cluster_cluster', optional=True),
+            utilo.ResultFile('headlines', 'multiline_multiline', optional=True),
+            utilo.ResultFile('headlines', 'nolevel_nolevel', optional=True),
+            utilo.ResultFile('headlines', 'nlarge_nlarge', optional=True),
+            utilo.ResultFile('headlines', 'single_single', optional=True),
+            utilo.ResultFile('headlines', 'standard_standard', optional=True),
         ],
         output=('result',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'legacy',
         inputs=[
-            utila.ResultFile('headlines', 'result_result', optional=True),
+            utilo.ResultFile('headlines', 'result_result', optional=True),
         ],
         output=('result',),
     ),
 ]
 
 
-@utila.saveme
+@utilo.saveme
 def main():
-    utila.featurepack(
+    utilo.featurepack(
         root=headlines.ROOT,
         workplan=WORKPLAN,
         featurepackage='headlines.feature',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=headlines.PROCESS,
@@ -151,7 +151,7 @@ def rename(path):
     if not isinstance(path, str):
         path = [rename(item) for item in path]
         return path
-    path = utila.rreplace(
+    path = utilo.rreplace(
         path,
         pattern='headlines__legacy_result',
         replace='words__headlines_headlines',

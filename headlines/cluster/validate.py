@@ -9,9 +9,9 @@
 
 import statistics
 
-import elements
+import elementae
 import texmex
-import utila
+import utilo
 
 
 def valid_headline_clusters(
@@ -38,7 +38,7 @@ def valid_headline_clusters(
         ):
             continue
         collected.append(cluster)
-    flat = utila.flat(collected)
+    flat = utilo.flat(collected)
     return flat
 
 
@@ -89,8 +89,8 @@ def clean_cluster(
     valid = [item for item in cluster if left_right_aligned(item[0].bounding)]
     # skip `Kapitel 1`-pattern
     valid = [
-        item for item in valid if not elements.noheadline(item[0].text) or
-        not elements.noheadline_pattern(item[0].text)
+        item for item in valid if not elementae.noheadline(item[0].text) or
+        not elementae.noheadline_pattern(item[0].text)
     ]
     return valid
 
@@ -105,10 +105,10 @@ def duplicated_level(cluster) -> bool:
     """
     if len(cluster) < 10:
         return False
-    parsed = [elements.parse_headline(item[0].text) for item in cluster]
+    parsed = [elementae.parse_headline(item[0].text) for item in cluster]
     levels = [item[2] for item in parsed if item]
     unique = set(levels)
-    unique_rate = utila.rate_rel(
+    unique_rate = utilo.rate_rel(
         len(unique),
         len(levels),
     )
@@ -121,7 +121,7 @@ def headline_rate(cluster):
     # TODO: MOVE TO ELEMENTS?
     median = statistics.median([len(item[0].text) for item in cluster])
     headlines = [
-        item for item in cluster if elements.isheadline(
+        item for item in cluster if elementae.isheadline(
             item[0].text,
             strict=False,
         )
@@ -141,11 +141,11 @@ def whitespace_rate(cluster) -> float:
 
 
 def is_hidden(cluster) -> bool:
-    hidden, other = utila.partition(
+    hidden, other = utilo.partition(
         items=cluster,
         key=lambda x: x[0].state == texmex.TextState.HIDDEN,
     )
-    hidden_rate = utila.rate_rel(  # pylint:disable=W0612
+    hidden_rate = utilo.rate_rel(  # pylint:disable=W0612
         len(hidden),
         len(other),
     )
@@ -161,7 +161,7 @@ def noheadline_cluster(cluster, pagerate_max: float = 0.5):
     if len(cluster) < 4:
         return False
     with_pageending = [
-        item for item in cluster if utila.isnumber(item[0].text.split(' ')[-1])
+        item for item in cluster if utilo.isnumber(item[0].text.split(' ')[-1])
     ]
     pagerate = len(with_pageending) / len(cluster)
     if pagerate > pagerate_max:

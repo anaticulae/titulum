@@ -186,7 +186,7 @@ Every noteable change is logged here.
 
 ### Feature
 
-* use elements to determine level (9930b9fc7312)
+* use elementae to determine level (9930b9fc7312)
 * connect standard headline extractor (0753dd2a09fd)
 * move standard from words (422728cf772c)
 

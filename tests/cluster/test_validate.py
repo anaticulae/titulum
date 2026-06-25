@@ -8,14 +8,14 @@
 # =============================================================================
 
 import pytest
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import headlines
 import tests
 
-ARCHIVE = utila.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
-ARCHIVE_LEVELFOUR = utila.join(
+ARCHIVE = utilo.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
+ARCHIVE_LEVELFOUR = utilo.join(
     headlines.ROOT,
     'tests/cluster/levelfour',
     exist=True,
@@ -23,14 +23,14 @@ ARCHIVE_LEVELFOUR = utila.join(
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-@utilatest.longrun
+@utilotest.longrun
 def test_validate_cluster(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     tests.Evaluate(
         name='cluster',
         source=source,
         pages=':',
-        expected=utila.file_name(source),
+        expected=utilo.file_name(source),
         archive=ARCHIVE,
         workdir=td.tmpdir,
         mp=mp,
@@ -38,14 +38,14 @@ def test_validate_cluster(source, td, mp):
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-@utilatest.nightly
+@utilotest.nightly
 def test_combined_cluster_levelfour(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     tests.Evaluate(
         name='cluster --levelfour',
         source=source,
         pages=':',
-        expected=utila.file_name(source),
+        expected=utilo.file_name(source),
         archive=ARCHIVE_LEVELFOUR,
         workdir=td.tmpdir,
         mp=mp,

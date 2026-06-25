@@ -8,20 +8,20 @@
 # =============================================================================
 
 import pytest
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import headlines
 import tests
 import tests.conftest
 
-ARCHIVE = utila.join(headlines.ROOT, 'tests/result/expected', exist=True)
+ARCHIVE = utilo.join(headlines.ROOT, 'tests/result/expected', exist=True)
 
 
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
-@utilatest.longrun
+@utilotest.longrun
 def test_validate_result(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     ResultEvaluate(
         source=source,
         workdir=td.tmpdir,
@@ -36,7 +36,7 @@ class ResultEvaluate(tests.Evaluate):
             name='result --all',
             source=source,
             pages=':',
-            expected=utila.file_name(source),
+            expected=utilo.file_name(source),
             archive=ARCHIVE,
             workdir=workdir,
             mp=mp,

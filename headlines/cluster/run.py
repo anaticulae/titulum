@@ -11,13 +11,13 @@ import collections
 import itertools
 import warnings
 
-import configo
-import elements
+import configos
+import elementae
 import iamraw
 import numpy
 import scipy.cluster.vq
 import texmex
-import utila
+import utilo
 
 import headlines.cluster.merge
 import headlines.cluster.parser
@@ -27,7 +27,7 @@ import headlines.utils
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
 
-HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
+HEADLINE_WORDCOUT_MAX = configos.HV_INT_PLUS(default=20)
 
 
 def run(
@@ -41,9 +41,9 @@ def run(
         document_length=len(ptcns),
     )
     converted = convert_cluster(extracted, ptcns)
-    utila.verbose(f'cluster: converted {converted}')
+    utilo.verbose(f'cluster: converted {converted}')
     result = headlines.utils.groupby_level_one(converted)
-    utila.verbose(f'cluster: result {result}')
+    utilo.verbose(f'cluster: result {result}')
     return result
 
 
@@ -65,16 +65,16 @@ def extract_headlines(
     flat = [item for item in flat if item.visible]
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
     if len(flat) < headline_count_min:
-        utila.debug(f'cluster: too few headlines {len(flat)}, require at '
+        utilo.debug(f'cluster: too few headlines {len(flat)}, require at '
                     f'least {headline_count_min}, disable strategy')
         return []
-    utila.verbose(f'cluster: flat {flat}')
+    utilo.verbose(f'cluster: flat {flat}')
     # group headlines
     grouped = groupby_level(flat)
-    utila.verbose(f'cluster: grouped {grouped}')
+    utilo.verbose(f'cluster: grouped {grouped}')
     # verify group
     result = verify_level(grouped)
-    utila.verbose(f'cluster: verified {result}')
+    utilo.verbose(f'cluster: verified {result}')
     return result
 
 
@@ -84,7 +84,7 @@ def convert_cluster(clusters: list, ptcns: texmex.PTCNs) -> list:  # pylint:disa
         for item in cluster:
             text = item.text
             title, level, rawlevel = text, index + 1, ''
-            parsed = elements.parse_headline(text)
+            parsed = elementae.parse_headline(text)
             if parsed:
                 title, level, rawlevel = parsed
             headline = iamraw.Headline(
@@ -110,10 +110,10 @@ def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
         for page in reversed(ptcns):
             content = page.debug
             content = content.replace('\n', ' ')
-            starts = utila.findindex(content, token=start)
+            starts = utilo.findindex(content, token=start)
             if not starts:
                 continue
-            ends = utila.findindex(content, token=end)
+            ends = utilo.findindex(content, token=end)
             if not ends:
                 continue
             container = []
@@ -132,7 +132,7 @@ def optimize_page_container(items: list, ptcns: texmex.PTCNs) -> list:
                     container.append(index)
                     break
             if not container:
-                utila.debug(f'could not locate on p{page.page}: {headline.raw}')
+                utilo.debug(f'could not locate on p{page.page}: {headline.raw}')
                 continue
             headline.page = page.page
             if len(container) == 1:
@@ -191,11 +191,11 @@ def clusterme(matrix, navis, numbers: int = 20, runtime: int = 12000):
     # running kmeans with invalid `k`/`numbers` leads to non determining loop.
     assert isinstance(numbers, int), type(numbers)
     if len(matrix) == 0:  # pylint:disable=compare-to-zero
-        utila.error('empty matrix data, skip cluster strategy')
+        utilo.error('empty matrix data, skip cluster strategy')
         return []
     merged = scipy.cluster.vq.whiten(matrix)
     if len(merged) < numbers:
-        utila.error(f'too few data: {len(merged)} to run vector strategy')
+        utilo.error(f'too few data: {len(merged)} to run vector strategy')
         return []
     # TODO: REMOVE AFTER HAVING A MORE STABLE ALGO
     numpy.random.seed(NUMPY_SEED)
@@ -262,7 +262,7 @@ def groupby_level(items) -> list:
     grouped = collections.defaultdict(list)
     for item in items:
         text = item.text
-        level = elements.level_numbered(text)
+        level = elementae.level_numbered(text)
         if level is False:  # pylint:disable=C2001
             level = 4
         if level is None:
@@ -277,14 +277,14 @@ def verify_level(grouped: list) -> list:
     result = []
     for group in grouped:
         without_chapterpattern = not any(
-            elements.noheadline_pattern(item.text) for item in group)
+            elementae.noheadline_pattern(item.text) for item in group)
         if without_chapterpattern:
             # no chapter pattern inside group, add whole group
             result.append(group)
             continue
         # remove no-chapter-pattern
         valid = [
-            item for item in group if elements.noheadline_pattern(item.text)
+            item for item in group if elementae.noheadline_pattern(item.text)
         ]
         result.append(valid)
         # TODO: MOVE INVALID TO GROUP LEVEL 4?

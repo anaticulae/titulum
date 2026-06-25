@@ -8,7 +8,7 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 import headlines.cluster.run
 import headlines.improve.levelfour
@@ -31,7 +31,7 @@ def work(  # pylint:disable=R0914
         sections=sections,
     )
     levelfour = None
-    if utila.exists(xlevelfour):
+    if utilo.exists(xlevelfour):
         levelfour = serializeraw.load_headlines(xlevelfour, pages=pages)
     fontstore = serializeraw.create_fontstore(
         header=fontheader,

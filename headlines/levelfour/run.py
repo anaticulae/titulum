@@ -9,10 +9,10 @@
 
 import statistics
 
-import elements
+import elementae
 import iamraw
 import texmex
-import utila
+import utilo
 
 import headlines.cluster.run
 
@@ -50,10 +50,10 @@ def nolevelfour(headlinex: iamraw.Headlines) -> iamraw.Headlines:
     """Elements which are part of headline list, can not be part of level 4."""
     filtered = [
         item for item in headlinex
-        if not elements.isheadline(item.title, strict=True)
+        if not elementae.isheadline(item.title, strict=True)
     ]
     filtered = [
-        item for item in filtered if not elements.noheadline(item.title)
+        item for item in filtered if not elementae.noheadline(item.title)
     ]
     return filtered
 
@@ -63,6 +63,6 @@ def levelfour_invalid(headlinex) -> bool:
         return True
     median = statistics.median([len(item.title) for item in headlinex])
     if median > 40:
-        utila.debug(f'invalid levelfour, median: {median} too high')
+        utilo.debug(f'invalid levelfour, median: {median} too high')
         return True
     return False

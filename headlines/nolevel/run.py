@@ -9,7 +9,7 @@
 
 import functools
 
-import elements
+import elementae
 import iamraw
 import texmex
 
@@ -53,7 +53,7 @@ def filter_headlines(items):  # pylint:disable=R0201
         # skip `normal` headlines, we want to analyze NoLevelHeadlines
         items = [
             item for item in chapter
-            if not item.raw_level and not elements.noheadline_pattern(item.raw)
+            if not item.raw_level and not elementae.noheadline_pattern(item.raw)
         ]
         result[number] = items
     # TODO: USE DICT CONVERTER HERE

@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import elements
+import elementae
 import texmex
-import utila
+import utilo
 
 
 def merge_headline(items: list) -> list:
@@ -47,8 +47,8 @@ def merge_headline(items: list) -> list:
         done.add(id(after))
     # filter invalid headlines
     result = [
-        item for item in result if not elements.noheadline(item.text) or
-        elements.parse_headline(item.text)
+        item for item in result if not elementae.noheadline(item.text) or
+        elementae.parse_headline(item.text)
     ]
     return result
 
@@ -59,7 +59,7 @@ def merge_lines(*args) -> texmex.TextInfo:
     for line in args:
         bounds.append(line.bounding)
         text.append(line.text.strip())
-    bounding_max = utila.rect_max(bounds)
+    bounding_max = utilo.rect_max(bounds)
     text: str = ' '.join(text)
     if len(args) == 2:
         # start of page
@@ -84,7 +84,7 @@ def different_style(current, after) -> bool:
     if current == after:
         # page end
         return True
-    if elements.parse_headline(after.text):
+    if elementae.parse_headline(after.text):
         # do not merge new headline start
         return True
     return False

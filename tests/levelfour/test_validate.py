@@ -8,25 +8,25 @@
 # =============================================================================
 
 import pytest
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import headlines
 import tests
 import tests.conftest
 
-ARCHIVE = utila.join(headlines.ROOT, 'tests/levelfour/expected', exist=True)
+ARCHIVE = utilo.join(headlines.ROOT, 'tests/levelfour/expected', exist=True)
 
 
-@utilatest.longrun
+@utilotest.longrun
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_validate_levelfour(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     tests.Evaluate(
         name='levelfour',
         source=source,
         pages=':',
-        expected=utila.file_name(source),
+        expected=utilo.file_name(source),
         archive=ARCHIVE,
         workdir=td.tmpdir,
         mp=mp,

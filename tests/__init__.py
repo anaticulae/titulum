@@ -9,17 +9,17 @@
 
 import functools
 
-import power
+import hoverpower
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import headlines
 
-run, fail = utilatest.create_cli_runner(headlines)
+run, fail = utilotest.create_cli_runner(headlines)
 
 
-class Evaluate(utilatest.BaseLiner):
+class Evaluate(utilotest.BaseLiner):
 
     def __init__(self, name, source, pages, expected, archive, workdir, mp):
         super().__init__(
@@ -29,7 +29,7 @@ class Evaluate(utilatest.BaseLiner):
             ),
             step=f'{name} -VVV' if name else '',
             pages=pages,
-            source=power.link(source),
+            source=hoverpower.link(source),
             workdir=workdir,
             archive=archive,
             loader=self.frompath,
@@ -39,14 +39,14 @@ class Evaluate(utilatest.BaseLiner):
         self.name = name.split()[0]
 
     def frompath(self, workdir):
-        path = utila.join(workdir, f'headlines__{self.name}_{self.name}.yaml')
+        path = utilo.join(workdir, f'headlines__{self.name}_{self.name}.yaml')
         loaded = serializeraw.load_headlines(path)
         return loaded
 
     def raw(self, value) -> str:
-        value = utila.flat(value)
+        value = utilo.flat(value)
         collected = [rawline(item) for item in value]
-        result = utila.NEWLINE.join(collected)
+        result = utilo.NEWLINE.join(collected)
         return result
 
 
@@ -55,7 +55,7 @@ def rawline(item) -> str:
     if item.level:
         level = item.level - 1
     raw = '    ' * level
-    raw += utila.normalize_text(
+    raw += utilo.normalize_text(
         item.raw,
         strips=True,
     )

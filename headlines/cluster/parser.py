@@ -9,10 +9,10 @@
 
 import collections
 
-import elements
+import elementae
 import iamraw
 import texmex
-import utila
+import utilo
 
 VerticalTextDistance = collections.namedtuple(
     'VerticalTextDistance',
@@ -65,16 +65,16 @@ def parse_vector(
     return result
 
 
-def textlength(navigator) -> utila.Ints:
+def textlength(navigator) -> utilo.Ints:
     return textvalue(navigator, selector=lambda item: len(item.text.strip()))
 
 
-def visible(navigator) -> utila.Ints:
+def visible(navigator) -> utilo.Ints:
 
     def invisible(item):
         if not item.visible:
             return True
-        if elements.noheadline(item.text):
+        if elementae.noheadline(item.text):
             return True
         return False
 
@@ -89,7 +89,7 @@ BOLD = 100.0
 NO_BOLD = 10.0
 
 
-def bold(navigator, fontstore) -> utila.Floats:
+def bold(navigator, fontstore) -> utilo.Floats:
 
     def more_than_eighty_or_nothing(items):
         """Bold detection requires that more than eigthy percent of the
@@ -123,7 +123,7 @@ def bold(navigator, fontstore) -> utila.Floats:
     return textvalue(navigator, selector=isbold)
 
 
-def underlined(navigator) -> utila.Floats:
+def underlined(navigator) -> utilo.Floats:
 
     def isunderlined(item):
         return 100.0 if item.style.underlined else 10.0
@@ -131,7 +131,7 @@ def underlined(navigator) -> utila.Floats:
     return textvalue(navigator, selector=isunderlined)
 
 
-def italic(navigator, fontstore) -> utila.Floats:
+def italic(navigator, fontstore) -> utilo.Floats:
 
     def isitalic(item):
         font = fontstore[item.style.fontid]
@@ -141,7 +141,7 @@ def italic(navigator, fontstore) -> utila.Floats:
     return textvalue(navigator, selector=isitalic)
 
 
-def textuppper(navigator) -> utila.Floats:
+def textuppper(navigator) -> utilo.Floats:
     result = textvalue(
         navigator,
         selector=lambda item: len([it for it in item.text if it.isupper()]),
@@ -149,22 +149,22 @@ def textuppper(navigator) -> utila.Floats:
     return result
 
 
-def upperrate(navigator) -> utila.Floats:
+def upperrate(navigator) -> utilo.Floats:
     uppers = textuppper(navigator)
     lengths = textlength(navigator)
     result = [
         100 if length >= 5 and (upper / length) > 0.4 else 10
         for upper, length in zip(uppers, lengths)
     ]
-    result = utila.roundme(result, convert=False)
+    result = utilo.roundme(result, convert=False)
     return result
 
 
-def textvalue(navigator, selector: callable) -> utila.Ints:
+def textvalue(navigator, selector: callable) -> utilo.Ints:
     return [selector(item) for item in navigator]
 
 
-def textsizes(navi: texmex.NavigatorMixin) -> utila.Floats:
+def textsizes(navi: texmex.NavigatorMixin) -> utilo.Floats:
     assert issubclass(navi.__class__, texmex.NavigatorMixin), type(navi)
     collected = []
     for line in navi:
@@ -172,22 +172,22 @@ def textsizes(navi: texmex.NavigatorMixin) -> utila.Floats:
         fontsizes = [
             [char.size] * (char.end - char.start) for char in line.style
         ]
-        fontsizes = utila.flat(fontsizes)
-        collected.append(utila.mode(fontsizes, minimize=True))
+        fontsizes = utilo.flat(fontsizes)
+        collected.append(utilo.mode(fontsizes, minimize=True))
     return collected
 
 
 def textfonts(
     navi: texmex.NavigatorMixin,
     fontstore: iamraw.FontStore,
-) -> utila.Ints:
+) -> utilo.Ints:
     assert issubclass(navi.__class__, texmex.NavigatorMixin), type(navi)
     collected = []
     for line in navi:
         # determine most common font family
         family = [[char.font] * char.width for char in line.style]
-        family = utila.flat(family)
-        collected.append(utila.mode(family))
+        family = utilo.flat(family)
+        collected.append(utilo.mode(family))
     collected = [hash(fontstore[item].name) for item in collected]
     return collected
 
@@ -201,13 +201,13 @@ def topbottom(navigator) -> VerticalTextDistances:
     bounds = [item.bounds for item in bounds if len(item.text)]
     tops = [bounds[0].topdist]
     if len(bounds) > 1:
-        tops.extend(utila.diffs([item.topdist for item in bounds]))
-    tops: list = utila.roundme(tops, convert=False)
+        tops.extend(utilo.diffs([item.topdist for item in bounds]))
+    tops: list = utilo.roundme(tops, convert=False)
     bottoms = []
     if len(bounds) > 1:
-        bottoms.extend(utila.diffs([item.bottomdist for item in bounds]))
+        bottoms.extend(utilo.diffs([item.bottomdist for item in bounds]))
     bottoms.append(bounds[-1].bottomdist)
-    bottoms: list = utila.roundme(bottoms, convert=False)
+    bottoms: list = utilo.roundme(bottoms, convert=False)
     return tops, bottoms
 
 

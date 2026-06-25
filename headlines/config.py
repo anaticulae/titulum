@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 
 # minimal headline count for a valid extraction, depending on document
 # length.
-HEADLINE_COUNT_MIN = configo.HolyTable(items=(
+HEADLINE_COUNT_MIN = configos.HolyTable(items=(
     (0, 6),
     (20, 6),
     (30, 8),

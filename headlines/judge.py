@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
-import elements
+import configos
+import elementae
 import iamraw
-import utila
+import utilo
 
 import headlines.config
 import headlines.visitor
@@ -29,8 +29,8 @@ def select_best(results) -> iamraw.HeadlineResult:
 
 
 def length_flat(items):
-    items = utila.flat(items, append=True)
-    items = utila.flat(items, append=True)
+    items = utilo.flat(items, append=True)
+    items = utilo.flat(items, append=True)
     return len(items)
 
 
@@ -40,23 +40,23 @@ def invalid_extraction(items) -> bool:
     1. Strategy: Check longest sequence of level one headlines.
     2. Strategy: Check headline ends with awkward characters.
     """
-    items = utila.flat(items, append=True)
+    items = utilo.flat(items, append=True)
     if all(item.level == 1 for item in items):
         # level one extraction strategy
         return False
     # too many level ones in a row
     levels = [item.level for item in items if item.level is not None]
-    grouped = utila.groupby_diff(levels, maxdiff=0, sort=False)
-    longest_levelone = utila.longest([item for item in grouped if item[0] == 1])
+    grouped = utilo.groupby_diff(levels, maxdiff=0, sort=False)
+    longest_levelone = utilo.longest([item for item in grouped if item[0] == 1])
     if len(longest_levelone) > LEVELONE_IN_A_ROW_MAX(len(items)):
-        utila.debug('skip invalid extraction: too many first levels: '
+        utilo.debug('skip invalid extraction: too many first levels: '
                     f'{longest_levelone} in a row. headlines: {len(items)}')
         return True
     # too many invalid characters at title end
     titles = [item.title.lower().strip() for item in items]
     invalid_endings = len([item for item in titles if item[-1] in ',./;:)-'])
     if invalid_endings > INVALID_ENDING_MAX(len(titles)):
-        utila.debug(f'skip invalid extraction: {invalid_endings} {len(titles)}')
+        utilo.debug(f'skip invalid extraction: {invalid_endings} {len(titles)}')
         return True
     return False
 
@@ -67,28 +67,28 @@ def score_levelerror(items: list) -> int:
     This is may indicated by user, but mostly by selecting the wrong
     headline determination algorithm.
     """
-    flat = utila.flat(items)
-    flat = utila.flat(flat, append=True)
+    flat = utilo.flat(items)
+    flat = utilo.flat(flat, append=True)
     error = 0
     rawlevel = [
         item.raw_level
         for item in flat
-        if item.raw_level and elements.level_numbered(item.raw_level)
+        if item.raw_level and elementae.level_numbered(item.raw_level)
     ]
-    rawlevel = utila.notempty(rawlevel)
+    rawlevel = utilo.notempty(rawlevel)
     grouped = headlines.visitor.groupby_level(rawlevel)
     for groups in grouped:
         for group in groups:
-            group = [elements.determine_patch(item) for item in group]
+            group = [elementae.determine_patch(item) for item in group]
             if group[0] != 1:
                 error += 1
-            diffs = utila.diffs(group) if len(group) > 1 else []
+            diffs = utilo.diffs(group) if len(group) > 1 else []
             diffs = [item for item in diffs if item != 1]
             error += len(diffs)
     return error
 
 
-LEVELONE_IN_A_ROW_MAX = configo.HolyTable([
+LEVELONE_IN_A_ROW_MAX = configos.HolyTable([
     (0, 4),
     (10, 4),
     (20, 4),
@@ -97,17 +97,17 @@ LEVELONE_IN_A_ROW_MAX = configo.HolyTable([
     (50, 6),
 ])
 
-INVALID_ENDING_MAX = configo.HolyTable(
+INVALID_ENDING_MAX = configos.HolyTable(
     [
         (0, 1),
         (10, 2),
         (50, 7),
         (120, 10),
     ],
-    strategy=utila.Strategy.LINEARISE,
+    strategy=utilo.Strategy.LINEARISE,
 )
 
-ERROR_MAX = configo.HolyTable(
+ERROR_MAX = configos.HolyTable(
     [
         (0, 0),
         (10, 1),
@@ -119,16 +119,16 @@ ERROR_MAX = configo.HolyTable(
         (100, 10),
         (120, 12),
     ],
-    strategy=utila.Strategy.LOWER,
+    strategy=utilo.Strategy.LOWER,
 )
 # give some tolerance if first appraoch was not good enough
-ERROR_MAX_PLUS = configo.HV_PERCENT_PLUS(default=150)
+ERROR_MAX_PLUS = configos.HV_PERCENT_PLUS(default=150)
 
 
 def too_many_error(headlinex, second: bool = False) -> bool:
     if not headlinex:
         return False
-    headline_count = len(utila.flat(headlinex))
+    headline_count = len(utilo.flat(headlinex))
     if headline_count < 10:  # TODO: MAGIC NUMBER
         # TODO: THINK ABOUT THIS
         # disable check for too few headlines
@@ -141,7 +141,7 @@ def too_many_error(headlinex, second: bool = False) -> bool:
     if error <= error_max:
         # valid extraction
         return False
-    utila.debug('skip invalid, too many error: '
+    utilo.debug('skip invalid, too many error: '
                 f'{error}/{error_max}:{headline_count}:second:{second}')
     return True
 
@@ -151,10 +151,10 @@ def skip_if_too_few(
     document_length,
     strategy: str = None,
 ):
-    headline_count = len(utila.flat(headlinex, append=True))
+    headline_count = len(utilo.flat(headlinex, append=True))
     headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
     if headline_count < headline_count_min:
-        utila.debug(f'too few headlines {headline_count}, require at '
+        utilo.debug(f'too few headlines {headline_count}, require at '
                     f'least {headline_count_min}, disable strategy: {strategy}')
         return []
     return headlinex

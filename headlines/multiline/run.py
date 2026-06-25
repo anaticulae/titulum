@@ -9,12 +9,12 @@
 
 import statistics
 
-import configo
-import elements
-import german
+import configos
+import elementae
+import germania
 import iamraw
 import texmex
-import utila
+import utilo
 
 import headlines.config
 import headlines.judge
@@ -22,11 +22,11 @@ import headlines.level
 import headlines.utils
 
 # longer word chains may be a sentence or something else
-HEADLINE_TOKEN_LENGTH_MAX = configo.HV_INT_PLUS(default=20)
+HEADLINE_TOKEN_LENGTH_MAX = configos.HV_INT_PLUS(default=20)
 # assume that headlines does not contain many numbers
-NUMBERS_IN_HEADLINE_MAX = configo.HV_INT_PLUS(default=5)
+NUMBERS_IN_HEADLINE_MAX = configos.HV_INT_PLUS(default=5)
 
-HEADLINE_MEDIAN = configo.HolyTable(items=[
+HEADLINE_MEDIAN = configos.HolyTable(items=[
     (10, 40),
     (12, 35),
     (14, 30),
@@ -34,9 +34,9 @@ HEADLINE_MEDIAN = configo.HolyTable(items=[
     (22, 16),
 ])
 
-HEADLINE_WORDCOUT_MAX = configo.HV_INT_PLUS(default=20)
+HEADLINE_WORDCOUT_MAX = configos.HV_INT_PLUS(default=20)
 
-HEADLINE_H1_TRY = configo.HolyList(items=[
+HEADLINE_H1_TRY = configos.HolyList(items=[
     14.01,
     12.01,
     11.5,
@@ -45,7 +45,7 @@ HEADLINE_H1_TRY = configo.HolyList(items=[
 
 def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
     for h1_try in HEADLINE_H1_TRY:
-        utila.debug(f'multiline, try h1_size_min: {h1_try}')
+        utilo.debug(f'multiline, try h1_size_min: {h1_try}')
         collected = collect(
             ptcns,
             h1_size_min=h1_try,
@@ -92,7 +92,7 @@ def extract_page(
         if invalid_headline_group(items):
             continue
         raw = plain(items)
-        parsed = elements.parse_headline(raw, before)
+        parsed = elementae.parse_headline(raw, before)
         if not parsed:
             continue
         title, level, rawlevel = parsed
@@ -100,7 +100,7 @@ def extract_page(
             # first level headline
             if items.size < h1_size_min:
                 continue
-        if elements.noheadline(
+        if elementae.noheadline(
                 title,
                 wordcount_max=HEADLINE_WORDCOUT_MAX,
         ):
@@ -111,12 +111,12 @@ def extract_page(
             page=ptcn.page,
             raw=raw,
             raw_level=rawlevel,
-            title=utila.normalize_whitespaces(title),
+            title=utilo.normalize_whitespaces(title),
         )
         # add decorating if required
         if before:
             before = plain(before)
-            chapter = elements.noheadline_pattern(before)
+            chapter = elementae.noheadline_pattern(before)
             if chapter:
                 headline.decoration = headline.start - 1
         result.append(headline)
@@ -134,11 +134,11 @@ def headline_range(items):
 
 def invalid_headline_group(items) -> bool:
     text = ' '.join([item.text for item in items])
-    tokens = german.word_tokenize(text, validate_sentences=False)
+    tokens = germania.word_tokenize(text, validate_sentences=False)
     if len(tokens) >= HEADLINE_TOKEN_LENGTH_MAX:
         # maybe a sentence cause headlines are not so long
         return True
-    number_count = len([token for token in tokens if utila.isnumber(token)])
+    number_count = len([token for token in tokens if utilo.isnumber(token)])
     if number_count >= NUMBERS_IN_HEADLINE_MAX:
         # assume that headlines does not contain many numbers
         return True
@@ -150,13 +150,13 @@ def invalid_headline_group(items) -> bool:
         median = statistics.median(line_length)
         median_max = HEADLINE_MEDIAN(items.size)
         if median <= median_max:
-            utila.verbose(f'invalid headline group, median: {median}, '
+            utilo.verbose(f'invalid headline group, median: {median}, '
                           f'max: {median_max}')
             return True
     return False
 
 
-WRONG_POSITION_X0_MAX = configo.HV_FLOAT_PLUS(default=200.0)
+WRONG_POSITION_X0_MAX = configos.HV_FLOAT_PLUS(default=200.0)
 
 
 def wrong_position(
@@ -179,7 +179,7 @@ def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
     Hint: This function updates the level
     TODO: copy items
     """
-    utila.call('convert_level')
+    utilo.call('convert_level')
     # TODO: VERIFY THIS
     empty = False
     if not result:
@@ -190,7 +190,7 @@ def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
         empty = True
     if empty:
         # check that result pages are empty
-        utila.info('empty PageHeadlineList')
+        utilo.info('empty PageHeadlineList')
         return {}
     assert isinstance(result, dict), type(result)
     nolevel = []

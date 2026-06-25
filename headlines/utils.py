@@ -8,7 +8,7 @@
 # =============================================================================
 
 import iamraw
-import utila
+import utilo
 
 
 def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
@@ -18,9 +18,9 @@ def groupby_level_one(heads: list) -> iamraw.PagesHeadlineList:
         index for (index, item) in enumerate(heads) if item.level in (None, 1)  # pylint:disable=R6201
     ]
     if not levelone:
-        utila.debug('cluster: no level one')
+        utilo.debug('cluster: no level one')
         backup = [heads]
-        utila.debug(f'cluster: use backup {[[item.raw for item in backup[0]]]}')
+        utilo.debug(f'cluster: use backup {[[item.raw for item in backup[0]]]}')
         return backup
     # group headlines into chapters
     result = [

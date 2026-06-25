@@ -14,10 +14,10 @@ Detect first level headline with a large Chapter Number.
 C O N C L U S I O N         8
 """
 
-import configo
+import configos
 import iamraw
 import texmex
-import utila
+import utilo
 
 
 def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
@@ -30,7 +30,7 @@ def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
     return result
 
 
-BEFORE = configo.HV_PERCENT_PLUS(default=20)
+BEFORE = configos.HV_PERCENT_PLUS(default=20)
 
 
 def headline_frompage(page) -> iamraw.Headline:
@@ -45,7 +45,7 @@ def headline_frompage(page) -> iamraw.Headline:
             if isappendix or isnumber:
                 pagenumbers.append(text)
                 continue
-        isheadline = utila.issinglechar(text)
+        isheadline = utilo.issinglechar(text)
         if isheadline:
             headlines.append(text.replace(' ', ''))
             continue

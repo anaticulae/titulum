@@ -7,21 +7,21 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
-import elements
+import configos
+import elementae
 import iamraw
 import texmex
-import utila
+import utilo
 
 import headlines.judge
 import headlines.level
 import headlines.utils
 
-HEADLINE_LENGTH_MIN = configo.HV_INT_PLUS(default=7)
+HEADLINE_LENGTH_MIN = configos.HV_INT_PLUS(default=7)
 
-HEADLINE_FONT_SIZE_MAX = configo.HV_INT_PLUS(default=75, limit=120)
+HEADLINE_FONT_SIZE_MAX = configos.HV_INT_PLUS(default=75, limit=120)
 
-HEADLINE_COUNT_PERPAGE_MAX = configo.HV_INT_PLUS(default=5)
+HEADLINE_COUNT_PERPAGE_MAX = configos.HV_INT_PLUS(default=5)
 
 
 def run(
@@ -33,7 +33,7 @@ def run(
     finalizer = finalize if not finalizer else finalizer
     textsize = texmex.document_textsize(navigators=ptcns)
     if textsize is None:
-        utila.error('empty document, skip standard')
+        utilo.error('empty document, skip standard')
         return []
     textdistance = texmex.document_textdist_from_ptcns(
         navigators=ptcns,
@@ -108,15 +108,15 @@ def parse_page(  # pylint:disable=R0914
             continue
         parsed.append(headline)
     # filter duplication
-    single = utila.Single()
+    single = utilo.Single()
     result = []
     for headline in parsed:
-        containers = utila.ensure_tuple(headline.container)
+        containers = utilo.ensure_tuple(headline.container)
         if [item for item in containers if single.contains(item)]:
             continue
         result.append(headline)
     if len(result) > HEADLINE_COUNT_PERPAGE_MAX:
-        utila.debug(f'too many headlines: {len(result)} on page: {ptcn.page}')
+        utilo.debug(f'too many headlines: {len(result)} on page: {ptcn.page}')
         return []
     return result
 
@@ -176,7 +176,7 @@ def extract_headline(
     )
     if merge_next:
         raw_text += ' ' + ptcn[containerid + 1].text
-    if elements.noheadline(raw_text):
+    if elementae.noheadline(raw_text):
         return None
     dist_top = textdistances[containerid]
     try:
@@ -193,7 +193,7 @@ def extract_headline(
         navigator=ptcn,
         containerid=containerid,
     )
-    parsed = elements.parse_headline(raw_text)
+    parsed = elementae.parse_headline(raw_text)
     raw_level = parsed[2] if parsed else None
     title = parsed[0] if parsed else raw_text
     # level = parsed[1] if parsed else None
@@ -214,19 +214,19 @@ def merges_next(current, after) -> bool:
         return False
     if len(current.text) < len(after.text):
         return False
-    parsed = elements.parse_headline(after.text)
+    parsed = elementae.parse_headline(after.text)
     if parsed:
         # raw level
         if parsed[2]:
             return False
     # check equal alignment
     # high diff to ensure that intendet second line is merged
-    aligned = utila.near(
+    aligned = utilo.near(
         current.bounding[0],
         after.bounding[0],
         diff=70.0,
     )
-    aligned |= utila.near(current.bounding[2], after.bounding[2])
+    aligned |= utilo.near(current.bounding[2], after.bounding[2])
     if not aligned:
         return False
     return True
@@ -238,18 +238,18 @@ def headline_decoration(navigator, containerid: int) -> int:
         return None
     before = navigator[containerid - 1] if containerid > 0 else None
     # after = navigator[containerid + 1] if containerid + 1 < len(navigator) else None
-    if before and elements.noheadline_pattern(before.text):
+    if before and elementae.noheadline_pattern(before.text):
         return containerid - 1
     return None
 
 
-DISTANCE_TOO_SMALL = configo.HolyTable(items=[
+DISTANCE_TOO_SMALL = configos.HolyTable(items=[
     (0, 1.2),
     (1, 1.15),
     (2, 1.1),
     (3, 1.0),
 ])
-TEXTSIZE_TOO_SMALL = configo.HolyTable(items=[
+TEXTSIZE_TOO_SMALL = configos.HolyTable(items=[
     (0, 1.12),
     (1, 1.08),
     (2, 1.05),
@@ -258,7 +258,7 @@ TEXTSIZE_TOO_SMALL = configo.HolyTable(items=[
 
 
 def too_small(text, fontdistance, textsize_, **kwargs):
-    level = elements.level_numbered(text)
+    level = elementae.level_numbered(text)
     level = 0 if level is None else level
 
     distance_tosmall = fontdistance < kwargs['textdistance'] * DISTANCE_TOO_SMALL(level) # yapf:disable
