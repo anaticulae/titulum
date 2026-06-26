@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-06-26)
+
+### Bug Fixes
+
+- **project**: Adjust meta data access
+  ([`774f69b`](https://github.com/anaticulae/titulum/commit/774f69b5d867946f98fbd573d40d1d5a939cfd0b))
+
+
 ## v1.0.0 (2026-06-26)
 
 ### Chores
