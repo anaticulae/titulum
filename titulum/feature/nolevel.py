@@ -9,8 +9,9 @@
 
 import serializeraw
 
-import headlines.levelfour.run
-import headlines.utils
+import titulum.feature
+import titulum.nolevel.run
+import titulum.utils
 
 
 def work(
@@ -23,14 +24,9 @@ def work(
     sections: str = None,
     pages: tuple = None,
 ) -> str:
-    pages = headlines.feature.headlinepart(
+    pages = titulum.feature.headlinepart(
         pages=pages,
         sections=sections,
-    )
-    fontstore = serializeraw.create_fontstore(
-        header=fontheader,
-        content=fontcontent,
-        pages=pages,
     )
     ptcns = serializeraw.ptcn_fromfile(
         text,
@@ -41,11 +37,8 @@ def work(
         fontcontent,
         pages=pages,
     )
-    groups = headlines.levelfour.run.run(
-        ptcns=ptcns,
-        fontstore=fontstore,
-    )
-    detected = headlines.utils.convert_headline_result(
+    groups = titulum.nolevel.run.run(ptcns)
+    detected = titulum.utils.convert_headline_result(
         groups=groups,
         strategy=__name__,
     )

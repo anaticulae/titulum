@@ -12,8 +12,8 @@ import elementae
 import iamraw
 import texmex
 
-import headlines.judge
-import headlines.utils
+import titulum.judge
+import titulum.utils
 
 SINGLEPAGE_LINES_MAX = configos.HV_INT_PLUS(default=3)
 
@@ -24,9 +24,9 @@ def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
         parsed = parse_page(page)
         if not parsed:
             continue
-        if headlines.judge.invalid_extraction(parsed):
+        if titulum.judge.invalid_extraction(parsed):
             continue
-        parsed = headlines.utils.groupby_level_one(parsed)
+        parsed = titulum.utils.groupby_level_one(parsed)
         collected.extend(parsed)
     return collected
 

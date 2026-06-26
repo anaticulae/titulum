@@ -6,23 +6,12 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-"""Multiline
-=========
-
-Example
--------
-
-.. code-block:: none
-
-    3. EU-Initiativen zur Bekämpfung der Steuervermeidung und
-       des schädlichen Steuerwettbewerbs
-"""
 
 import serializeraw
 
-import headlines.feature
-import headlines.multiline.run
-import headlines.utils
+import titulum.feature
+import titulum.single.run
+import titulum.utils
 
 
 def work(
@@ -35,7 +24,7 @@ def work(
     sections: str = None,
     pages: tuple = None,
 ) -> str:
-    pages = headlines.feature.headlinepart(
+    pages = titulum.feature.headlinepart(
         pages=pages,
         sections=sections,
     )
@@ -48,8 +37,8 @@ def work(
         fontcontent,
         pages=pages,
     )
-    groups = headlines.multiline.run.run(ptcns)
-    detected = headlines.utils.convert_headline_result(
+    groups = titulum.single.run.run(ptcns)
+    detected = titulum.utils.convert_headline_result(
         groups=groups,
         strategy=__name__,
     )

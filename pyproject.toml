@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "headlines"
+name = "titulum"
 version = "4.91.5"
 description = ""
 requires-python = ">=3.12"
@@ -48,11 +48,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/headlines"
-Repository = "https://github.com/anaticulae/headlines"
+Homepage = "https://github.com/anaticulae/titulum"
+Repository = "https://github.com/anaticulae/titulum"
 
 [project.scripts]
-headlines = "headlines.cli:main"
+headlines = "titulum.cli:main"
 
 [tool.semantic_release]
 version_toml = [
@@ -86,15 +86,15 @@ where = [
 ]
 include = [
     "headlines",
-    "headlines.cluster",
-    "headlines.feature",
-    "headlines.improve",
-    "headlines.levelfour",
-    "headlines.multiline",
-    "headlines.nlarge",
-    "headlines.nolevel",
-    "headlines.single",
-    "headlines.standard",
+    "titulum.cluster",
+    "titulum.feature",
+    "titulum.improve",
+    "titulum.levelfour",
+    "titulum.multiline",
+    "titulum.nlarge",
+    "titulum.nolevel",
+    "titulum.single",
+    "titulum.standard",
 ]
 exclude = [
     "tests*",

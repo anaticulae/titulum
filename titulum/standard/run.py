@@ -13,9 +13,9 @@ import iamraw
 import texmex
 import utilo
 
-import headlines.judge
-import headlines.level
-import headlines.utils
+import titulum.judge
+import titulum.level
+import titulum.utils
 
 HEADLINE_LENGTH_MIN = configos.HV_INT_PLUS(default=7)
 
@@ -45,7 +45,7 @@ def run(
         if not parsed:
             continue
         collected.extend(parsed)
-    if not headlines.judge.skip_if_too_few(
+    if not titulum.judge.skip_if_too_few(
             collected,
             document_length=len(ptcns),
             strategy=__name__,
@@ -58,8 +58,8 @@ def run(
 def finalize(collected) -> list:
     # TODO: ADJUST INTERFACE LATER
     # update level
-    headlines.level.cluster_headline_level({0: collected})
-    result = headlines.utils.groupby_level_one(collected)
+    titulum.level.cluster_headline_level({0: collected})
+    result = titulum.utils.groupby_level_one(collected)
     return result
 
 
@@ -279,7 +279,7 @@ def should_skip(
         textfeed,  # pylint:disable=W0613
         lastitem,  # pylint:disable=W0613
 ):
-    # if textfeed > words.headlines.strategies.MAX_HEADLINE_TEXTFEED:
+    # if textfeed > words.titulum.strategies.MAX_HEADLINE_TEXTFEED:
     #     # skip numbered lists
     #     return True
     if distance_tosmall:

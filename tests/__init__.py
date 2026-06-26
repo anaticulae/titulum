@@ -14,9 +14,9 @@ import serializeraw
 import utilo
 import utilotest
 
-import headlines
+import titulum
 
-run, fail = utilotest.create_cli_runner(headlines)
+run, fail = utilotest.create_cli_runner(titulum)
 
 
 class Evaluate(utilotest.BaseLiner):

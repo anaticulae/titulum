@@ -19,11 +19,11 @@ import scipy.cluster.vq
 import texmex
 import utilo
 
-import headlines.cluster.merge
-import headlines.cluster.parser
-import headlines.cluster.validate
-import headlines.config
-import headlines.utils
+import titulum.cluster.merge
+import titulum.cluster.parser
+import titulum.cluster.validate
+import titulum.config
+import titulum.utils
 
 NUMPY_SEED = 1 * 2 * 4 * 8 * 16 * 32 * 64
 
@@ -42,7 +42,7 @@ def run(
     )
     converted = convert_cluster(extracted, ptcns)
     utilo.verbose(f'cluster: converted {converted}')
-    result = headlines.utils.groupby_level_one(converted)
+    result = titulum.utils.groupby_level_one(converted)
     utilo.verbose(f'cluster: result {result}')
     return result
 
@@ -54,16 +54,16 @@ def extract_headlines(
     **kwargs,
 ):
     # find headline cluster
-    flat = headlines.cluster.validate.valid_headline_clusters(
+    flat = titulum.cluster.validate.valid_headline_clusters(
         clusters=clusters,
         cluster_size_min=cluster_size_min,
         **kwargs,
     )
     # merge multiple headline
-    flat = headlines.cluster.merge.merge_headline(flat)
+    flat = titulum.cluster.merge.merge_headline(flat)
     # skip hidden items
     flat = [item for item in flat if item.visible]
-    headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
+    headline_count_min = titulum.config.HEADLINE_COUNT_MIN(document_length)
     if len(flat) < headline_count_min:
         utilo.debug(f'cluster: too few headlines {len(flat)}, require at '
                     f'least {headline_count_min}, disable strategy')
@@ -214,7 +214,7 @@ def clusterme(matrix, navis, numbers: int = 20, runtime: int = 12000):
 
 
 def create_matrix(ptcns, fontstore):
-    parsed = headlines.cluster.parser.parses(
+    parsed = titulum.cluster.parser.parses(
         navigators=ptcns,
         fontstore=fontstore,
     )

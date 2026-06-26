@@ -11,7 +11,7 @@ import hoverpower
 import serializeraw
 import utilotest
 
-import headlines.cluster.parser
+import titulum.cluster.parser
 
 
 @utilotest.requires(hoverpower.BACHELOR067_PDF)
@@ -22,11 +22,11 @@ def test_filter_level4_headlines_bachelor067():
     page59 = serializeraw.ptcn_frompath(source, pages=59)[0]
     fontstore = serializeraw.fs_frompath(source, pages=59)
 
-    vector = headlines.cluster.parser.parse_vector(
+    vector = titulum.cluster.parser.parse_vector(
         navigator=page59,
         fontstore=fontstore,
     )
-    bold = [item for item in vector[1] if item == headlines.cluster.parser.BOLD]
+    bold = [item for item in vector[1] if item == titulum.cluster.parser.BOLD]
     # three bold headlines:
     # 1 Quellcode/Skripte(Auszüge)
     # 1.1 Performance-Messungen

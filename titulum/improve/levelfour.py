@@ -11,8 +11,8 @@ import collections
 
 import utilo
 
-import headlines.judge
-import headlines.utils
+import titulum.judge
+import titulum.utils
 
 
 def merge_ifbetter(before, levelfour):
@@ -24,7 +24,7 @@ def merge_ifbetter(before, levelfour):
         levelfour=levelfour,
     )
     # check if produced result is better
-    result = headlines.judge.select_best((before, improved))
+    result = titulum.judge.select_best((before, improved))
     # TODO: CHECK IF IT IS BETTER THAN BEFORE
     return result
 
@@ -45,7 +45,7 @@ def improve(current: list, levelfour):
     selected.extend(levelfour)
     selected.sort(key=lambda x: container(x.container))
     selected.sort(key=lambda x: x.page)
-    result = headlines.utils.groupby_level_one(selected)
+    result = titulum.utils.groupby_level_one(selected)
     return result
 
 

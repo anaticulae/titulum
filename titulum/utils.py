@@ -41,7 +41,7 @@ def convert_headline_result(
     >>> convert_headline_result([[iamraw.Headline(title='first')]])
     HeadlineResult(groups=[HeadlineGroup(headlines=[Headline(title='first', ...)
     >>> convert_headline_result([], __name__).__strategy__
-    'headlines.utils'
+    'titulum.utils'
     """
     groups = [iamraw.HeadlineGroup(headlines=group) for group in groups]
     result = iamraw.HeadlineResult(groups=groups)

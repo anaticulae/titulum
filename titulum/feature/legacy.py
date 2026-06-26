@@ -10,12 +10,12 @@
 import serializeraw
 import utilo
 
-import headlines.utils
+import titulum.utils
 
 
 def work(xresult: str) -> str:
     if not utilo.exists(xresult):
-        detected = headlines.utils.convert_headline_result(
+        detected = titulum.utils.convert_headline_result(
             groups=[],
             strategy=__name__,
         )

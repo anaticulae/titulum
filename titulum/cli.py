@@ -10,7 +10,7 @@
 import utilo
 import utilo.cli
 
-import headlines
+import titulum
 
 DESCRIPTION = ''
 
@@ -132,15 +132,15 @@ WORKPLAN = [
 @utilo.saveme
 def main():
     utilo.featurepack(
-        root=headlines.ROOT,
+        root=titulum.ROOT,
         workplan=WORKPLAN,
-        featurepackage='headlines.feature',
+        featurepackage='titulum.feature',
         config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
-            name=headlines.PROCESS,
+            name=titulum.PROCESS,
             pages=True,
-            version=headlines.__version__,
+            version=titulum.__version__,
             rename=rename,
         ),
     )

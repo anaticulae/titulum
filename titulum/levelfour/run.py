@@ -14,16 +14,16 @@ import iamraw
 import texmex
 import utilo
 
-import headlines.cluster.run
+import titulum.cluster.run
 
 
 def run(
     ptcns: texmex.PTCNs,
     fontstore: iamraw.FontStore,
 ) -> iamraw.PagesHeadlineList:
-    matrix, ptcns = headlines.cluster.run.create_matrix(ptcns, fontstore)
-    clustered = headlines.cluster.run.clusterme(matrix, ptcns)
-    extracted = headlines.cluster.run.extract_headlines(
+    matrix, ptcns = titulum.cluster.run.create_matrix(ptcns, fontstore)
+    clustered = titulum.cluster.run.clusterme(matrix, ptcns)
+    extracted = titulum.cluster.run.extract_headlines(
         clustered,
         document_length=len(ptcns),
     )
@@ -31,7 +31,7 @@ def run(
         # disable strategy
         return []
     levelfour = [extracted[3]]
-    converted = headlines.cluster.run.convert_cluster(
+    converted = titulum.cluster.run.convert_cluster(
         levelfour,
         ptcns,
     )

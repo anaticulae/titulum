@@ -16,10 +16,10 @@ import iamraw
 import texmex
 import utilo
 
-import headlines.config
-import headlines.judge
-import headlines.level
-import headlines.utils
+import titulum.config
+import titulum.judge
+import titulum.level
+import titulum.utils
 
 # longer word chains may be a sentence or something else
 HEADLINE_TOKEN_LENGTH_MAX = configos.HV_INT_PLUS(default=20)
@@ -52,15 +52,15 @@ def run(ptcns: texmex.PTCNs) -> iamraw.PagesHeadlineList:
         )
         if not collected:
             continue
-        if headlines.judge.invalid_extraction(collected):
+        if titulum.judge.invalid_extraction(collected):
             continue
-        if not headlines.judge.skip_if_too_few(
+        if not titulum.judge.skip_if_too_few(
                 collected,
                 document_length=len(ptcns),
                 strategy=__name__,
         ):
             continue
-        result = headlines.utils.groupby_level_one(collected)
+        result = titulum.utils.groupby_level_one(collected)
         return result
     return []
 
@@ -198,7 +198,7 @@ def filter_headlines(result: iamraw.PagesHeadlineList) -> dict:
         nolevel.extend(item)
     level = [item for item in nolevel if isinstance(item.level, int)]
     if not level:
-        result = headlines.level.cluster_headline_level(result)
+        result = titulum.level.cluster_headline_level(result)
     return result
 
 

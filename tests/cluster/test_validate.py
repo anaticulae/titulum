@@ -11,12 +11,12 @@ import pytest
 import utilo
 import utilotest
 
-import headlines
 import tests
+import titulum
 
-ARCHIVE = utilo.join(headlines.ROOT, 'tests/cluster/expected', exist=True)
+ARCHIVE = utilo.join(titulum.ROOT, 'tests/cluster/expected', exist=True)
 ARCHIVE_LEVELFOUR = utilo.join(
-    headlines.ROOT,
+    titulum.ROOT,
     'tests/cluster/levelfour',
     exist=True,
 )

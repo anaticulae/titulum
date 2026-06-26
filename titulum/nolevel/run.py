@@ -13,22 +13,22 @@ import elementae
 import iamraw
 import texmex
 
-import headlines.improve.surround
-import headlines.multiline.run
-import headlines.standard.run
+import titulum.improve.surround
+import titulum.multiline.run
+import titulum.standard.run
 
 
 def run(ptcns: texmex.PTNs) -> iamraw.PagesHeadlineList:
     page_parser = functools.partial(
-        headlines.standard.run.parse_page,
+        titulum.standard.run.parse_page,
         headline_extractor=extract_headline,
     )
-    result = headlines.standard.run.run(
+    result = titulum.standard.run.run(
         ptcns,
         page_parser=page_parser,
         finalizer=finalizer,
     )
-    result = headlines.improve.surround.run(
+    result = titulum.improve.surround.run(
         headlines=result,
         ptcns=ptcns,
     )
@@ -57,7 +57,7 @@ def filter_headlines(items):  # pylint:disable=R0201
         ]
         result[number] = items
     # TODO: USE DICT CONVERTER HERE
-    result = headlines.multiline.run.filter_headlines(result)
+    result = titulum.multiline.run.filter_headlines(result)
     return result
 
 
@@ -72,7 +72,7 @@ def should_skip(distance_tosmall, headline_tosmall, **kwargs):  # pylint:disable
 def extract_headline(**kwargs):
     kwargs['textdistance'] = kwargs['textdistance'] * 1.2
     kwargs['textsize'] = kwargs['textsize'] * 1.05
-    return headlines.standard.run.extract_headline(
+    return titulum.standard.run.extract_headline(
         **kwargs,
         skipper=should_skip,
     )

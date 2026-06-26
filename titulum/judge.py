@@ -12,8 +12,8 @@ import elementae
 import iamraw
 import utilo
 
-import headlines.config
-import headlines.visitor
+import titulum.config
+import titulum.visitor
 
 
 def select_best(results) -> iamraw.HeadlineResult:
@@ -37,7 +37,7 @@ def length_flat(items):
 def invalid_extraction(items) -> bool:
     """Judge extracted strategy and decide if result can be valid.
 
-    1. Strategy: Check longest sequence of level one headlines.
+    1. Strategy: Check longest sequence of level one titulum.
     2. Strategy: Check headline ends with awkward characters.
     """
     items = utilo.flat(items, append=True)
@@ -76,7 +76,7 @@ def score_levelerror(items: list) -> int:
         if item.raw_level and elementae.level_numbered(item.raw_level)
     ]
     rawlevel = utilo.notempty(rawlevel)
-    grouped = headlines.visitor.groupby_level(rawlevel)
+    grouped = titulum.visitor.groupby_level(rawlevel)
     for groups in grouped:
         for group in groups:
             group = [elementae.determine_patch(item) for item in group]
@@ -152,7 +152,7 @@ def skip_if_too_few(
     strategy: str = None,
 ):
     headline_count = len(utilo.flat(headlinex, append=True))
-    headline_count_min = headlines.config.HEADLINE_COUNT_MIN(document_length)
+    headline_count_min = titulum.config.HEADLINE_COUNT_MIN(document_length)
     if headline_count < headline_count_min:
         utilo.debug(f'too few headlines {headline_count}, require at '
                     f'least {headline_count_min}, disable strategy: {strategy}')
