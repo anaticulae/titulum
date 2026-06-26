@@ -1,234 +1,948 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
+
+## v1.0.0 (2026-06-26)
+
+### Chores
+
+- **docker**: Add docker file
+  ([`1467aa5`](https://github.com/anaticulae/titulum/commit/1467aa5cec1a184d9a32f126d48486daed9d450c))
+
+- **generator**: Disable missing generator
+  ([`e58c0a5`](https://github.com/anaticulae/titulum/commit/e58c0a5c0147fca5104d5a38d858a20ec61ff9c1))
+
+- **github**: Add .github
+  ([`6bfb3fa`](https://github.com/anaticulae/titulum/commit/6bfb3fae09f141df4f622be033017b22646ca5b8))
+
+- **github**: Add missing power secret
+  ([`41a6289`](https://github.com/anaticulae/titulum/commit/41a62893f76573661376db16763ff5c59e7710ac))
+
+- **project**: Rename project
+  ([`90c5f13`](https://github.com/anaticulae/titulum/commit/90c5f1386ec2ab9f2f04acfd65ae813432c676e0))
+
+- **pyproject**: Add cli
+  ([`da5070c`](https://github.com/anaticulae/titulum/commit/da5070c8674fe51263f21d06e1223707efb9abb5))
+
+- **pyproject**: Add missing generator
+  ([`fa07d99`](https://github.com/anaticulae/titulum/commit/fa07d997d5e5feb741e5006b53a288c8c200fcec))
+
+- **pyproject**: Add missing package
+  ([`6626f4f`](https://github.com/anaticulae/titulum/commit/6626f4f14e5d91b3d12387c6931be1a0876b47c3))
+
+- **pyproject**: Add modern layout
+  ([`ba1e71a`](https://github.com/anaticulae/titulum/commit/ba1e71a2d964831cf35f82b300ea541176cc8690))
+
+- **pyproject**: Remove outdated env
+  ([`540108a`](https://github.com/anaticulae/titulum/commit/540108ad021ffe19203a07c5832e0e90b1e0c54a))
+
+- **readme**: Adjust file names
+  ([`b806634`](https://github.com/anaticulae/titulum/commit/b806634e82893a64a0bc76d4c65913de10b35ac3))
+
+- **resources**: Disable generator
+  ([`5c000f0`](https://github.com/anaticulae/titulum/commit/5c000f0e34d9a524ca2eed03fd6d32b31ac349a2))
+
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`6571e02`](https://github.com/anaticulae/titulum/commit/6571e02748858c30d418c73d693221c12b6b8f19))
+
+- **rename**: Adjust package names
+  ([`47b26b2`](https://github.com/anaticulae/titulum/commit/47b26b225496f64a0499a99f53f0bbbfbf3f7123))
+
 
 ## v0.12.2 (2022-12-19)
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (db113dd52761)
-* add integrate step (bc369c071475)
-* add rebase step (d8dd6c1c7a07)
-* upgrade Jenkinsfile (cf1dd77c9b88)
-* upgrade pipe library (17e585b29137)
+- **Jenkins**: Add integrate step
+  ([`bc369c0`](https://github.com/anaticulae/titulum/commit/bc369c07147595a2d252e81294214628d4e4a71f))
+
+- **Jenkins**: Add rebase step
+  ([`d8dd6c1`](https://github.com/anaticulae/titulum/commit/d8dd6c1c7a0705f1f623d904f1596eaa807bc86a))
+
+- **Jenkins**: Upgrade Jenkinsfile
+  ([`cf1dd77`](https://github.com/anaticulae/titulum/commit/cf1dd77c9b88e31b0672633a0450c4db7a157ea3))
+
+- **Jenkins**: Upgrade pipe library
+  ([`17e585b`](https://github.com/anaticulae/titulum/commit/17e585b29137a3c12938570e53d20bf3c8fd57f8))
+
+- **requirements**: Upgrade requirements.txt
+  ([`db113dd`](https://github.com/anaticulae/titulum/commit/db113dd527614b3c6db1eba02045b89822aef1ed))
+
 
 ## v0.12.1 (2022-12-04)
 
-### Chore
+### Chores
 
-* ensure that layout is installed (1dc898c3cb95)
-* remove headline dependency (7475a8e67866)
-* use quick installer (8f1a8314ec85)
-* upgrade pipeline (5fd61c4c3c3f)
-* upgrade pipe library (aebeb9d00e63)
-* convert nightly to all (f98bdc89dd44)
-* reduce feedback time (80328d2cfc64)
-* upgrade requirements.txt (97b61e6c390b)
-* upgrade pipe library (80fb98527ddd)
-* upgrade environment (b0b77a38ec40)
-* reduce resource to decrease required runtime (709e02dadd55)
-* do not run in privileged mode (a3aba4859aff)
-* increase baw version (11a61d3eeee8)
+- **Jenkins**: Convert nightly to all
+  ([`f98bdc8`](https://github.com/anaticulae/titulum/commit/f98bdc89dd44c3403cc1489e0ec636385dc0fba1))
+
+- **Jenkins**: Do not run in privileged mode
+  ([`a3aba48`](https://github.com/anaticulae/titulum/commit/a3aba4859affabb4c801eebc034071c8d821e6a9))
+
+- **Jenkins**: Increase baw version
+  ([`11a61d3`](https://github.com/anaticulae/titulum/commit/11a61d3eeee87fc87238c6ee41ce93d76b8e6a6b))
+
+- **Jenkins**: Reduce feedback time
+  ([`80328d2`](https://github.com/anaticulae/titulum/commit/80328d2cfc642d756bec256f0bfd54abc42aaeaf))
+
+- **Jenkins**: Upgrade environment
+  ([`b0b77a3`](https://github.com/anaticulae/titulum/commit/b0b77a38ec408f05ae921b69233098943e500dc3))
+
+- **Jenkins**: Upgrade pipe library
+  ([`aebeb9d`](https://github.com/anaticulae/titulum/commit/aebeb9d00e639ed3aefb29e70cbf5b526a866620))
+
+- **Jenkins**: Upgrade pipe library
+  ([`80fb985`](https://github.com/anaticulae/titulum/commit/80fb98527ddda23a4e5f478c5e39d2d4d1bf79d2))
+
+- **Jenkins**: Upgrade pipeline
+  ([`5fd61c4`](https://github.com/anaticulae/titulum/commit/5fd61c4c3c3fd670ec43bed715b03fc1d9ce7fe8))
+
+- **requirements**: Ensure that layout is installed
+  ([`1dc898c`](https://github.com/anaticulae/titulum/commit/1dc898c3cb954be2b465604009006e99d7d57b6c))
+
+- **requirements**: Upgrade requirements.txt
+  ([`97b61e6`](https://github.com/anaticulae/titulum/commit/97b61e6c390bb9a9785dcb08a1b4fa6d76cad655))
+
+- **resources**: Reduce resource to decrease required runtime
+  ([`709e02d`](https://github.com/anaticulae/titulum/commit/709e02dadd552cfa2334e2cd44c4ea617f96b4fe))
+
+- **setup**: Use quick installer
+  ([`8f1a831`](https://github.com/anaticulae/titulum/commit/8f1a8314ec858734be89e39db6945953219e4638))
+
+- **test**: Remove headline dependency
+  ([`7475a8e`](https://github.com/anaticulae/titulum/commit/7475a8e67866258a560d842bcc26add2036f6778))
+
+### Refactoring
+
+- **replace**: Automated replacement
+  ([`73aeca9`](https://github.com/anaticulae/titulum/commit/73aeca902b6830ff9f0a3ee7adf352d821b06ffe))
+
+### Testing
+
+- **baseline**: Adjust baseline
+  ([`d3b98b5`](https://github.com/anaticulae/titulum/commit/d3b98b56975a68615f84179783c3104b3b435347))
+
 
 ## v0.12.0 (2022-10-04)
 
-### Feature
+### Chores
 
-* use modern data source (9ea4d0bd41be)
+- **ci**: Add Jenkinsfile
+  ([`99b6d94`](https://github.com/anaticulae/titulum/commit/99b6d94d65529d9bc78c868a56b1b645fae6491e))
 
-### Chore
+- **Jenkinsfile**: Archive generated data if nightly fails
+  ([`64be0a1`](https://github.com/anaticulae/titulum/commit/64be0a1035a58a8c27896fa3081ada047d196ad2))
 
-* use newer headnote to get better results (71e83c5400c3)
-* upgrade requirements.txt (64b52767fc7a)
-* add missing headnote generator (b4774eb55127)
-* archive generated data if nightly fails (64be0a1035a5)
-* add separate generator step (304905677e67)
-* upgrade requirements.txt (22a1baae16d2)
-* use opengl for resource generator (d69044baf401)
-* add missing resource generator (e38ffac5f420)
-* increase worker count on CI (0b2e76d6cc29)
-* add Jenkinsfile (99b6d94d6552)
-* upgrade requirements.txt (155f32d45ce6)
+- **Jenkinsfile**: Use opengl for resource generator
+  ([`d69044b`](https://github.com/anaticulae/titulum/commit/d69044baf401ac4dca56b1d8f36e50d0992c766b))
 
-## v0.11.0
+- **requirements**: Add separate generator step
+  ([`3049056`](https://github.com/anaticulae/titulum/commit/304905677e6750cd4d06d87e4ec3692f62566e9e))
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`64b5276`](https://github.com/anaticulae/titulum/commit/64b52767fc7adf47ea26e1b61c901a7fa386a96d))
 
-* skip too many headlines on a single page (209ce3270cd7)
-* limit headline font size (b4ab83f9fa25)
-* improve headline lookup (b50cb370bf4c)
+- **requirements**: Upgrade requirements.txt
+  ([`22a1baa`](https://github.com/anaticulae/titulum/commit/22a1baae16d22a7e2bceaf8603ec0c2034f3ca0a))
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`155f32d`](https://github.com/anaticulae/titulum/commit/155f32d45ce64b0bbba2ed7dd7e9e686b2bbec0a))
 
-* use improve test name generator (b83c6a5dcbf3)
+- **requirements**: Use newer headnote to get better results
+  ([`71e83c5`](https://github.com/anaticulae/titulum/commit/71e83c5400c35d757fa0fff99c774f83f79181ea))
 
-## v0.10.0
+- **resources**: Add missing headnote generator
+  ([`b4774eb`](https://github.com/anaticulae/titulum/commit/b4774eb55127f4fd7e748b860f75d96db2ca7636))
 
-### Feature
+- **resources**: Add missing resource generator
+  ([`e38ffac`](https://github.com/anaticulae/titulum/commit/e38ffac5f420c6ee09dba13850d7b63b44cbc9d1))
 
-* do not drop result if no level one is given (45de9701bc18)
-* extend debugging information (dac3bdf72c07)
+- **resources**: Increase worker count on CI
+  ([`0b2e76d`](https://github.com/anaticulae/titulum/commit/0b2e76d6cc29695d927f944082966c7247865160))
 
-### Fix
+### Code Style
 
-* do not skip data if no all levels are filled (4daa62a29a9d)
+- **changelog**: Adjust for automation tool
+  ([`68f0de0`](https://github.com/anaticulae/titulum/commit/68f0de01dfc3d12326d0bd215f8454c40a2eddce))
 
-## v0.9.1
+- **format**: Format code
+  ([`c1a41b1`](https://github.com/anaticulae/titulum/commit/c1a41b1bc78712bbaa48278143faa3c160345658))
 
-### Fix
+### Features
 
-* add missing import (b7970ceabd18)
-* skip empty page data (706919e98e84)
+- **cli**: Use modern data source
+  ([`9ea4d0b`](https://github.com/anaticulae/titulum/commit/9ea4d0bd41becccae529a98aac92c7dd671b11c4))
 
-## v0.9.0
+### Testing
 
-### Feature
+- **adjust**: Adjust after software integration
+  ([`b31c372`](https://github.com/anaticulae/titulum/commit/b31c372790695c0536103ab812230c3c3bb2092a))
 
-* skip invalid headlines (25c73448d42e)
-* skip cluster with too many duplicated levels (e2050aabc84a)
-* skip hidden items (4ef9fe053014)
-* verify levelfour result (084cf5c40b4e)
-* skip cluster with to many hidden lines (d88f8c8d0799)
-* assign page and container for detected headlines (945e257c0077)
-* use improved cluster (48bfc43cbcb8)
-* use improved merger (c457999a487e)
-* add visible column to improve parser result (b29f9daeeca2)
-* load visible and invisible data (700f11b6b78b)
-* use underline to merge headlines (82ff30e57e95)
-* add underline as cluster attribute (3c037cbe1d76)
-* log invalid multiline group (54ec147f9b6a)
-* use level four headlines to improve result (c6cf6623306d)
+- **skip**: Skip test if data is not generated
+  ([`103d45f`](https://github.com/anaticulae/titulum/commit/103d45f49736e7d03921c4e790d1c087c0e95b47))
 
-### Fix
 
-* stop after detecting headline end (a55495c56a91)
-* find headline only once (f73e10c5ed0a)
-* sort tuple correctly (b4e94d0beecb)
-* score None result correctly (fd19e6271470)
-* adjust check for empty data (817c73401c48)
-* skip too few headlines (8b2a915a1430)
-* skip multipart section as possible chapter section (e7de5feaf123)
-* sorting headlines seams to be useless (8f61336ec8a5)
-* after is already checked (b42c3ef7219f)
-* inform about empty tests (100d64bab86a)
+## v0.11.0 (2022-07-13)
 
-## v0.8.0
+### Bug Fixes
 
-### Feature
+- **conftest**: Use improve test name generator
+  ([`b83c6a5`](https://github.com/anaticulae/titulum/commit/b83c6a5dcbf324e52b787bc85545d06f3fadb14f))
 
-* use levelfour result as input to improve result (3a7cce7b2641)
-* do not treat valid headlines as level four headlines (ae3530b16feb)
-* add levelfour step (4109e18c7d0b)
-* add method to merge level four and check if exists (de30a41cfb6a)
+### Chores
 
-## v0.7.1
+- **requirements**: Add hardcore
+  ([`de8a34d`](https://github.com/anaticulae/titulum/commit/de8a34de1d107b4470ed3d3d58b1c975326d4d8d))
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`2623f69`](https://github.com/anaticulae/titulum/commit/2623f691610643636e8a8e153bb9a7d7c1dbcba8))
 
-* use central headline length judger (024f56d940a3)
+- **resources**: Extend test data generator
+  ([`412718b`](https://github.com/anaticulae/titulum/commit/412718bed0926f28c6e791fd8005c544bdf48f75))
 
-### Fix
+- **resources**: Extend test data generator
+  ([`c48363e`](https://github.com/anaticulae/titulum/commit/c48363ead37ae36c72b7bbc1cf093820cdcc9127))
 
-* do not skip headlines at page end (53b87f4f0c16)
-* fix error message (fdcdaf1bc39a)
+- **resources**: Sort generator
+  ([`cc13e99`](https://github.com/anaticulae/titulum/commit/cc13e9937617d88ec695fe0d2cc60d1f2bd1345e))
 
-## v0.7.0
+- **resources**: Use improved resource selector
+  ([`af23a4e`](https://github.com/anaticulae/titulum/commit/af23a4efbe56a0ef9a57dd18684abf6c6243447f))
 
-### Feature
+### Features
 
-* use new datatype with strategy field (38dc024a5bb3)
-* add method to convert to headline result (2e07168ad87d)
-* disable result for too few headlines (171b65fe722e)
-* add table with minimal headline count (1fe8b036574e)
-* add left and right alignment check (90cdd68dbafc)
+- **cluster**: Improve headline lookup
+  ([`b50cb37`](https://github.com/anaticulae/titulum/commit/b50cb370bf4c6b7fd44cc3ce04e7b48334973500))
 
-### Fix
+- **standard**: Limit headline font size
+  ([`b4ab83f`](https://github.com/anaticulae/titulum/commit/b4ab83f9fa25507cc0cfcccb997743c26d57780b))
 
-* adjust headlines path (fef105b3dc4b)
-* adjust filename, fix magic result value (ac79944df8d5)
+- **standard**: Skip too many headlines on a single page
+  ([`209ce32`](https://github.com/anaticulae/titulum/commit/209ce3270cd75295d833b1c5038f4fe244cc1e24))
 
-## v0.6.0
+### Testing
 
-### Feature
+- **baseline**: Adjust baseline
+  ([`7c88877`](https://github.com/anaticulae/titulum/commit/7c888778d03f725deee454bfdbe248e2ba1689f0))
 
-* connect cluster strategy (b5cff644f041)
-* add method to validate cluster (1ac3d6d29123)
-* skip warnings (856cccef3b28)
-* move parse from docstyle (8752ec22f0e9)
-* move code form docstyle (8dad17ccd9ca)
-* use improvement to improve detection (8fa61331eb63)
-* move improvement from words (9f2d8c19936a)
+- **baseline**: Adjust baseline
+  ([`40b6afb`](https://github.com/anaticulae/titulum/commit/40b6afba3da52f55042cc14b20950c072cf4f413))
 
-## v0.5.0
+- **refactor**: Use fixture shortcut
+  ([`ad8275b`](https://github.com/anaticulae/titulum/commit/ad8275ba56c35bffd9b4225afbfa44ba9f85de86))
 
-### Feature
 
-* skip single chapters (58f196584f0f)
-* ensure that alignment matches when merge two lines (9f6926b12258)
-* connect nolevel strategy (918f3f35f78d)
-* move nolevel from words (eee562aab118)
-* add finalize to polish result data (5ba8f7dab4a7)
-* make runner configurable (3733f927d239)
-* add legacy step to produce words compatible result path (3bc8d54940a0)
+## v0.10.0 (2022-06-17)
 
-## v0.4.0
+### Bug Fixes
 
-### Feature
+- **run**: Do not skip data if no all levels are filled
+  ([`4daa62a`](https://github.com/anaticulae/titulum/commit/4daa62a29a9d825a86ee8f91a2bcbb2d7e6e06cb))
 
-* try to merge next line if size matches (0aa818a25308)
-* add headline min count (629d864b1f3e)
-* use style to cluster headlines (9b8ed3e14474)
-* overwrite style level due text level (5ef415641197)
-* make after diff max size dependent (212e99e1f9bf)
-* use double extractor as default (d98e61dfd1ed)
+### Chores
 
-## v0.3.0
+- **requirements**: Upgrade requirements.txt
+  ([`39b37e7`](https://github.com/anaticulae/titulum/commit/39b37e73248861f4c5095cd85b72d507c5f5b686))
 
-### Feature
+### Features
 
-* use elementae to determine level (9930b9fc7312)
-* connect standard headline extractor (0753dd2a09fd)
-* move standard from words (422728cf772c)
+- **cluster**: Extend debugging information
+  ([`dac3bdf`](https://github.com/anaticulae/titulum/commit/dac3bdf72c07c4a85632af0afc1f0b828cafb7ad))
 
-### Fix
+- **headlines**: Do not drop result if no level one is given
+  ([`45de970`](https://github.com/anaticulae/titulum/commit/45de9701bc18a4db298064f78cb54ece52c146c3))
 
-* do not judge result early (1ffb08fd6728)
+### Testing
 
-## v0.2.0
+- **adjust**: Adjust expected headlines
+  ([`cd8e076`](https://github.com/anaticulae/titulum/commit/cd8e076092bd9f0bc346aff34821bff98a06271f))
 
-### Feature
+- **adjust**: Adjust expected headlines
+  ([`78a5e1e`](https://github.com/anaticulae/titulum/commit/78a5e1e3dfdab950a80af95d495e34deede00876))
 
-* connect numbers large (da0b20698bab)
-* move nlarge from words (dff4369ed36c)
-* connect strategy (b3ff8e4aae45)
-* move single from words (96be5de0802f)
 
-## v0.1.0
+## v0.9.1 (2022-04-26)
 
-### Feature
+### Bug Fixes
 
-* add simple decider (82125749d5c3)
-* determine pages only once (0ff54f61f1bf)
-* shrink headline detection (e9931a5b5955)
-* add method to determine pages with expected headlines (8d6289960f90)
-* make longest level one length dependent (9f530fded7dd)
-* use judger to disable bad results (9b7a39124f58)
-* move judger from words (579b6738802d)
-* group headlines into expected chapters (65540748e025)
-* run strategy with different h1 lower bounds (7192285e93d1)
-* make h1 min size adjustable (1417e2607acd)
-* connect strategy (7091736613ea)
-* add method to run strategy for complete document (cc2d4bfa16f0)
-* adjust interface (dbd189bd06c1)
-* move code from words (95578f2e88bc)
-* move code from words (62e0bc65d7aa)
-* move code from words (1a5835b33382)
-* move code from words (705ae4c1ed75)
-* add feature runner (5bbaade07299)
-* add feature package (a0692321b93a)
+- **cluster**: Skip empty page data
+  ([`706919e`](https://github.com/anaticulae/titulum/commit/706919e98e8459f7091751293afd38feef131c4a))
+
+- **imports**: Add missing import
+  ([`b7970ce`](https://github.com/anaticulae/titulum/commit/b7970ceabd183d11fed283115a2ab06d736aeb77))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`8eaad3c`](https://github.com/anaticulae/titulum/commit/8eaad3c6432180c947cffed31f9d990e443dfc0d))
+
+
+## v0.9.0 (2022-04-26)
+
+### Bug Fixes
+
+- **cluster**: Find headline only once
+  ([`f73e10c`](https://github.com/anaticulae/titulum/commit/f73e10c5ed0a3d6a3768a6e8c3e9520301183397))
+
+- **cluster**: Sorting headlines seams to be useless
+  ([`8f61336`](https://github.com/anaticulae/titulum/commit/8f61336ec8a5b0234279a5b1e36004294687504a))
+
+- **cluster**: Stop after detecting headline end
+  ([`a55495c`](https://github.com/anaticulae/titulum/commit/a55495c56a91556034c9fc1607c3730842015c34))
+
+- **headline**: Skip multipart section as possible chapter section
+  ([`e7de5fe`](https://github.com/anaticulae/titulum/commit/e7de5feaf123c79766ea59133364d79102427ea3))
+
+- **levelfour**: Adjust check for empty data
+  ([`817c734`](https://github.com/anaticulae/titulum/commit/817c73401c48a0d8f2df2d3d60defe78b27d6789))
+
+- **levelfour**: Skip too few headlines
+  ([`8b2a915`](https://github.com/anaticulae/titulum/commit/8b2a915a1430a8f375aaeed50a4c2d2b75f55a25))
+
+- **levelfour**: Sort tuple correctly
+  ([`b4e94d0`](https://github.com/anaticulae/titulum/commit/b4e94d0beecb1db75e1074d76461375498b9ceef))
+
+- **merge**: After is already checked
+  ([`b42c3ef`](https://github.com/anaticulae/titulum/commit/b42c3ef7219f9b0fd07b22555ceac68c643f0159))
+
+- **result**: Score None result correctly
+  ([`fd19e62`](https://github.com/anaticulae/titulum/commit/fd19e627147054d7c46efc22fc43affde6241fe0))
+
+- **select**: Inform about empty tests
+  ([`100d64b`](https://github.com/anaticulae/titulum/commit/100d64bab86a0558621ea941a9bbbb70d738f99c))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`a5ed66c`](https://github.com/anaticulae/titulum/commit/a5ed66c000723ce815c4f32a647f2c96058c795f))
+
+- **requirements**: Upgrade requirements.txt
+  ([`3debd17`](https://github.com/anaticulae/titulum/commit/3debd1784e3868ebfe47f26d74a43da846fb0e57))
+
+- **requirements**: Upgrade requirements.txt
+  ([`9f225ce`](https://github.com/anaticulae/titulum/commit/9f225ceb448dce9ecb6736968d78372aa6f67c00))
+
+- **resources**: Generate caption
+  ([`fb35d62`](https://github.com/anaticulae/titulum/commit/fb35d621e2a221ef68ce435a24a6dc914e34bb29))
+
+- **test**: Generate tablero
+  ([`aee0ddb`](https://github.com/anaticulae/titulum/commit/aee0ddb23d98d4e1b8864da22341a200eea226a9))
+
+- **test**: Keep longrun fast
+  ([`a007c4e`](https://github.com/anaticulae/titulum/commit/a007c4e3ef22b8d8eb264d59541b2f4db42e5c08))
+
+### Features
+
+- **cluster**: Add underline as cluster attribute
+  ([`3c037cb`](https://github.com/anaticulae/titulum/commit/3c037cbe1d769fec53eeadf9bceb0731ebdc9ce8))
+
+- **cluster**: Add visible column to improve parser result
+  ([`b29f9da`](https://github.com/anaticulae/titulum/commit/b29f9daeeca2caff7c2138ed058107635e771689))
+
+- **cluster**: Assign page and container for detected headlines
+  ([`945e257`](https://github.com/anaticulae/titulum/commit/945e257c00777622a6c34db82fb2276f029d192c))
+
+- **cluster**: Load visible and invisible data
+  ([`700f11b`](https://github.com/anaticulae/titulum/commit/700f11b6b78b8aabd4289bd019c9aee512a3b3e1))
+
+- **cluster**: Skip cluster with to many hidden lines
+  ([`d88f8c8`](https://github.com/anaticulae/titulum/commit/d88f8c8d079994894fee4b89910e4350e77d8f0f))
+
+- **cluster**: Skip hidden items
+  ([`4ef9fe0`](https://github.com/anaticulae/titulum/commit/4ef9fe053014736211382200a669a06d35da1961))
+
+- **cluster**: Use improved cluster
+  ([`48bfc43`](https://github.com/anaticulae/titulum/commit/48bfc43cbcb8ded2ec551800bac7937b5e15572b))
+
+- **cluster**: Use improved merger
+  ([`c457999`](https://github.com/anaticulae/titulum/commit/c457999a487e840d9399f3d94661b69b22a9b3aa))
+
+- **cluster**: Use level four headlines to improve result
+  ([`c6cf662`](https://github.com/anaticulae/titulum/commit/c6cf6623306d6bf05761eab1b6f042709b7bec69))
+
+- **cluster**: Use underline to merge headlines
+  ([`82ff30e`](https://github.com/anaticulae/titulum/commit/82ff30e57e9502bef7cb15cebff0034b0cdf4f7d))
+
+- **levelfour**: Verify levelfour result
+  ([`084cf5c`](https://github.com/anaticulae/titulum/commit/084cf5c40b4e261e69a78c9428a2c0c1b3c5de4f))
+
+- **merger**: Skip invalid headlines
+  ([`25c7344`](https://github.com/anaticulae/titulum/commit/25c73448d42e80c1b36d885b866cace567ff7dbc))
+
+- **multiline**: Log invalid multiline group
+  ([`54ec147`](https://github.com/anaticulae/titulum/commit/54ec147f9b6a0a1ccaa38d71bfb6e47d3eadb4ff))
+
+- **validate**: Skip cluster with too many duplicated levels
+  ([`e2050aa`](https://github.com/anaticulae/titulum/commit/e2050aabc84a2cd58d4fad1d7749500b59c79944))
+
+### Refactoring
+
+- **cluster**: Move cluster validate to separate method
+  ([`8ac9e72`](https://github.com/anaticulae/titulum/commit/8ac9e72be32356da73d8e9ddc61d57068786dac5))
+
+- **cluster**: Remove outdated behavior
+  ([`db2433d`](https://github.com/anaticulae/titulum/commit/db2433d95456ab8713f51698a5b49889900d992d))
+
+- **cluster**: Remove unused code
+  ([`0245e02`](https://github.com/anaticulae/titulum/commit/0245e02e59559dbddaccc23a5143076142d8a8e7))
+
+- **headline**: Move headline merge to separate file
+  ([`d70594b`](https://github.com/anaticulae/titulum/commit/d70594b2bcf0151bb65fd56a07f18c4fab9a143b))
+
+- **merge**: Reduce complexity
+  ([`f68988a`](https://github.com/anaticulae/titulum/commit/f68988ab79adaf8a8af8299b32bc30de0312afc5))
+
+- **merge**: Reduce complexity
+  ([`26d51a6`](https://github.com/anaticulae/titulum/commit/26d51a6c8104bf9e7ca061a7f19b92b4ce34b2c0))
+
+### Testing
+
+- **cluster**: Update baseline
+  ([`78e7f03`](https://github.com/anaticulae/titulum/commit/78e7f031698005265911ac84f17f07513f6fb443))
+
+- **cluster**: Validate cluster and levelfour combined
+  ([`87b73a7`](https://github.com/anaticulae/titulum/commit/87b73a768f129876658643fe4e7ae44c679bc86c))
+
+- **select**: Add program to run tests by pdf name
+  ([`1976925`](https://github.com/anaticulae/titulum/commit/1976925bd73ab24a53ef6f558bb7714a2421510b))
+
+
+## v0.8.0 (2022-04-15)
+
+### Chores
+
+- **requirements**: Increase rawmaker
+  ([`8c8de4f`](https://github.com/anaticulae/titulum/commit/8c8de4f433da9922db087811387105bf84084777))
+
+- **requirements**: Upgrade requirements.txt
+  ([`7e6466f`](https://github.com/anaticulae/titulum/commit/7e6466fda072e3c6eaef7c58ae4a6d3a8d3216e0))
+
+- **test**: Keep dev build fast
+  ([`c5dcc3b`](https://github.com/anaticulae/titulum/commit/c5dcc3b2ca22da5c99006a9fcbe68b62628e19ba))
+
+### Features
+
+- **cluster**: Use levelfour result as input to improve result
+  ([`3a7cce7`](https://github.com/anaticulae/titulum/commit/3a7cce7b26413e8ec315c1499b0267dfe3011d0c))
+
+- **headlines**: Add levelfour step
+  ([`4109e18`](https://github.com/anaticulae/titulum/commit/4109e18c7d0b3f56b321d429ac8114b8fbad2ff4))
+
+- **levelfour**: Add method to merge level four and check if exists
+  ([`de30a41`](https://github.com/anaticulae/titulum/commit/de30a41cfb6a52751817f1541a906004ea5333a9))
+
+- **levelfour**: Do not treat valid headlines as level four headlines
+  ([`ae3530b`](https://github.com/anaticulae/titulum/commit/ae3530b16feb4fd4bed21778fc44c845e40191af))
+
+### Refactoring
+
+- **cluster**: Clarify code
+  ([`456b826`](https://github.com/anaticulae/titulum/commit/456b8261dcd3f4aef03018de4ffdea8f24435753))
+
+- **cluster**: Introduce constants
+  ([`c029b71`](https://github.com/anaticulae/titulum/commit/c029b714f5baab3a9f3f81427cb4eb891d8043ae))
+
+- **levelfour**: Move page check to the front
+  ([`116b796`](https://github.com/anaticulae/titulum/commit/116b796c166b1b408ac54ff10088c4e7627ac553))
+
+### Testing
+
+- **cluster**: Add test to verify that bold font is clustered correctly
+  ([`fa02e9d`](https://github.com/anaticulae/titulum/commit/fa02e9ddf9372d55d4626303342bb272f15891e9))
+
+- **levelfour**: Add method to validate level four headlines
+  ([`49a09fd`](https://github.com/anaticulae/titulum/commit/49a09fd0504f187215bdb4b4d6391ac9b3574861))
+
+- **refactor**: Clarify naming
+  ([`cb3dbdf`](https://github.com/anaticulae/titulum/commit/cb3dbdfd0954fcb768cfa0989cabb3d4b4924f3a))
+
+- **utils**: Make test more robust
+  ([`9aff538`](https://github.com/anaticulae/titulum/commit/9aff5388e0405fb4fe7ff6b5b407b9ec12b16960))
+
+
+## v0.7.1 (2022-04-13)
+
+### Bug Fixes
+
+- **cluster**: Do not skip headlines at page end
+  ([`53b87f4`](https://github.com/anaticulae/titulum/commit/53b87f4f0c169dee8b46bf50938e63827d1e674c))
+
+- **judge**: Fix error message
+  ([`fdcdaf1`](https://github.com/anaticulae/titulum/commit/fdcdaf1bc39ac7c0074e6fcb0c09711d90246f12))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`7e895d4`](https://github.com/anaticulae/titulum/commit/7e895d4049f3286a9592fd11b812a6b5a2325636))
+
+- **resources**: Extend test data generator
+  ([`f73d7a2`](https://github.com/anaticulae/titulum/commit/f73d7a24cdcb8d9ab8ea25ea3667eeacb7300249))
+
+### Code Style
+
+- **cluster**: Format code
+  ([`7ab3701`](https://github.com/anaticulae/titulum/commit/7ab37019c3cec5d2f8f78f8392fbd5cc3f32f949))
+
+- **standard**: Format code
+  ([`71e096c`](https://github.com/anaticulae/titulum/commit/71e096c3f8a4fbb7311b397072c28f0f4efc3247))
+
+### Features
+
+- **judge**: Use central headline length judger
+  ([`024f56d`](https://github.com/anaticulae/titulum/commit/024f56d940a3b6b0d6d6578f2b9fc02e4de046c3))
+
+### Refactoring
+
+- **standard**: Replace with general code
+  ([`a71aad8`](https://github.com/anaticulae/titulum/commit/a71aad848f9850a06c1b347840b7aadbdacd6745))
+
+- **standard**: Replace with general code
+  ([`8fd1ebb`](https://github.com/anaticulae/titulum/commit/8fd1ebbf341865ebdc60bb99617039f39f1ec34e))
+
+### Testing
+
+- **validate**: Validate a lot of more documents
+  ([`f40599e`](https://github.com/anaticulae/titulum/commit/f40599e6ca801ffe68eed6d0afb4f1cab3a48ca8))
+
+
+## v0.7.0 (2022-04-12)
+
+### Bug Fixes
+
+- **legacy**: Adjust filename, fix magic result value
+  ([`ac79944`](https://github.com/anaticulae/titulum/commit/ac79944df8d514ad9a00f303979f3974a7afc899))
+
+- **legacy**: Adjust headlines path
+  ([`fef105b`](https://github.com/anaticulae/titulum/commit/fef105b3dc4b94db8233dbb0c0b118e58d78596f))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`54ba03b`](https://github.com/anaticulae/titulum/commit/54ba03b6813d10f30c4544069ff2673563e07b6a))
+
+### Features
+
+- **cluster**: Disable result for too few headlines
+  ([`171b65f`](https://github.com/anaticulae/titulum/commit/171b65fe722e8d0424d85e6de1d600361d18bdb9))
+
+- **config**: Add table with minimal headline count
+  ([`1fe8b03`](https://github.com/anaticulae/titulum/commit/1fe8b036574e97eaeb2d17001d3ae97c6c326e28))
+
+- **headlines**: Use new datatype with strategy field
+  ([`38dc024`](https://github.com/anaticulae/titulum/commit/38dc024a5bb3c84adf6f41b21f04e3500b410f7e))
+
+- **utils**: Add method to convert to headline result
+  ([`2e07168`](https://github.com/anaticulae/titulum/commit/2e07168ad87d908d0d1b15b2d78e9b9e33fa2722))
+
+- **validate**: Add left and right alignment check
+  ([`90cdd68`](https://github.com/anaticulae/titulum/commit/90cdd68dbafc3c87bc534d217efe8925179e0d70))
+
+### Refactoring
+
+- **cluster**: Move const to the top
+  ([`be732b7`](https://github.com/anaticulae/titulum/commit/be732b7b15159f92ba8560b108dc384e5b815b6e))
+
+- **headlines**: Use the same const for multiple strategy
+  ([`4494c8f`](https://github.com/anaticulae/titulum/commit/4494c8f1b8f0c6910a267b2f9a043544622dc3cc))
+
+- **parser**: Fontstore is always available
+  ([`d644e58`](https://github.com/anaticulae/titulum/commit/d644e58dc2fcd5459a98e5aeb0429e864c3bf551))
+
+- **validate**: Replace with elements code
+  ([`48eee92`](https://github.com/anaticulae/titulum/commit/48eee92cab516cc03490bf17a6571320e56c063b))
+
+### Testing
+
+- **nlarge**: Remove useless newline
+  ([`2fe2a3b`](https://github.com/anaticulae/titulum/commit/2fe2a3b314fd29624735be0f2c06cc99b25fa04d))
+
+- **refactor**: Move result validator into separate class
+  ([`403492f`](https://github.com/anaticulae/titulum/commit/403492f686ab7a0a61d66193a8f27286927b0a4d))
+
+- **refactor**: Move to more general place
+  ([`fa0d1f6`](https://github.com/anaticulae/titulum/commit/fa0d1f63afdc6d395d41e0f46de7ab1d58f42a7c))
+
+- **refactor**: Use central todo list, increase validated docs
+  ([`e5a7e52`](https://github.com/anaticulae/titulum/commit/e5a7e52c76af30dd460ab87e18321a3724833b7d))
+
+- **result**: Keep dev run fast
+  ([`ee447e1`](https://github.com/anaticulae/titulum/commit/ee447e1bc249eb4cdd87dde132d4b1e374729ec2))
+
+- **result**: Put strategy name into expected validation result
+  ([`bee70a0`](https://github.com/anaticulae/titulum/commit/bee70a07672c47ae57f849ccb62eae3fdbf4ddbc))
+
+- **result**: Validate a lot of docs
+  ([`3f74e9e`](https://github.com/anaticulae/titulum/commit/3f74e9ec2727d4428ded2b38ab6a8fad8aaaba42))
+
+
+## v0.6.0 (2022-04-10)
+
+### Chores
+
+- **requirements**: Add codero
+  ([`6676c5a`](https://github.com/anaticulae/titulum/commit/6676c5adf3c9f6597caf87294b456a02f4a4fe82))
+
+- **requirements**: Add scipy
+  ([`322b443`](https://github.com/anaticulae/titulum/commit/322b44388c4cbe1ca6a92fbe37c2213681956e8f))
+
+- **resources**: Run codero extractor
+  ([`5b055ac`](https://github.com/anaticulae/titulum/commit/5b055acb47bc726bd31ab8584305f4f1671d0985))
+
+### Code Style
+
+- **docs**: Clarify text
+  ([`55d8934`](https://github.com/anaticulae/titulum/commit/55d8934d73ca67db8a231b1d0090ff7106b04db7))
+
+### Features
+
+- **cluster**: Add method to validate cluster
+  ([`1ac3d6d`](https://github.com/anaticulae/titulum/commit/1ac3d6d29123637a869553f35e57b3551c62c0ee))
+
+- **cluster**: Connect cluster strategy
+  ([`b5cff64`](https://github.com/anaticulae/titulum/commit/b5cff644f041be178c473c59d264b363a888255e))
+
+- **cluster**: Move code form docstyle
+  ([`8dad17c`](https://github.com/anaticulae/titulum/commit/8dad17ccd9ca9ce7d3170ab95ca4a2e348208add))
+
+- **move**: Move improvement from words
+  ([`9f2d8c1`](https://github.com/anaticulae/titulum/commit/9f2d8c19936ad2262c34660f6901406fbcefd56f))
+
+- **move**: Move parse from docstyle
+  ([`8752ec2`](https://github.com/anaticulae/titulum/commit/8752ec22f0e9ce95d256b9922a08de229849dc40))
+
+- **nolevel**: Use improvement to improve detection
+  ([`8fa6133`](https://github.com/anaticulae/titulum/commit/8fa61331eb634e0e9de7d884f69bae0b1e69a9a8))
+
+- **utils**: Skip warnings
+  ([`856ccce`](https://github.com/anaticulae/titulum/commit/856cccef3b28de38b42783cc598c49071c1746f7))
+
+### Refactoring
+
+- **cluster**: Improve code style
+  ([`c7ed4b5`](https://github.com/anaticulae/titulum/commit/c7ed4b51dc57c68f435c477c84eabde5471153ff))
+
+- **cluster**: Improve naming
+  ([`f29002a`](https://github.com/anaticulae/titulum/commit/f29002ae98a73d9bc432c77c790aa9a69ecfa107))
+
+- **cluster**: Remove unused headline code
+  ([`d4e6c97`](https://github.com/anaticulae/titulum/commit/d4e6c97182c6e79ab4db823fe1a08198ed941bf5))
+
+- **rename**: Solve naming conflict
+  ([`d9edb85`](https://github.com/anaticulae/titulum/commit/d9edb8578f9dccda6ac6ddbd5b4ca6c9fc9c442b))
+
+- **run**: Replace with elements code
+  ([`4ca69a9`](https://github.com/anaticulae/titulum/commit/4ca69a9a9fcdaa1421b9ea4561a296c39f655506))
+
+- **surround**: Replace with elements code
+  ([`fcf6acd`](https://github.com/anaticulae/titulum/commit/fcf6acd9679f92ea064171ed929fe9e97782def8))
+
+- **utils**: Reduce code duplication
+  ([`fef8854`](https://github.com/anaticulae/titulum/commit/fef885433531499e0e3fe211bfcc3d7c6f96fe1d))
+
+### Testing
+
+- **cluster**: Validate a lot of documents
+  ([`aa286b0`](https://github.com/anaticulae/titulum/commit/aa286b0223abababf28be20241cafa7c8b421e42))
+
+- **cluster**: Validate bachelor028
+  ([`3df5751`](https://github.com/anaticulae/titulum/commit/3df5751106db3ac3e510ff8eb6ffaff0d2a18cb1))
+
+
+## v0.5.0 (2022-04-10)
+
+### Chores
+
+- **requirements**: Add figureo
+  ([`fa3a4e0`](https://github.com/anaticulae/titulum/commit/fa3a4e0593b841707c855d6e079f2175a715a14c))
+
+- **requirements**: Upgrade requirements.txt
+  ([`b6a73c3`](https://github.com/anaticulae/titulum/commit/b6a73c32404dacbf3f4935ddce3225d490018922))
+
+- **resources**: Extend test data generator
+  ([`5f97f4b`](https://github.com/anaticulae/titulum/commit/5f97f4b8a1f811f8cd819d1e8fc5bfcc8c4601a1))
+
+- **resources**: Extend test data generator
+  ([`6af02e6`](https://github.com/anaticulae/titulum/commit/6af02e61453f057f582a7b856ab548df9cfedbcd))
+
+- **resources**: Extend test data generator
+  ([`1a0cbda`](https://github.com/anaticulae/titulum/commit/1a0cbda00a4e4beb0eb8cad88ce046dfb9d2c722))
+
+- **resources**: Generate figureo and cleanup afterwards
+  ([`0f538d3`](https://github.com/anaticulae/titulum/commit/0f538d383a79bd0d871c9ce168103e61cb9a4ba4))
+
+### Features
+
+- **cli**: Add legacy step to produce words compatible result path
+  ([`3bc8d54`](https://github.com/anaticulae/titulum/commit/3bc8d54940a0700a0d8d544be51ee0cdb39fc117))
+
+- **move**: Move nolevel from words
+  ([`eee562a`](https://github.com/anaticulae/titulum/commit/eee562aab118a3162ec850d9915ed62be848cbf1))
+
+- **nolevel**: Connect nolevel strategy
+  ([`918f3f3`](https://github.com/anaticulae/titulum/commit/918f3f35f78dc6d83d66456c80af1c17a4e9c75a))
+
+- **nolevel**: Skip single chapters
+  ([`58f1965`](https://github.com/anaticulae/titulum/commit/58f196584f0f3ba8b679b87ac99e70e187138af8))
+
+- **standard**: Add finalize to polish result data
+  ([`5ba8f7d`](https://github.com/anaticulae/titulum/commit/5ba8f7dab4a774ffe240be1d88eeaa6b98b4c3a2))
+
+- **standard**: Ensure that alignment matches when merge two lines
+  ([`9f6926b`](https://github.com/anaticulae/titulum/commit/9f6926b1225839f469b356c48c01c3c3b18129f7))
+
+- **standard**: Make runner configurable
+  ([`3733f92`](https://github.com/anaticulae/titulum/commit/3733f927d239fb7d36ad4b50bfa81a20496e1454))
+
+### Testing
+
+- **nolevel**: Validate a lot of documents
+  ([`2a7f5be`](https://github.com/anaticulae/titulum/commit/2a7f5be37398a2ad3345e4c84d6851711e232d73))
+
+- **nolevel**: Validate book173
+  ([`905f9b0`](https://github.com/anaticulae/titulum/commit/905f9b025a918129c2bf5ebfb4c8aed0e5480092))
+
+- **nolevel**: Validate docu027
+  ([`ba678a5`](https://github.com/anaticulae/titulum/commit/ba678a508a7a495b752d7fe3c57b01a9f685b36d))
+
+- **standard**: Validate seven documents
+  ([`a641f11`](https://github.com/anaticulae/titulum/commit/a641f1117ff42067d1b21da3a21cbdf4ffa1e9e9))
+
+
+## v0.4.0 (2022-04-09)
+
+### Code Style
+
+- **format**: Format code
+  ([`f339a96`](https://github.com/anaticulae/titulum/commit/f339a962c7db66530650fa56fcc87ab1d1770e73))
+
+### Features
+
+- **cluster**: Make after diff max size dependent
+  ([`212e99e`](https://github.com/anaticulae/titulum/commit/212e99e1f9bf27980d4db2feabba74af2ddfd6d3))
+
+- **cluster**: Overwrite style level due text level
+  ([`5ef4156`](https://github.com/anaticulae/titulum/commit/5ef4156411971589bcaa6f37a0ac3122a4960c08))
+
+- **standard**: Add headline min count
+  ([`629d864`](https://github.com/anaticulae/titulum/commit/629d864b1f3e3711dd4611ac27ff75799a4eb5bd))
+
+- **standard**: Try to merge next line if size matches
+  ([`0aa818a`](https://github.com/anaticulae/titulum/commit/0aa818a253081171e0aa5a9b3d0664d8db8e1296))
+
+- **standard**: Use double extractor as default
+  ([`d98e61d`](https://github.com/anaticulae/titulum/commit/d98e61dfd1edb6fb21ac3f7f0b83ab42e3a41276))
+
+- **standard**: Use style to cluster headlines
+  ([`9b8ed3e`](https://github.com/anaticulae/titulum/commit/9b8ed3e14474ad88d8c82612e1dbc9aedac98edd))
+
+### Refactoring
+
+- **cluster**: Move holy value to a better place
+  ([`5fb4b4e`](https://github.com/anaticulae/titulum/commit/5fb4b4e94c1a0bf0d461c760c5b444bc8277de0b))
+
+- **judge**: Remove default behavior
+  ([`7f72709`](https://github.com/anaticulae/titulum/commit/7f7270955347d0067e8d1490d5da1f300001c783))
+
+### Testing
+
+- **adjust**: Adjust test data
+  ([`24377eb`](https://github.com/anaticulae/titulum/commit/24377eb85bcdc1e5ec987b08cd1c45b98a2df12f))
+
+- **headlines**: Use headline level to indent headlines
+  ([`a502cf2`](https://github.com/anaticulae/titulum/commit/a502cf2ade2be5f8ede2544735fb700fb67ee232))
+
+- **refactor**: Unite validation code
+  ([`f1277e2`](https://github.com/anaticulae/titulum/commit/f1277e2c1735270ddf3b735cc1f97c7b87064056))
+
+- **standard**: Adjust test data
+  ([`da91cc3`](https://github.com/anaticulae/titulum/commit/da91cc3ad47176f8beb2c829bd1c2867c99976b8))
+
+- **standard**: Adjust unit test
+  ([`ad2116f`](https://github.com/anaticulae/titulum/commit/ad2116fb5c6787c1a89cfe2672e2bb41af85a245))
+
+
+## v0.3.0 (2022-04-09)
+
+### Bug Fixes
+
+- **standard**: Do not judge result early
+  ([`1ffb08f`](https://github.com/anaticulae/titulum/commit/1ffb08fd672850bfe3fcea4154280bf4bda77c91))
+
+### Features
+
+- **headlines**: Connect standard headline extractor
+  ([`0753dd2`](https://github.com/anaticulae/titulum/commit/0753dd2a09fd0bec98e615f1bcf3ef5f2d55085c))
+
+- **standard**: Move standard from words
+  ([`422728c`](https://github.com/anaticulae/titulum/commit/422728cf772c4b92a83b68c0400bdfa76d01e0fb))
+
+- **standard**: Use elements to determine level
+  ([`9930b9f`](https://github.com/anaticulae/titulum/commit/9930b9fc7312fb9524c835d99e60afb622ab09e5))
+
+### Testing
+
+- **standard**: Validate headlines
+  ([`8598f86`](https://github.com/anaticulae/titulum/commit/8598f869fc00355f44ff0cfc874ccfbb45c90dc0))
+
+
+## v0.2.0 (2022-04-09)
+
+### Chores
+
+- **requirements**: Add groupme, sections to generate data
+  ([`8233b40`](https://github.com/anaticulae/titulum/commit/8233b404eae3532e63fec84bf3e03f0c906dd657))
+
+- **resources**: Add diss172
+  ([`6d93b27`](https://github.com/anaticulae/titulum/commit/6d93b27f673881c10886b8bfecce723f09184006))
+
+- **resources**: Extend test data generator
+  ([`19649f5`](https://github.com/anaticulae/titulum/commit/19649f51aa18712277d4664a9b6cc8d5d1964ce2))
+
+### Features
+
+- **nlarge**: Connect numbers large
+  ([`da0b206`](https://github.com/anaticulae/titulum/commit/da0b20698bab659779607986151cd35f5392e798))
+
+- **nlarge**: Move nlarge from words
+  ([`dff4369`](https://github.com/anaticulae/titulum/commit/dff4369ed36cb398edf9d4e73a5486f7f461df32))
+
+- **single**: Connect strategy
+  ([`b3ff8e4`](https://github.com/anaticulae/titulum/commit/b3ff8e4aae450a119b5fe1394f23a1f16dcf864f))
+
+- **single**: Move single from words
+  ([`96be5de`](https://github.com/anaticulae/titulum/commit/96be5de0802f2c552d8c13d20432da8a46b9740f))
+
+### Testing
+
+- **nlarge**: Validate diss172
+  ([`2554c19`](https://github.com/anaticulae/titulum/commit/2554c190afd25fca96a9fceaa05be2ed9356e41a))
+
+- **nlarge**: Validate numbers large
+  ([`8727460`](https://github.com/anaticulae/titulum/commit/8727460247826ffcf966edddf1e90ebcf98fb2cd))
+
+- **single**: Validate bachelor067
+  ([`f0bcad8`](https://github.com/anaticulae/titulum/commit/f0bcad823934919af7178978835c76b97857d94d))
+
+- **single**: Validate headlines
+  ([`e8a7446`](https://github.com/anaticulae/titulum/commit/e8a74462cf8a4d98b983e5da547bf64c02853726))
+
+
+## v0.1.0 (2022-04-08)
+
+### Chores
+
+- **requirements**: Add dev requirements
+  ([`97e498d`](https://github.com/anaticulae/titulum/commit/97e498d939f108ab2c682a4e36dd9d2095554348))
+
+- **requirements**: Add elements
+  ([`20ccb19`](https://github.com/anaticulae/titulum/commit/20ccb19ad024e3bfe75e87948bfef2a2cf80278c))
+
+- **requirements**: Add iamraw package
+  ([`75e43be`](https://github.com/anaticulae/titulum/commit/75e43bed734e1e5419e241aa224729e29d585214))
+
+- **resources**: Add bachelor028
+  ([`13509c6`](https://github.com/anaticulae/titulum/commit/13509c66967356acfe92084d1d9823eea109325e))
+
+- **resources**: Extend test data generator
+  ([`fd79fe2`](https://github.com/anaticulae/titulum/commit/fd79fe2ccfb270dca0aed738188f65aacbfab0ea))
+
+- **resources**: Generate sections
+  ([`59ec61b`](https://github.com/anaticulae/titulum/commit/59ec61ba625345a7571dc1bc78ee73265ea51abe))
 
 ### Documentation
 
-* add module documentation (6d95f88812d2)
+- **multiline**: Add module documentation
+  ([`6d95f88`](https://github.com/anaticulae/titulum/commit/6d95f88812d283ad50138b9d64f2ec36fac099f5))
 
-## v0.0.0 Initial release
+### Features
+
+- **cluster**: Move code from words
+  ([`62e0bc6`](https://github.com/anaticulae/titulum/commit/62e0bc65d7aa9a89a75cd65666fe0563c2ad9875))
+
+- **feature**: Add feature runner
+  ([`5bbaade`](https://github.com/anaticulae/titulum/commit/5bbaade0729943514334972aa1f4a95070eba453))
+
+- **feature**: Add method to determine pages with expected headlines
+  ([`8d62899`](https://github.com/anaticulae/titulum/commit/8d6289960f90c510978d743a625c02ad3cc9ddb2))
+
+- **headline**: Add feature package
+  ([`a069232`](https://github.com/anaticulae/titulum/commit/a0692321b93a0013159733574ae0f0bd3bb3782f))
+
+- **headline**: Determine pages only once
+  ([`0ff54f6`](https://github.com/anaticulae/titulum/commit/0ff54f61f1bf2bce0eacd8656042c7157d9e1fe3))
+
+- **judge**: Make longest level one length dependent
+  ([`9f530fd`](https://github.com/anaticulae/titulum/commit/9f530fded7ddf97484a594858accd32d96c76a24))
+
+- **judge**: Move judger from words
+  ([`579b673`](https://github.com/anaticulae/titulum/commit/579b6738802d630d3ed2bce27c92cfbd93285785))
+
+- **multiline**: Add method to run strategy for complete document
+  ([`cc2d4bf`](https://github.com/anaticulae/titulum/commit/cc2d4bfa16f011fbb1d948f9acf98414aa83f093))
+
+- **multiline**: Adjust interface
+  ([`dbd189b`](https://github.com/anaticulae/titulum/commit/dbd189bd06c1d4a26eb917cd3d015e4f5de7e05c))
+
+- **multiline**: Connect strategy
+  ([`7091736`](https://github.com/anaticulae/titulum/commit/7091736613eabaa5ebfa94bde67d5fbe94787f28))
+
+- **multiline**: Group headlines into expected chapters
+  ([`6554074`](https://github.com/anaticulae/titulum/commit/65540748e025d8dd356e61e72bdb3670806ff3e9))
+
+- **multiline**: Make h1 min size adjustable
+  ([`1417e26`](https://github.com/anaticulae/titulum/commit/1417e2607acd0a3b3541297e783247ab8e3ed5da))
+
+- **multiline**: Move code from words
+  ([`95578f2`](https://github.com/anaticulae/titulum/commit/95578f2e88bc73dd516c8075f40a80ffdbf23634))
+
+- **multiline**: Run strategy with different h1 lower bounds
+  ([`7192285`](https://github.com/anaticulae/titulum/commit/7192285e93d1a602cccbf39c4b0ab18d2bf09fd6))
+
+- **multiline**: Shrink headline detection
+  ([`e9931a5`](https://github.com/anaticulae/titulum/commit/e9931a5b59559f3dc0214c7933c22f14ce9911a8))
+
+- **multiline**: Use judger to disable bad results
+  ([`9b7a391`](https://github.com/anaticulae/titulum/commit/9b7a39124f5825db5c492e5e66fb64b97c9aa732))
+
+- **result**: Add simple decider
+  ([`8212574`](https://github.com/anaticulae/titulum/commit/82125749d5c30d1f42cc4faead1673023efd5f7c))
+
+- **utils**: Move code from words
+  ([`1a5835b`](https://github.com/anaticulae/titulum/commit/1a5835b33382b6513a14d1ceb6a7349f17ba1eca))
+
+- **utils**: Move code from words
+  ([`705ae4c`](https://github.com/anaticulae/titulum/commit/705ae4c1ed759e9d885191c5ac0bb3999a07e192))
+
+### Refactoring
+
+- **multiline**: Improving naming
+  ([`099907d`](https://github.com/anaticulae/titulum/commit/099907d154824a429ff0a6b1a7cf93305d833951))
+
+- **multiline**: Reduce complexity
+  ([`4168f7e`](https://github.com/anaticulae/titulum/commit/4168f7e38990d87fca7c4e9aab6a7c88dec83316))
+
+- **multiline**: Replace with elements code
+  ([`d715533`](https://github.com/anaticulae/titulum/commit/d715533d05bcacbf38be3196ce392f4c9e117411))
+
+- **multiline**: Sort method order
+  ([`6fac00c`](https://github.com/anaticulae/titulum/commit/6fac00c509693c17c02aec91b7135023e777f47c))
+
+### Testing
+
+- **cli**: Add cli runner
+  ([`278b134`](https://github.com/anaticulae/titulum/commit/278b134fb075e9af569947011190a1778666dff7))
+
+- **multiline**: Adjust unit test
+  ([`b2cf457`](https://github.com/anaticulae/titulum/commit/b2cf457cd11f29f69e2c061dc1aaca389d810f4d))
+
+- **multiline**: Introduce validation structure
+  ([`ab807b6`](https://github.com/anaticulae/titulum/commit/ab807b618bd4d50c21452c58b4b07020f63d9fb3))
+
+- **multiline**: Validate a lot of bachelors
+  ([`da6876a`](https://github.com/anaticulae/titulum/commit/da6876a5d4bab01bfb1a011dc45b23731cff0666))
+
+
+## v0.0.0 (2022-04-07)
+
+- Initial Release
