@@ -8,6 +8,7 @@
 # =============================================================================
 
 import gennex
+import gennex.automata
 import hoverpower
 import pytest
 import utilotest
@@ -79,6 +80,20 @@ def extract(resources):
         groupme=True,
         pagenumber=True,
         sections=True,
+        sections_ref=False,
         # tablero=True,
         worker=WORKER,
     )
+
+
+# TODO REMOVE PATCH LATER
+def add_sections(self):
+    if not self.sections:
+        return None
+    result = [
+        f'sections --pdf={self.src} {self.ddp} -j=auto',
+    ]
+    return result
+
+
+gennex.automata.JobMaker.add_sections = add_sections
