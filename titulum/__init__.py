@@ -10,7 +10,7 @@
 import importlib.metadata
 import os
 
-__version__ = importlib.metadata.version('headlines')
+__version__ = importlib.metadata.version('titulum')
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'headlines'
