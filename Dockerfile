@@ -9,7 +9,7 @@
 
 FROM ghcr.io/anaticulae/baw:696994f-python
 
-ENV SHARED_TMP=/tmp/rawmaker/
+ENV SHARED_TMP=/tmp/headlines/
 ENV HOVERPOWER_STORE=/var/workdir/hoverpower/repo
 ENV BAW=/tmp/bar/
 
