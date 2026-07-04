@@ -40,9 +40,9 @@ dev = [
     "utilotest>=1.0.4,<2.0.0",
     "gennex>=1.0.3,<2.0.0",
     "groupmes>=1.1.0,<2.0.0",
-    "hoverpower>=1.4.3,<3.0.0",
+    "hoverpower>=1.5.1,<3.0.0",
     "capita>=1.25.2,<2.0.0",
-    "rawmaker>=2.40.3,<3.0.0",
+    "rawmaker>=2.40.5,<3.0.0",
     "layouta>=1.0.0,<2.0.0",
     "pagenumber>=1.0.0,<2.0.0",
 ]
@@ -68,16 +68,19 @@ changelog_file = "CHANGELOG"
 
 [tool.semantic_release.commit_parser_options]
 patch_tags = [
-    "fix",
-    "perf",
     "build",
     "chore",
     "ci",
-    "docs",
-    "style",
-    "refactor",
-    "test",
     "deps",
+    "docs",
+    "fix",
+    "perf",
+    "refactor",
+    "style",
+    "test",
+]
+minor_tags = [
+    "feat",
 ]
 
 [tool.setuptools.packages.find]
@@ -85,7 +88,7 @@ where = [
     ".",
 ]
 include = [
-    "headlines",
+    "titulum",
     "titulum.cluster",
     "titulum.feature",
     "titulum.improve",

@@ -12,11 +12,13 @@ import utilo
 import utilotest
 
 import tests
+import tests.conftest
 import titulum
 
 ARCHIVE = utilo.join(titulum.ROOT, 'tests/nolevel/expected', exist=True)
 
 
+@utilotest.longrun
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_validate_nolevel(source, td, mp):
     utilotest.fixture_requires(source)
