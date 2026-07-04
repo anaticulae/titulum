@@ -1,6 +1,46 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-07-04)
+
+### Bug Fixes
+
+- **resources**: Generate test data
+  ([`718e128`](https://github.com/anaticulae/titulum/commit/718e128ee08c51aa834efde6d54c0f11847be6bb))
+
+### Chores
+
+- **docker**: Adjust base image name
+  ([`e29955a`](https://github.com/anaticulae/titulum/commit/e29955a62584dd99b858c3d2f5c7a6baa8b59a8e))
+
+- **docker**: Adjust tmp path
+  ([`2bd7741`](https://github.com/anaticulae/titulum/commit/2bd77416da2bbe8489a8e13fd38e17808d36f24d))
+
+- **docker**: Upgrade base image
+  ([`c62e0f1`](https://github.com/anaticulae/titulum/commit/c62e0f12819a057c37c6479f6b5f3778f133f966))
+
+- **make**: Do not run release if tag exists
+  ([`6e13a59`](https://github.com/anaticulae/titulum/commit/6e13a593d2214917b79f50714688d7fd39412caa))
+
+- **pyproject**: Adjust package
+  ([`3c41045`](https://github.com/anaticulae/titulum/commit/3c41045daae044f8321be89536c4032a421942eb))
+
+- **pyproject**: Always build a release
+  ([`10b1c49`](https://github.com/anaticulae/titulum/commit/10b1c49d51a4c6fde531d44c2d40e61b4f54e5ab))
+
+- **release**: Do not release on release tag
+  ([`549e364`](https://github.com/anaticulae/titulum/commit/549e3642e2f2ef1a1e4e8d812f210ca98594bb1e))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`191b857`](https://github.com/anaticulae/titulum/commit/191b857b8d936c626fe160e89d31ab405e4442c6))
+
+- **test**: Disable tests till implementation is complete
+  ([`8ef5748`](https://github.com/anaticulae/titulum/commit/8ef5748b84841bc1705f67a3db20c10af573028d))
+
+- **test**: Move tests to longrun
+  ([`c8d03a2`](https://github.com/anaticulae/titulum/commit/c8d03a2351af431593403a28da455b5bb19896a9))
+
+
 ## v1.0.1 (2026-06-26)
 
 ### Bug Fixes
