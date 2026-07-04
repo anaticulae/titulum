@@ -88,7 +88,7 @@ where = [
     ".",
 ]
 include = [
-    "headlines",
+    "titulum",
     "titulum.cluster",
     "titulum.feature",
     "titulum.improve",
