@@ -18,6 +18,7 @@ import titulum
 ARCHIVE = utilo.join(titulum.ROOT, 'tests/single/expected', exist=True)
 
 
+@utilotest.longrun
 @pytest.mark.parametrize('source', tests.conftest.TEST_TODO)
 def test_validate_single(source, td, mp):
     utilotest.fixture_requires(source)
